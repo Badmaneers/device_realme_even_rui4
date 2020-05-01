@@ -353,7 +353,8 @@ PRODUCT_PACKAGES += \
 # Lineage-Specific overlays
 PRODUCT_PACKAGES += \
     LineageApertureOverlaySpaced \
-    PowerOffAlarmOverlaySpaced
+    PowerOffAlarmOverlaySpaced \
+    LineageSDKOverlaySpaced
 
 # Power
 PRODUCT_PACKAGES += \
