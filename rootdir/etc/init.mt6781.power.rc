@@ -10,6 +10,7 @@ on init
 
     # Update fastcharge firmware
     write /proc/fastchg_fw_update 1
+    write /proc/ui_soc_decimal 1
 
     # Configure governor settings for little cluster
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "schedutil"
