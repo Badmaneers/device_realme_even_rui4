@@ -299,8 +299,7 @@ PRODUCT_PACKAGES += \
     WifiResOverlaySpaced \
     TetheringResOverlaySpaced \
     CarrierConfigOverlaySpaced \
-    OplusDozeOverlaySpaced \
-    PowerOffAlarmOverlaySpaced
+    OplusDozeOverlaySpaced
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -350,6 +349,11 @@ PRODUCT_COPY_FILES += \
 # PowerOffAlarm
 PRODUCT_PACKAGES += \
     PowerOffAlarm
+
+# Lineage-Specific overlays
+PRODUCT_PACKAGES += \
+    LineageApertureOverlaySpaced \
+    PowerOffAlarmOverlaySpaced
 
 # Power
 PRODUCT_PACKAGES += \
