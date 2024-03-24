@@ -299,7 +299,8 @@ PRODUCT_PACKAGES += \
     WifiResOverlaySpaced \
     TetheringResOverlaySpaced \
     CarrierConfigOverlaySpaced \
-    OplusDozeOverlaySpaced
+    OplusDozeOverlaySpaced \
+    PowerOffAlarmOverlaySpaced
 
 # Permissions
 PRODUCT_COPY_FILES += \
