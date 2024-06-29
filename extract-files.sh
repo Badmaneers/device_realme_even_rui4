@@ -96,6 +96,15 @@ function blob_fixup {
         system_ext/lib64/libsource.so)
             grep -q libshim_ui.so "$2" || "$PATCHELF" --add-needed libshim_ui.so "$2"
             ;;
+        vendor/lib64/hw/vendor.mediatek.hardware.pq@2.15-impl.so)
+            "${PATCHELF}" --replace-needed "libsensorndkbridge.so" "libsensorndkbridge-hidl.so" "${2}"
+            ;;
+        vendor/lib64/libsensorndkbridge-hidl.so)
+            "${PATCHELF}" --set-soname "libsensorndkbridge-hidl.so" "${2}"
+            ;;
+        vendor/lib64/libaalservice.so)
+            "${PATCHELF}" --replace-needed "libsensorndkbridge.so" "libsensorndkbridge-hidl.so" "${2}"
+            ;;
     esac
 }
 
