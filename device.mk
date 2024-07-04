@@ -49,6 +49,9 @@ PRODUCT_PACKAGES += \
     BesLoudness \
     MtkInCallService
 
+PRODUCT_PACKAGES += \
+    libunwindstack.vendor
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_device.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_device.xml \
     $(LOCAL_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
@@ -118,7 +121,9 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.3-service \
     android.hardware.memtrack-service.mediatek-mali \
     libdrm.vendor \
-    libdrm
+    libdrm \
+    libpower.vendor:64 \
+    libutilscallstack.vendor:64
 
 # Doze
 PRODUCT_PACKAGES += \
@@ -150,7 +155,8 @@ PRODUCT_PACKAGES += \
 # Gatekeeper
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service \
-    android.hardware.gatekeeper@1.0-impl
+    android.hardware.gatekeeper@1.0-impl \
+    libgatekeeper.vendor:64
 
 # GNSS
 PRODUCT_PACKAGES += \
@@ -235,7 +241,11 @@ PRODUCT_PACKAGES += \
     libavservices_minijail.vendor \
     libstagefright_softomx_plugin.vendor \
     libsfplugin_ccodec_utils.vendor \
-    libcodec2_soft_common.vendor
+    libcodec2_soft_common.vendor \
+    libexpat.vendor:64
+
+PRODUCT_PACKAGES += \
+    libion.vendor
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
@@ -421,6 +431,9 @@ PRODUCT_PACKAGES += \
     android.frameworks.sensorservice@1.0.vendor \
     android.hardware.sensors@2.0-service-multihal.spaced \
     libsensorndkbridge
+
+PRODUCT_PACKAGES += \
+    libdumpstateutil.vendor:64
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
