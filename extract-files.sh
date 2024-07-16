@@ -60,7 +60,9 @@ function blob_fixup {
             grep -q "libbase_shim.so" "${2}" || "${PATCHELF}" --add-needed "libbase_shim.so" "${2}"
             ;;
         vendor/bin/hw/camerahalserver)
-            "${PATCHELF}" --replace-needed "libutils.so" "libutils_v32.so" "${2}"
+            "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.so" "${2}"
+            "${PATCHELF}" --replace-needed "libbinder.so" "libbinder_v32.so" "${2}"
+            "${PATCHELF}" --replace-needed "libhidlbase.so" "libhidlbase_v32.so" "${2}"
             ;;
         vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so)
             [ "$2" = "" ] && return 0
