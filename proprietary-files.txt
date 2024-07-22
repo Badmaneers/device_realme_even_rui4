@@ -1226,7 +1226,7 @@ vendor/lib64/vendor.oplus.hardware.cameraextension@1.0.so
 vendor/lib64/vendor.oplus.hardware.cammidasservice@1.0.so
 
 # Camera Feature Policy - from RMX3085EEA_11_C.11
-vendor/lib64/libmtkcam_featurepolicy.so|c539aa55b40a60ac82a9f5791b0e82cc331ec2fa|54a902eb3c3ef3518b806fc0732f0af49f537500
+vendor/lib64/libmtkcam_featurepolicy.so|e3e7cdfdff5d364e0cb17d3a6373be004c6b3787
 
 # Camera configs
 odm/etc/camera/tonemap/curve_lut_0
