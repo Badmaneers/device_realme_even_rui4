@@ -119,6 +119,11 @@ function blob_fixup {
         vendor/lib64/hw/hwcomposer.mt6781.so)
              grep -q "libprocessgroup_shim.so" "${2}" || "${PATCHELF}" --add-needed "libprocessgroup_shim.so" "${2}"
             ;;
+        vendor/bin/hw/android.hardware.gnss-service.mediatek|\
+        vendor/lib64/hw/android.hardware.gnss-impl-mediatek.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --replace-needed "android.hardware.gnss-V1-ndk_platform.so" "android.hardware.gnss-V1-ndk.so" "${2}"
+            ;;
     esac
 }
 
