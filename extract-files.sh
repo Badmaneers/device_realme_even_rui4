@@ -97,10 +97,7 @@ function blob_fixup {
             grep -q libshim_ui.so "$2" || "$PATCHELF" --add-needed libshim_ui.so "$2"
             ;;
         vendor/lib64/hw/vendor.mediatek.hardware.pq@2.15-impl.so)
-            "${PATCHELF}" --replace-needed "libsensorndkbridge.so" "libsensorndkbridge-hidl.so" "${2}"
-            ;;
-        vendor/lib64/libsensorndkbridge-hidl.so)
-            "${PATCHELF}" --set-soname "libsensorndkbridge-hidl.so" "${2}"
+            "${PATCHELF}" --replace-needed "libsensorndkbridge.so" "android.hardware.sensors@1.0-convert-shared.so" "${2}"
             ;;
         vendor/lib64/libmtkcam_stdutils.so|\
         vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so)
@@ -110,7 +107,7 @@ function blob_fixup {
         vendor/lib64/libaalservice.so|\
         vendor/lib64/libcam.utils.sensorprovider.so|\
         vendor/lib64/liboplus_mtkcam_lightsensorprovider.so)
-            "${PATCHELF}" --replace-needed "libsensorndkbridge.so" "libsensorndkbridge-hidl.so" "${2}"
+           "${PATCHELF}" --replace-needed "libsensorndkbridge.so" "android.hardware.sensors@1.0-convert-shared.so" "${2}"
             ;;
     esac
 }
