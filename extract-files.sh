@@ -87,9 +87,6 @@ function blob_fixup {
         lib64/libem_support_jni.so)
             "${PATCHELF}" --add-needed "libjni_shim.so" "${2}"
             ;;
-        vendor/lib64/libwifi-hal-mtk.so)
-            "${PATCHELF}" --set-soname "libwifi-hal-mtk.so" "${2}"
-            ;;
         vendor/lib64/hw/android.hardware.thermal@2.0-impl.so)
             "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.so" "${2}"
             ;;
