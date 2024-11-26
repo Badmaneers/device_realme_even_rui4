@@ -9,8 +9,8 @@ ro.vendor.aee.convert64=0
 persist.adb.nonblocking_ffs=0
 
 # Audio
-aaudio.mmap_policy=2
-aaudio.mmap_exclusive_policy=2
+aaudio.mmap_policy=0
+aaudio.mmap_exclusive_policy=0
 ro.vendor.mtk_audio_alac_support=1
 ro.vendor.mtk_besloudness_support=1
 ro.vendor.mtk_hifiaudio_support=1
