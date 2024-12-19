@@ -1,0 +1,35 @@
+//
+// Copyright (C) 2023 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_prebuilt_library_shared {
+	name: "libcrypto-v32",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["libcrypto-v32.so"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	vendor: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libssl-v32",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["libssl-v32.so"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	vendor: true,
+}
