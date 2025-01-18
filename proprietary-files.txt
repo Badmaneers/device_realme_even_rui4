@@ -2309,17 +2309,22 @@ vendor/etc/init/init.vtservice_hidl.rc|f2e992214ed5bb99c2c2a135cf1f0996dba8a8a0
 vendor/lib64/hw/vendor.mediatek.hardware.videotelephony@1.0-impl.so|bb9ff554802e7bffb72cf24604109dafcf0019fc
 vendor/lib64/vendor.mediatek.hardware.videotelephony@1.0.so;MODULE_SUFFIX=_vendor|5e228669d2c575e38fc02a13404f31bc22494b87
 
-# IMS
--framework/mediatek-common.jar
--framework/mediatek-framework.jar
-framework/mediatek-gwsd.jar
-framework/mediatek-gwsdv2.jar
--framework/mediatek-ims-base.jar
--framework/mediatek-ims-common.jar
-framework/mediatek-ims-extension-plugin.jar
--framework/mediatek-telecom-common.jar
--framework/mediatek-telephony-base.jar
--framework/mediatek-telephony-common.jar
+# ImsService
+-priv-app/ImsService/ImsService.apk|738b92467c052c0e95ee3fd748bde51ab0b90336
+
+# IMS (framework)
+-framework/mediatek-common.jar;BOOT_JAR
+-framework/mediatek-framework.jar;BOOT_JAR
+-framework/mediatek-ims-base.jar;BOOT_JAR
+-framework/mediatek-ims-common.jar;BOOT_JAR
+-framework/mediatek-ims-extension-plugin.jar;BOOT_JAR
+-framework/mediatek-services.jar;BOOT_JAR
+-framework/mediatek-carrier-config-manager.jar;BOOT_JAR
+-framework/mediatek-telecom-common.jar;BOOT_JAR
+-framework/mediatek-telephony-common.jar;BOOT_JAR
+-framework/mediatek-telephony-base.jar;BOOT_JAR
+
+# Radio (IMS)
 odm/lib/vendor.oplus.hardware.ims@1.0.so
 odm/lib64/vendor.oplus.hardware.ims@1.0.so
 vendor/bin/hw/vendor.mediatek.hardware.mmagent@1.1-service
@@ -2367,9 +2372,6 @@ vendor/lib64/vendor.mediatek.hardware.clientapi@1.0.so
 vendor/lib64/vendor.mediatek.hardware.lbs@1.0.so
 vendor/lib64/vendor.mediatek.hardware.mmagent@1.0.so
 vendor/lib64/vendor.mediatek.hardware.mmagent@1.1.so
-
-# ImsService
--priv-app/ImsService/ImsService.apk|738b92467c052c0e95ee3fd748bde51ab0b90336
 
 # Keymaster
 vendor/bin/hw/android.hardware.keymaster@4.1-service.trustonic
