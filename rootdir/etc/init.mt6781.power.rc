@@ -160,7 +160,7 @@ on enable-low-power
     write /proc/sys/kernel/sched_migration_cost_ns 200000
 
     # Uclamp tuning
-    write /proc/sys/kernel/sched_util_clamp_min_rt_default 96
+    write /proc/sys/kernel/sched_util_clamp_min_rt_default 0
     write /proc/sys/kernel/sched_util_clamp_min 128
 
     # Configure DVFS
