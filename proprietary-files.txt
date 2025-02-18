@@ -485,8 +485,8 @@ odm/lib64/libmpbase.so
 odm/lib64/liboplus_platform_hwi.so
 odm/lib64/libormshalclient.so
 odm/lib64/libosensehalclient.so
-odm/lib64/libremosaic_wrapper.so
-odm/lib64/libremosaiclib.so
+odm/lib64/libremosaic_wrapper.so;MODULE_SUFFIX=_odm
+odm/lib64/libremosaiclib.so;MODULE_SUFFIX=_odm
 odm/lib64/libstblur_api.so
 odm/lib64/vendor.oplus.hardware.engcamera@1.0.so
 odm/lib64/vendor.oplus.hardware.osense.client@1.0.so
@@ -1548,8 +1548,8 @@ odm/lib64/libgf_hal_G5.so
 odm/lib64/libgf_hal_G6.so
 odm/lib64/libgf_hal_G7.so
 odm/lib64/libsl_fp_impl.so
-odm/lib64/vendor.oplus.hardware.biometrics.fingerprint@2.1.so
-odm/lib64/vendor.oplus.hardware.commondcs@1.0.so
+odm/lib64/vendor.oplus.hardware.biometrics.fingerprint@2.1.so;MODULE_SUFFIX=_odm
+odm/lib64/vendor.oplus.hardware.commondcs@1.0.so;MODULE_SUFFIX=_odm
 odm/init.oplus.fingerprints.rc
 vendor/lib/vendor.oplus.hardware.commondcs@1.0.so
 vendor/lib64/vendor.oplus.hardware.commondcs@1.0.so
@@ -2073,7 +2073,7 @@ odm/etc/sensor/sensor_config.json
 -odm/etc/vintf/manifest/manifest_oplusSensor.xml
 odm/lib/libmxmafa.so
 odm/lib/vendor.oplus.hardware.oplusSensor@1.0.so
-odm/lib64/libhwm-oplus.so
+odm/lib64/libhwm-oplus.so;MODULE_SUFFIX=_odm
 odm/lib64/libmxmafa.so
 odm/lib64/oplus.sensors.ssc.so
 odm/lib64/vendor.oplus.hardware.oplusSensor@1.0.so
