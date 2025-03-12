@@ -11,9 +11,6 @@
 # Display
 /dev/oplus_display                                                                                                     u:object_r:oplus_display_device:s0
 
-# Light
-/(vendor|system/vendor)/bin/hw/android\.hardware\.light-service\.spaced                                                u:object_r:hal_light_default_exec:s0
-
 # LiveDisplay
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.1-service-spaced                                        u:object_r:hal_lineage_livedisplay_spaced_exec:s0
 
