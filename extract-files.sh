@@ -60,6 +60,7 @@ function blob_fixup {
             grep -q "libbase_shim.so" "${2}" || "${PATCHELF}" --add-needed "libbase_shim.so" "${2}"
             ;;
         vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so)
+            [ "$2" = "" ] && return 0
             grep -q "libcamera_metadata_shim.so" "${2}" || "${PATCHELF}" --add-needed "libcamera_metadata_shim.so" "${2}"
             ;;
         vendor/lib/hw/vendor.mediatek.hardware.pq@2.15-impl.so)

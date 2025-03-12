@@ -92,7 +92,7 @@ PRODUCT_PACKAGES += \
     libcamera2ndk_vendor
 
 PRODUCT_PACKAGES += \
-    libshim_camera_metadata
+    libcamera_metadata_shim
 
 # Cgroup
 PRODUCT_COPY_FILES += \
