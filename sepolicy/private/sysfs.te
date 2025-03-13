@@ -1,0 +1,2 @@
+# Allow write sysfs file
+allow vold sysfs_mmcblk:file write;

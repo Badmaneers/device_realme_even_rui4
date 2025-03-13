@@ -4,16 +4,45 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+DEVICE_PATH := device/realme/RMX3191
+
+# Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
+
+# Inherit Vendor Blobs
+$(call inherit-product, vendor/realme/RMX3191/RMX3191-vendor.mk)
+
+# IMS
+$(call inherit-product, vendor/realme/RMX3191-ims/RMX3191-ims.mk)
+
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
-# API levels
-PRODUCT_SHIPPING_API_LEVEL := 33
+# Boot Animation
+TARGET_SCREEN_HEIGHT := 1600
+TARGET_SCREEN_WIDTH := 720
+
+# AAPT
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(DEVICE_PATH)
+
+# Dynamic Partition
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+PRODUCT_BUILD_SUPER_PARTITION := false
 
 # fastbootd
 PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.1-impl-mock \
     fastbootd
+
+# The first api level, device has been commercially launched on.
+PRODUCT_SHIPPING_API_LEVEL := 30
+
+# Extra VNDK Versions
+PRODUCT_EXTRA_VNDK_VERSIONS := 31
 
 # Health
 PRODUCT_PACKAGES += \
@@ -22,44 +51,30 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-service
 
 # Overlays
-PRODUCT_ENFORCE_RRO_TARGETS := *
+DEVICE_PACKAGE_OVERLAYS += \
+    $(DEVICE_PATH)/overlay
 
-# Partitions
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-service.RMX3191
 
-# Product characteristics
-PRODUCT_CHARACTERISTICS := default
+# Biometrics
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.3-service.RMX3191
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.fingerprint.xml
 
 # Rootdir
 PRODUCT_PACKAGES += \
     init.insmod.sh \
     install-recovery.sh \
-    swap_enable.sh \
+    swap_enable.sh 
 
 PRODUCT_PACKAGES += \
     fstab.mt6768 \
-    factory_init.connectivity.common.rc \
-    factory_init.connectivity.rc \
-    factory_init.project.rc \
-    factory_init.rc \
-    init.aee.rc \
-    init.ago.rc \
-    init.cgroup.rc \
-    init.connectivity.common.rc \
-    init.connectivity.rc \
-    init.modem.rc \
     init.mt6768.rc \
-    init.mt6768.usb.rc \
-    init.project.rc \
-    init.sensor_1_0.rc \
-    init_connectivity.rc \
-    meta_init.connectivity.common.rc \
-    meta_init.connectivity.rc \
-    meta_init.modem.rc \
-    meta_init.project.rc \
-    meta_init.rc \
-    meta_init.vendor.rc \
-    multi_init.rc \
+    init.recovery.mt6768 
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.mt6768:$(TARGET_COPY_OUT_RAMDISK)/fstab.mt6768
@@ -67,6 +82,48 @@ PRODUCT_COPY_FILES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
+    
+    # Permissions
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/permissions/privapp-permissions-mediatek.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-mediatek.xml
 
-# Inherit the proprietary files
-$(call inherit-product, vendor/oplus/ossi/ossi-vendor.mk)
+# RRO-Overlays
+PRODUCT_PACKAGES += \
+    TetheringConfigOverlay \
+    WifiOverlay
+
+# NFC
+PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
+    NfcNci \
+    SecureElement \
+    Tag
+
+# HIDL
+PRODUCT_PACKAGES += \
+    libhardware \
+    libhidltransport \
+    libhwbinder
+
+# Bluetooth Audio (System-side HAL, sysbta)
+PRODUCT_PACKAGES += \
+    audio.sysbta.default \
+    android.hardware.bluetooth.audio-service-system
+
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/bluetooth/audio/config/sysbta_audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysbta_audio_policy_configuration.xml \
+    $(DEVICE_PATH)/bluetooth/audio/config/sysbta_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysbta_audio_policy_configuration_7_0.xml
+
+# DRM
+PRODUCT_PACKAGES += \
+    libdrm
+
+# KPOC
+PRODUCT_PACKAGES += \
+    libsuspend
+
+# InCall Service
+PRODUCT_PACKAGES += \
+    MtkInCallService
+    
+
