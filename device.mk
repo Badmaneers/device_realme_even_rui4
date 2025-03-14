@@ -119,6 +119,14 @@ PRODUCT_COPY_FILES += \
 # DRM
 PRODUCT_PACKAGES += \
     libdrm
+    
+# Power
+PRODUCT_PACKAGES += \
+android.hardware.power-service-mediatek
+
+# Oplus Doze
+PRODUCT_PACKAGES += \
+OplusDoze
 
 # KPOC
 PRODUCT_PACKAGES += \
