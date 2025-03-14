@@ -130,9 +130,7 @@ android.hardware.power-service-mediatek
 
 # Oplus Doze
 PRODUCT_PACKAGES += \
-OplusDoze \
-libgptutils.oplus
-
+OplusDoze 
 # PowerOffAlarm
 PRODUCT_PACKAGES += \
 PowerOffAlarm
