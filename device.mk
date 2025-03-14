@@ -81,7 +81,9 @@ PRODUCT_COPY_FILES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(LOCAL_PATH) \
+     hardware/mediatek \
+     hardware/oplus
     
     # Permissions
 PRODUCT_COPY_FILES += \
