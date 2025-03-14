@@ -16,6 +16,3 @@
 # Biometrics
 /system/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.RMX3191                          u:object_r:hal_fingerprint_RMX3191_exec:s0
 
-# Misc
-/system/bin/perf_profile\.sh	u:object_r:perf_profile_exec:s0
-/system/etc/init/set_zram\.sh   u:object_r:set_zram_exec:s0
