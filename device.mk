@@ -136,6 +136,10 @@ PowerOffAlarm
 PRODUCT_PACKAGES += \
 BesLoudness
 
+# memtrack
+PRODUCT_PACKAGES += \
+android.hardware.memtrack-service.mediatek-mali
+
 # KPOC
 PRODUCT_PACKAGES += \
     libsuspend
