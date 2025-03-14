@@ -120,24 +120,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libdrm
     
-# Power
-PRODUCT_PACKAGES += \
-android.hardware.power-service-mediatek
-
-# Oplus Doze
-PRODUCT_PACKAGES += \
-OplusDoze 
-# PowerOffAlarm
-PRODUCT_PACKAGES += \
-PowerOffAlarm
-
-# BesLoudness
-PRODUCT_PACKAGES += \
-BesLoudness
-
-# memtrack
-PRODUCT_PACKAGES += \
-android.hardware.memtrack-service.mediatek-mali
 
 # KPOC
 PRODUCT_PACKAGES += \
