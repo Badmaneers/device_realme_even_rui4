@@ -84,6 +84,10 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
      hardware/mediatek \
      hardware/oplus
+
+# RenderScript
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl
     
     # Permissions
 PRODUCT_COPY_FILES += \
