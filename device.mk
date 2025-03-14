@@ -128,6 +128,14 @@ android.hardware.power-service-mediatek
 PRODUCT_PACKAGES += \
 OplusDoze
 
+# PowerOffAlarm
+PRODUCT_PACKAGES += \
+PowerOffAlarm
+
+# BesLoudness
+PRODUCT_PACKAGES += \
+BesLoudness
+
 # KPOC
 PRODUCT_PACKAGES += \
     libsuspend
