@@ -16,5 +16,3 @@
 # Biometrics
 /system/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.RMX3191                          u:object_r:hal_fingerprint_RMX3191_exec:s0
 
-# Sysbta
-/system/bin/hw/android\.hardware\.bluetooth\.audio-service-system u:object_r:hal_audio_sysbta_exec:s0
