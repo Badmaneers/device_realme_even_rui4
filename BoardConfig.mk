@@ -5,6 +5,7 @@
 #
 
 DEVICE_PATH := device/realme/RMX3191
+BOARD_VENDOR := realme
 
 #Build
 BUILD_BROKEN_DUP_RULES := true
