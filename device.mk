@@ -128,6 +128,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libdrm
     
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH) \
+    hardware/mediatek \
+    hardware/oplus
 
 # KPOC
 PRODUCT_PACKAGES += \
