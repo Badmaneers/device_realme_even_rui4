@@ -5,5 +5,5 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_RMX3191.mk
+    $(LOCAL_DIR)/lineage_even.mk
 

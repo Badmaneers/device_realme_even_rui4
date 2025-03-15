@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/realme/RMX3191
+DEVICE_PATH := device/realme/even
 BOARD_VENDOR := realme
 
 #Build
@@ -31,7 +31,7 @@ TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := RMX3191,RMX3193,RMX3195,RMX3197,RMX3430,even
+TARGET_OTA_ASSERT_DEVICE := even,RMX3193,RMX3195,RMX3197,RMX3430,even
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := RM6768
@@ -165,4 +165,4 @@ SELINUX_IGNORE_NEVERALLOWS := true
 BOARD_VNDK_VERSION := current
 
 # Inherit the proprietary files
-include vendor/realme/RMX3191/BoardConfigVendor.mk
+include vendor/realme/even/BoardConfigVendor.mk

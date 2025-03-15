@@ -4,16 +4,16 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/realme/RMX3191
+DEVICE_PATH := device/realme/even
 
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
 # Inherit Vendor Blobs
-$(call inherit-product, vendor/realme/RMX3191/RMX3191-vendor.mk)
+$(call inherit-product, vendor/realme/even/even-vendor.mk)
 
 # IMS
-$(call inherit-product, vendor/realme/RMX3191-ims/RMX3191-ims.mk)
+$(call inherit-product, vendor/realme/even-ims/even-ims.mk)
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
@@ -52,11 +52,11 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.RMX3191
+    android.hardware.light@2.0-service.even
 
 # Biometrics
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.3-service.RMX3191
+    android.hardware.biometrics.fingerprint@2.3-service.even
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.fingerprint.xml

@@ -11,12 +11,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Inherit from RMX3191 device
-$(call inherit-product, device/realme/RMX3191/device.mk)
+# Inherit from even device
+$(call inherit-product, device/realme/even/device.mk)
 
-PRODUCT_DEVICE := RMX3191
-PRODUCT_NAME := lineage_RMX3191
-PRODUCT_BRAND := RMX3191
+PRODUCT_DEVICE := even
+PRODUCT_NAME := lineage_even
+PRODUCT_BRAND := even
 PRODUCT_MODEL := realme C25
 PRODUCT_MANUFACTURER := realme
 

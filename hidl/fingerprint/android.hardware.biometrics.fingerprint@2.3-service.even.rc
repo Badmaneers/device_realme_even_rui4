@@ -91,7 +91,7 @@ on post-fs-data
 on property:sys.boot_completed=1
     setprop vendor.oplus.biometrics.fingerprint.boot_completed 1
 
-service fps_hal.RMX3191 /system/bin/hw/android.hardware.biometrics.fingerprint@2.3-service.RMX3191
+service fps_hal.even /system/bin/hw/android.hardware.biometrics.fingerprint@2.3-service.even
     interface android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint default
     interface android.hardware.biometrics.fingerprint@2.2::IBiometricsFingerprint default
     interface android.hardware.biometrics.fingerprint@2.3::IBiometricsFingerprint default
