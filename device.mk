@@ -105,6 +105,10 @@ PRODUCT_PACKAGES += \
     SecureElement \
     Tag
 
+# Doze
+PRODUCT_PACKAGES += \
+    OplusDoze
+
 # HIDL
 PRODUCT_PACKAGES += \
     libhardware \
