@@ -75,6 +75,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.mt6768:$(TARGET_COPY_OUT_RAMDISK)/fstab.mt6768
 
+# Properties
+-include $(DEVICE_PATH)/configs/props/system_prop.mk
+PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
