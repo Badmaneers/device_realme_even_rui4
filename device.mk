@@ -9,6 +9,9 @@ DEVICE_PATH := device/realme/even
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
+# RealmeParts
+$(call inherit-product, packages/apps/RealmeParts/parts.mk)
+
 # Inherit Vendor Blobs
 $(call inherit-product, vendor/realme/even/even-vendor.mk)
 
