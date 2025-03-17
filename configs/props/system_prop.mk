@@ -42,8 +42,3 @@ PRODUCT_SYSTEM_PROPERTIES += \
     persist.bluetooth.bluetooth_audio_hal.disabled=false \
     persist.bluetooth.a2dp_offload.disabled=true \
     ro.bluetooth.a2dp_offload.supported=false
-
-# VoNR (Voice Over New radio)
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    persist.radio.is_vonr_enabled_0=true \
-    persist.radio.is_vonr_enabled_1=true
