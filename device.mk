@@ -49,9 +49,6 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
 
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(DEVICE_PATH)/overlay
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -98,7 +95,13 @@ PRODUCT_COPY_FILES += \
 
 # RRO-Overlays
 PRODUCT_PACKAGES += \
+    CarrierConfigOverlayEven \
+    FrameworksResOverlayEven \
+    SystemUIOverlayEven \
+    SettingsOverlayEven \
+    OplusDozeOverlayEven \
     TetheringConfigOverlay \
+    TelephonyOverlayEven \
     WifiOverlay
 
 # NFC
