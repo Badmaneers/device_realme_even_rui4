@@ -51,6 +51,9 @@ done
 
 function blob_fixup {
     case "$1" in
+        vendor/lib/hw/audio.primary.mt6781.so)
+             "${PATCHELF}" --replace-needed "libalsautils.so" "libalsautils-v31.so" "${2}"
+             ;;
         vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so)
             grep -q libshim_camera_metadata.so "$2" || "$PATCHELF" --add-needed libshim_camera_metadata.so "$2"
             ;;
