@@ -56,7 +56,7 @@ PRODUCT_PACKAGES += \
 
 # Biometrics
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.3-service.oplus
+    android.hardware.biometrics.fingerprint@2.3-service.even
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.fingerprint.xml
@@ -82,8 +82,7 @@ PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-     hardware/mediatek \
-     hardware/oplus
+     hardware/mediatek 
 
 # RenderScript
 PRODUCT_PACKAGES += \
@@ -133,12 +132,6 @@ PRODUCT_COPY_FILES += \
 # DRM
 PRODUCT_PACKAGES += \
     libdrm
-    
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    hardware/mediatek \
-    hardware/oplus
 
 # KPOC
 PRODUCT_PACKAGES += \
