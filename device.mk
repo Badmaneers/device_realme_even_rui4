@@ -15,9 +15,6 @@ $(call inherit-product, packages/apps/RealmeParts/parts.mk)
 # Inherit Vendor Blobs
 $(call inherit-product, vendor/realme/even/even-vendor.mk)
 
-# IMS
-$(call inherit-product, vendor/realme/even-ims/even-ims.mk)
-
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
@@ -150,6 +147,16 @@ PRODUCT_PACKAGES += \
 # InCall Service
 PRODUCT_PACKAGES += \
     MtkInCallService
+
+# IMS
+PRODUCT_BOOT_JARS += \
+    mediatek-common \
+    mediatek-framework \
+    mediatek-ims-base \
+    mediatek-ims-common \
+    mediatek-telecom-common \
+    mediatek-telephony-base \
+    mediatek-telephony-common
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
