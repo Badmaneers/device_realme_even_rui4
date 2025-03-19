@@ -13,26 +13,12 @@ service oplus_fingerprints_sh /vendor/bin/sh /odm/bin/init.oplus.fingerprints.sh
 
 on boot
 
-#for jiiov_fp.
-    chown system system /dev/jiiov_fp
-    chmod 0666 /dev/jiiov_fp
-
-#for cdfinger.
-    chown system system /dev/fpsdev0
-    chmod 0666 /dev/fpsdev0
-
-#for goodix_fp.
-    chown system system /dev/goodix_fp
-
 #for egis fp
     chown system system /dev/esfp0
     chmod 0660 /sys/bus/platform/devices/egis_input/navigation_enable
     chmod 0660 /sys/bus/platform/devices/egis_input/navigation_event
     chown system  system /sys/bus/platform/devices/egis_input/navigation_enable
     chown system  system /sys/bus/platform/devices/egis_input/navigation_event
-#for chipone
-    chmod 660 /dev/fpsensor
-    chown system system /dev/fpsensor
 
 #for silead fp
     chown system system /dev/silead_fp
