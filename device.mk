@@ -40,6 +40,17 @@ PRODUCT_SHIPPING_API_LEVEL := 30
 # Extra VNDK Versions
 PRODUCT_EXTRA_VNDK_VERSIONS := 31
 
+
+# Dex/ART optimization
+PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
+PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := everything
+PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
+USE_DEX2OAT_DEBUG := false
+DONT_DEXPREOPT_PREBUILTS := true
+# Enable whole-program R8 Java optimizations for SystemUI and system_server
+SYSTEM_OPTIMIZE_JAVA := true
+SYSTEMUI_OPTIMIZE_JAVA := true
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
@@ -85,10 +96,6 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
     
-    # Permissions
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/permissions/privapp-permissions-mediatek.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-mediatek.xml
-
 # RRO-Overlays
 PRODUCT_PACKAGES += \
     CarrierConfigOverlayEven \
@@ -161,6 +168,12 @@ PRODUCT_BOOT_JARS += \
     mediatek-telecom-common \
     mediatek-telephony-base \
     mediatek-telephony-common
+
+PRODUCT_PACKAGES += \
+    libshim_sink
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/permissions/privapp-permissions-mediatek.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-mediatek.xml
 
 
 # USB
