@@ -161,12 +161,12 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS := $(DEVICE_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
 SELINUX_IGNORE_NEVERALLOWS := true
 
-# VINTF
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
-DEVICE_MATRIX_FILE += $(DEVICE_PATH)/compatibility_matrix.xml
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
-    $(DEVICE_PATH)/framework_compatibility_matrix.xml \
-    vendor/lineage/config/device_framework_matrix.xml
+# # VINTF
+# DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+# DEVICE_MATRIX_FILE += $(DEVICE_PATH)/compatibility_matrix.xml
+# DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
+#     $(DEVICE_PATH)/framework_compatibility_matrix.xml \
+#     vendor/lineage/config/device_framework_matrix.xml
 
 # Treble
 BOARD_VNDK_VERSION := current
