@@ -157,6 +157,7 @@ PRODUCT_PACKAGES += \
 
 # InCall Service
 PRODUCT_PACKAGES += \
+    BesLoudness \
     MtkInCallService
 
 # IMS
