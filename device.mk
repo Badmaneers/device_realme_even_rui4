@@ -162,6 +162,8 @@ PRODUCT_PACKAGES += \
 
 # IMS
 PRODUCT_BOOT_JARS += \
+    mediatek-gwsd \
+    mediatek-gwsdv2 \
     mediatek-common \
     mediatek-framework \
     mediatek-ims-base \
