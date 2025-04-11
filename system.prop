@@ -12,6 +12,8 @@ Build.BRAND=MTK
 
 # Camera
 oplus.camera.packname=com.oplus.camera
+oplus.camera.activityname=com.oplus.camera
+ro.oplus.system.camera.name=com.oplus.camera
 
 # Charger
 ro.charger.enable_suspend=true
