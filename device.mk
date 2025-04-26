@@ -15,9 +15,6 @@ $(call inherit-product, packages/apps/RealmeParts/parts.mk)
 # Inherit Vendor Blobs
 $(call inherit-product, vendor/realme/even/even-vendor.mk)
 
-# IMS
-$(call inherit-product, vendor/realme/even-ims/even-ims.mk)
-
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
