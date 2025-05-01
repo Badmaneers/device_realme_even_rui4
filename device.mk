@@ -119,7 +119,7 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.1-service-spaced
+    vendor.lineage.livedisplay@2.1-service-even
 
 # Bluetooth
 PRODUCT_PACKAGES += \
