@@ -240,12 +240,6 @@ PRODUCT_COPY_FILES += \
 -include $(DEVICE_PATH)/configs/props/system_prop.mk
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-     hardware/mediatek \
-     hardware/oplus
-
 # RenderScript
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl

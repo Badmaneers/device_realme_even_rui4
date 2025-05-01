@@ -13,7 +13,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE       := init.mt6768.power.rc
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/init.6768.power.rc
+LOCAL_SRC_FILES    := etc/init.mt6768.power.rc
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
 include $(BUILD_PREBUILT)
 
@@ -34,18 +34,18 @@ LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE       := init.6768.rc
+LOCAL_MODULE       := init.mt6768.rc
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/init.6768.rc
+LOCAL_SRC_FILES    := etc/init.mt6768.rc
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE       := init.6768.usb.rc
+LOCAL_MODULE       := init.mt6768.usb.rc
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/init.6768.usb.rc
+LOCAL_SRC_FILES    := etc/init.mt6768.usb.rc
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
 include $(BUILD_PREBUILT)
 
@@ -66,19 +66,19 @@ LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE       := fstab.6768
+LOCAL_MODULE       := fstab.mt6768
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/fstab.6768
+LOCAL_SRC_FILES    := etc/fstab.mt6768
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE       := fstab.6768_ramdisk
-LOCAL_MODULE_STEM  := fstab.6768
+LOCAL_MODULE       := fstab.mt6768_ramdisk
+LOCAL_MODULE_STEM  := fstab.mt6768
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/fstab.6768
+LOCAL_SRC_FILES    := etc/fstab.mt6768
 LOCAL_MODULE_PATH  := $(TARGET_RAMDISK_OUT)/system/etc
 include $(BUILD_PREBUILT)
 
@@ -100,9 +100,6 @@ LOCAL_SRC_FILES    := etc/ueventd.oplus.rc
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)
 include $(BUILD_PREBUILT)
 
-LOCAL_PATH := $(call my-dir)
-
-# swap_enable.sh
 include $(CLEAR_VARS)
 LOCAL_MODULE       := swap_enable.sh
 LOCAL_MODULE_TAGS  := optional
