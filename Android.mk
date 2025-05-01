@@ -1,22 +1,55 @@
 #
-# Copyright (C) 2020-2022 The CipherOS Project
+# Copyright (C) 2022 The LineageOS Project
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# SPDX-License-Identifier: Apache-2.0
 #
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter even,$(TARGET_DEVICE)),)
+ifneq ($(filter even, $(TARGET_DEVICE)),)
+
 $(call add-radio-file,dynamic-remove-oplus)
+
 include $(call all-makefiles-under,$(LOCAL_PATH))
+
+ENGMODE_LIBS := libem_support_jni.so libjni_shim.so
+ENGMODE_SYMLINKS := $(addprefix $(TARGET_OUT_APPS_PRIVILEGED)/EngineerMode/lib/arm64/,$(notdir $(ENGMODE_LIBS)))
+$(ENGMODE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "EngineerMode libs symlinks: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /system/lib64/$(notdir $@) $@
+
+VENDOR_SYMLINKS := \
+    $(TARGET_OUT_VENDOR)/lib \
+    $(TARGET_OUT_VENDOR)/lib64 \
+    $(TARGET_OUT_VENDOR)/lib/hw \
+    $(TARGET_OUT_VENDOR)/lib64/hw \
+    $(TARGET_OUT_VENDOR)/lib/egl \
+    $(TARGET_OUT_VENDOR)/lib64/egl
+
+$(VENDOR_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	$(hide) echo "Making vendor symlinks"
+	@mkdir -p $(TARGET_OUT_VENDOR)/lib/hw
+	@mkdir -p $(TARGET_OUT_VENDOR)/lib64/hw
+	@ln -sf libSoftGatekeeper.so $(TARGET_OUT_VENDOR)/lib/hw/gatekeeper.default.so
+	@ln -sf libSoftGatekeeper.so $(TARGET_OUT_VENDOR)/lib64/hw/gatekeeper.default.so
+	@ln -sf libMcGatekeeper.so $(TARGET_OUT_VENDOR)/lib64/hw/gatekeeper.trustonic.so
+	@ln -sf libMcGatekeeper.so $(TARGET_OUT_VENDOR)/lib/hw/gatekeeper.trustonic.so
+	@ln -sf kmsetkey.trustonic.so $(TARGET_OUT_VENDOR)/lib/hw/kmsetkey.trustonic.so
+	@ln -sf kmsetkey.trustonic.so $(TARGET_OUT_VENDOR)/lib64/hw/kmsetkey.trustonic.so
+	@ln -sf mt6768/libdpframework.so $(TARGET_OUT_VENDOR)/lib64/libdpframework.so
+	@ln -sf mt6768/libdpframework.so $(TARGET_OUT_VENDOR)/lib/libdpframework.so
+	@ln -sf mt6768/libmtk_drvb.so $(TARGET_OUT_VENDOR)/lib/libmtk_drvb.so
+	@ln -sf mt6768/libmtk_drvb.so $(TARGET_OUT_VENDOR)/lib64/libmtk_drvb.so
+	@ln -sf mt6768/libnir_neon_driver.so $(TARGET_OUT_VENDOR)/lib64/libnir_neon_driver.so
+	@ln -sf mt6768/libnir_neon_driver.so $(TARGET_OUT_VENDOR)/lib/libnir_neon_driver.so
+	@ln -sf mt6768/libpq_prot.so $(TARGET_OUT_VENDOR)/lib64/libpq_prot.so
+	@ln -sf mt6768/libpq_prot.so $(TARGET_OUT_VENDOR)/lib/libpq_prot.so
+	@ln -sf /vendor/lib/egl/libGLES_mali.so $(TARGET_OUT_VENDOR)/lib/hw/vulkan.$(TARGET_BOARD_PLATFORM).so
+	@ln -sf /vendor/lib64/egl/libGLES_mali.so $(TARGET_OUT_VENDOR)/lib64/hw/vulkan.$(TARGET_BOARD_PLATFORM).so
+	$(hide) touch $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(ENGMODE_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(VENDOR_SYMLINKS)
 endif

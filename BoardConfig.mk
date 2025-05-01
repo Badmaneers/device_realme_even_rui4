@@ -33,6 +33,10 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 # Assert
 TARGET_OTA_ASSERT_DEVICE := RMX3191,RMX3193,RMX3195,RMX3197,RMX3430,even
 
+# Init
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_even
+TARGET_RECOVERY_DEVICE_MODULES := libinit_even
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := RM6768
 TARGET_NO_BOOTLOADER := true
@@ -154,7 +158,7 @@ DEVICE_MATRIX_FILE += $(DEVICE_PATH)/compatibility_matrix.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(DEVICE_PATH)/framework_compatibility_matrix.xml \
     vendor/lineage/config/device_framework_matrix.xml
-
+VENDOR_MANIFEST_FILES := $(DEVICE_PATH)/manifest_vendor.xml
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
