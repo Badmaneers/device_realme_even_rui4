@@ -358,7 +358,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.spaced-libperfmgr \
+    android.hardware.power-service.lineage-libperfmgr \
     android.hardware.power@1.2.vendor \
     vendor.mediatek.hardware.mtkpower@1.2-service.stub
 
@@ -446,7 +446,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/mediatek \
-    hardware/oplus
+    hardware/oplus \
+    hardware/lineage/compat \
+    hardware/google/interfaces \
+    hardware/google/pixel \
+    hardware/lineage/interfaces/power-libperfmgr \
+    hardware/mediatek \
+    hardware/mediatek/libmtkperf_client
 
 # Thermal
 PRODUCT_PACKAGES += \
