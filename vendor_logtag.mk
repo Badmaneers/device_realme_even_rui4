@@ -263,3 +263,4 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.log.tag.gralloc4=$(VENDOR_LOG_LEVEL) \
     persist.log.tag.MDP=$(VENDOR_LOG_LEVEL) \
     persist.log.tag.hwcomposer=$(VENDOR_LOG_LEVEL) \
+    persist.log.tag.HWUI=$(VENDOR_LOG_LEVEL) \
