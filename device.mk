@@ -496,7 +496,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libui_shim \
-    libbase_shim
+    libbase_shim \
+    libprocessgroup_shim
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
