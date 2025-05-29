@@ -106,7 +106,8 @@ function blob_fixup {
         vendor/bin/mnld|\
         vendor/lib64/libaalservice.so|\
         vendor/lib64/libcam.utils.sensorprovider.so|\
-        vendor/lib64/liboplus_mtkcam_lightsensorprovider.so)
+        vendor/lib64/liboplus_mtkcam_lightsensorprovider.so|\
+        vendor/lib64/hw/android.hardware.sensors@2.X-subhal-mediatek.so)
            "${PATCHELF}" --replace-needed "libsensorndkbridge.so" "android.hardware.sensors@1.0-convert-shared.so" "${2}"
             ;;
         vendor/lib64/libSQLiteModule_VER_ALL.so|vendor/lib64/lib3a.flash.so)
