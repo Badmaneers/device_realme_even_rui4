@@ -82,7 +82,7 @@ function blob_fixup {
 			;;
         vendor/bin/hw/android.hardware.media.c2@1.2-mediatek|vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b)
             "${PATCHELF}" --add-needed "libstagefright_foundation-v33.so" "${2}"
-            "${PATCHELF}" --replace-needed libavservices_minijail_vendor.so libavservices_minijail.so "${2}"
+            "${PATCHELF}" --replace-needed "libavservices_minijail_vendor.so" "libavservices_minijail.so" "${2}"
             ;;
         lib64/libem_support_jni.so)
             "${PATCHELF}" --add-needed "libjni_shim.so" "${2}"
