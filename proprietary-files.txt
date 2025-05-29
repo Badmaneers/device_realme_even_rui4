@@ -474,7 +474,7 @@ odm/lib/libormshalclient.so
 odm/lib/libosensehalclient.so
 odm/lib/libstblur_api.so
 odm/lib/vendor.oplus.hardware.osense.client@1.0.so
-odm/lib64/libAlgoProcess.so
+odm/lib64/libAlgoProcess.so;MODULE_SUFFIX=_odm
 odm/lib64/libAncHumBokeh.so
 odm/lib64/libAncHumVideoBase.so
 odm/lib64/libarcsoft_dualcam_wt_calibration.so
@@ -1192,7 +1192,7 @@ vendor/lib64/libmtkisp_metadata.so
 vendor/lib64/libocam_common.so
 vendor/lib64/liboplus.aishutter.so
 vendor/lib64/liboplus_mtkcam_lightsensorprovider.so
-vendor/lib64/liboplus_platform_hwi.so
+vendor/lib64/liboplus_platform_hwi.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libstereoinfoaccessor_vsdof.so
 vendor/lib64/ov02b1b_mipi_mono_21690_IdxMgr.so
 vendor/lib64/ov02b1b_mipi_mono_21690_tuning.so
@@ -2055,7 +2055,7 @@ vendor/lib64/libwpfa.so
 vendor/lib64/vendor.mediatek.hardware.log@1.0.so
 vendor/lib64/vendor.mediatek.hardware.mtkradioex@2.0.so
 vendor/lib64/vendor.mediatek.hardware.mtkradioex@3.0.so
-vendor/lib64/vendor.oplus.hardware.radio-V1-ndk_platform.so
+vendor/lib64/vendor.oplus.hardware.radio-V1-ndk_platform.so;MODULE_SUFFIX=_vendor
 
 # Secure Element
 vendor/bin/hw/android.hardware.secure_element@1.2-service-mediatek
