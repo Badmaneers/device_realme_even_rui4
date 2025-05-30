@@ -242,7 +242,7 @@ PRODUCT_PACKAGES += \
     libstagefright_softomx_plugin.vendor \
     libsfplugin_ccodec_utils.vendor \
     libcodec2_soft_common.vendor \
-    libexpat.vendor:64
+    libexpat.vendor
 
 PRODUCT_PACKAGES += \
     libion.vendor
