@@ -1698,12 +1698,12 @@ vendor/lib64/vendor.mediatek.hardware.keymaster_attestation@1.1.so
 odm/lib/libavcodec.so
 odm/lib/libavformat.so
 odm/lib/libavutil.so
-odm/lib/libdav1d.so.4
+-odm/lib/libdav1d.so.4
 odm/lib/libffmpeg_omx.so
 odm/lib64/libavcodec.so
 odm/lib64/libavformat.so
 odm/lib64/libavutil.so
-odm/lib64/libdav1d.so.4
+-odm/lib64/libdav1d.so.4
 vendor/bin/jpegtool
 vendor/bin/recordevent
 vendor/bin/replayevent
