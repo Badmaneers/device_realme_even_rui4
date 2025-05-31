@@ -113,7 +113,7 @@ PRODUCT_PACKAGES += \
     libdrm.vendor \
     libdrm \
     libpower.vendor:64 \
-    libutilscallstack.vendor:64
+    libutilscallstack.vendor
 
 # Doze
 PRODUCT_PACKAGES += \
@@ -156,7 +156,8 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0.vendor \
     android.hardware.gnss@1.1.vendor \
     android.hardware.gnss@2.0.vendor \
-    android.hardware.gnss@2.1.vendor
+    android.hardware.gnss@2.1.vendor \
+    libcurl.vendor
 
 PRODUCT_PACKAGES += \
     android.hardware.gnss-service.mediatek
