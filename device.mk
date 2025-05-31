@@ -89,7 +89,8 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4.vendor \
     android.hardware.camera.provider@2.5.vendor \
     android.hardware.camera.provider@2.6.vendor \
-    libcamera2ndk_vendor
+    libcamera2ndk_vendor \
+    libexif.vendor \
 
 PRODUCT_PACKAGES += \
     libcamera_metadata_shim
