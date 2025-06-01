@@ -91,6 +91,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.6.vendor \
     libcamera2ndk_vendor \
     libexif.vendor \
+    libpng.vendor
 
 PRODUCT_PACKAGES += \
     libcamera_metadata_shim
@@ -176,7 +177,8 @@ PRODUCT_PACKAGES += \
     libhardware \
     libhardware.vendor \
     libhwbinder \
-    libhwbinder.vendor
+    libhwbinder.vendor \
+    libhidlmemory.vendor
 
 # IMS
 PRODUCT_BOOT_JARS += \
@@ -210,7 +212,8 @@ PRODUCT_PACKAGES += \
    libpuresoftkeymasterdevice.vendor:64 \
    libsoft_attestation_cert.vendor:64 \
    libkeystore-wifi-hidl \
-   libkeystore-engine-wifi-hidl
+   libkeystore-engine-wifi-hidl \
+   libnetutils.vendor
 
 # Lights
 PRODUCT_PACKAGES += \
