@@ -94,6 +94,7 @@ PRODUCT_PACKAGES += \
     libpng.vendor
 
 PRODUCT_PACKAGES += \
+    libcamera_metadata.vendor \
     libcamera_metadata_shim
 
 # Cgroup
