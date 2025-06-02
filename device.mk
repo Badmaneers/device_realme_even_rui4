@@ -492,7 +492,7 @@ PRODUCT_PACKAGES += \
     libstagefright_foundation-v33
 
 PRODUCT_PACKAGES += \
-    libui_shim \
+    libshim_ui\
     libbase_shim \
     libprocessgroup_shim
 
