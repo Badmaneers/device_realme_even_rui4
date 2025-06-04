@@ -59,7 +59,9 @@ function blob_fixup {
             [ "$2" = "" ] && return 0
             grep -q "libbase_shim.so" "${2}" || "${PATCHELF}" --add-needed "libbase_shim.so" "${2}"
             ;;
-        vendor/bin/hw/camerahalserver)
+        vendor/bin/hw/camerahalserver|\
+        vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so)
+            [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.so" "${2}"
             "${PATCHELF}" --replace-needed "libbinder.so" "libbinder_v32.so" "${2}"
             "${PATCHELF}" --replace-needed "libhidlbase.so" "libhidlbase_v32.so" "${2}"
@@ -100,8 +102,7 @@ function blob_fixup {
         system_ext/lib64/libsource.so)
             grep -q libshim_ui.so "$2" || "$PATCHELF" --add-needed libshim_ui.so "$2"
             ;;
-        vendor/lib*/libmtkcam_stdutils.so|\
-        vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so)
+        vendor/lib*/libmtkcam_stdutils.so)
             "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.so" "$2"
             ;;
         vendor/bin/mnld|\
