@@ -74,9 +74,6 @@ function blob_fixup {
             "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.so" "${2}"
             "${PATCHELF}" --replace-needed "libsensorndkbridge.so" "android.hardware.sensors@1.0-convert-shared.so" "${2}"
             ;;
-        vendor/bin/mtk_agpsd)
-           "${PATCHELF}" --replace-needed "libcrypto.so" "libcrypto-v32.so" "${2}"
-            ;;
         vendor/etc/init/android.hardware.bluetooth@1.1-service-mediatek.rc)
             sed -i '/vts/Q' "$2"
             ;;
