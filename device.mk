@@ -489,13 +489,10 @@ PRODUCT_PACKAGES += \
 
 # VNDK
 PRODUCT_PACKAGES += \
-    libutils-v32 \
-    libcrypto-v32 \
-    libssl-v32 \
     libbinder_v32 \
     libhidlbase_v32  \
+    libutils-v32 \
     libstagefright_foundation-v33
-
 
 PRODUCT_PACKAGES += \
     libshim_ui\
