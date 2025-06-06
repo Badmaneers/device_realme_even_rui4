@@ -44,6 +44,12 @@ function lib_to_package_fixup_vendor_variants() {
         vendor.mediatek.hardware.videotelephony@1.0)
             echo "${1}_vendor"
             ;;
+        liboplus_platform_hwi.so)
+            echo "${1}_vendor"
+            ;;
+        vendor.oplus.hardware.radio-V1-ndk_platform.so)                
+            echo "${1}_vendor"
+            ;;
         vendor.oplus.hardware.biometrics.fingerprint@2.1)
             echo "${1}_odm"
             ;;
@@ -57,6 +63,9 @@ function lib_to_package_fixup_vendor_variants() {
             echo "${1}_odm"
             ;;
         vendor.oplus.hardware.commondcs@1.0)
+            echo "${1}_odm"
+            ;;
+        libAlgoProcess.so)
             echo "${1}_odm"
             ;;
         *)
