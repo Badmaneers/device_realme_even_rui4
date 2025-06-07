@@ -9,8 +9,8 @@ DEVICE_PATH := device/realme/even
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
-# RealmeParts
-$(call inherit-product, packages/apps/RealmeParts/parts.mk)
+# # RealmeParts
+# $(call inherit-product, packages/apps/RealmeParts/parts.mk)
 
 # Inherit Vendor Blobs
 $(call inherit-product, vendor/realme/even/even-vendor.mk)
@@ -59,11 +59,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.fingerprint.xml
 
-# Rootdir
-PRODUCT_PACKAGES += \
-    init.insmod.sh \
-    install-recovery.sh \
-    swap_enable.sh 
 
 PRODUCT_PACKAGES += \
     fstab.mt6768 \
@@ -151,10 +146,6 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     Launcher3QuickStep \
     Settings \
     SystemUI
-
-# Parts
-PRODUCT_PACKAGES += \
-    RealmeParts
 
 # InCall Service
 PRODUCT_PACKAGES += \
