@@ -18,7 +18,7 @@ $(call inherit-product, device/realme/even/device.mk)
 PRODUCT_DEVICE := even
 PRODUCT_NAME := lineage_even
 PRODUCT_BRAND := even
-PRODUCT_MODEL := realme C25
+PRODUCT_MODEL := realme narzo 50a
 PRODUCT_MANUFACTURER := realme
 
 # Misc
