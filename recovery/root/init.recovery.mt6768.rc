@@ -28,6 +28,9 @@ on fs
     start boot_log
     start boot_log_crash
     start boot_log_kernel
+
+    # OTG
+    write /sys/class/power_supply/usb/otg_switch 1
     
 service boot_log /system/bin/logcat -b all -D -f /cache/boot_log_full.txt
     class main
