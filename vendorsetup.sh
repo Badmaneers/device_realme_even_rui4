@@ -2,8 +2,8 @@ echo start cloning repos
 VT=vendor/realme/even/even-vendor.mk
 if ! [ -a $VT ]; then git clone https://github.com/Badmaneers/vendor_realme_even_rui4 vendor/realme/even
 fi
-KT=kernel/realme/mt6768/build.sh
-if ! [ -a $KT ]; then git clone --depth=1 https://github.com/Badmaneers/kernel_even_k4.19 kernel/realme/even
+KT=kernel/realme/even/build.sh
+if ! [ -a $KT ]; then git clone --recurse-submodules --depth=1 https://github.com/Badmaneers/kernel_even_k4.19 kernel/realme/even
 fi
 MTK_SEPOLICY=device/mediatek/sepolicy_vndr/SEPolicy.mk
 if ! [ -a $MTK_SEPOLICY ]; then git clone https://github.com/realme-mt6781-dev/android_device_mediatek_sepolicy_vndr device/mediatek/sepolicy_vndr
