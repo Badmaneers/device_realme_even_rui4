@@ -8,7 +8,7 @@
 
 set -e
 
-DEVICE=spaced
+DEVICE=even
 VENDOR=realme
 
 # Load extract_utils and do some sanity checks
@@ -56,7 +56,7 @@ done
 
 function blob_fixup {
     case "$1" in
-        vendor/lib*/hw/audio.primary.mt6781.so)
+        vendor/lib*/hw/audio.primary.mt6768.so)
              "${PATCHELF}" --replace-needed "libalsautils.so" "libalsautils-v31.so" "${2}"
              ;;
         vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-mtk-neuron|odm/bin/hw/vendor.oplus.hardware.charger@1.0-service|vendor/lib*/libnvram.so|vendor/lib*/libsysenv.so)
@@ -120,7 +120,7 @@ function blob_fixup {
             [ "$2" = "" ] && return 0
             grep -q "libcutils.so" "${2}" || "${PATCHELF}" --add-needed "libcutils.so" "${2}"
             ;;
-        vendor/lib64/hw/hwcomposer.mt6781.so)
+        vendor/lib64/hw/hwcomposer.mt6768.so)
              grep -q "libprocessgroup_shim.so" "${2}" || "${PATCHELF}" --add-needed "libprocessgroup_shim.so" "${2}"
             ;;
         vendor/bin/hw/android.hardware.gnss-service.mediatek|\

@@ -70,7 +70,7 @@ on boot
 
 on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
-    swapon_all /vendor/etc/fstab.mt6781
+    swapon_all /vendor/etc/fstab.mt6768
     write /proc/sys/vm/swappiness 60
 
     # Enable UFS powersaving

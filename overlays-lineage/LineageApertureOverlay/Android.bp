@@ -5,6 +5,6 @@
 //
 
 runtime_resource_overlay {
-    name: "LineageApertureOverlaySpaced",
+    name: "LineageApertureOverlayEven",
     product_specific: true,
 }

@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/realme/spaced
+DEVICE_PATH := device/realme/even
 
 # Architecture
 TARGET_ARCH := arm64
@@ -30,7 +30,7 @@ ART_BUILD_HOST_DEBUG := false
 TARGET_OTA_ASSERT_DEVICE := RMX3151L1,RMX3286,spaced
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := oppo6781
+TARGET_BOOTLOADER_BOARD_NAME := oppo6768
 TARGET_NO_BOOTLOADER := true
 
 # Boot Image
@@ -54,14 +54,14 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS += --board ""
 
 # Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_spaced
-TARGET_RECOVERY_DEVICE_MODULES := libinit_spaced
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_even
+TARGET_RECOVERY_DEVICE_MODULES := libinit_even
 
 # Kernel
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/realme/mt6781
-TARGET_KERNEL_CONFIG := spaced_defconfig
+TARGET_KERNEL_SOURCE := kernel/realme/mt6768
+TARGET_KERNEL_CONFIG := even_defconfig
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_CLANG_VERSION := r536225
 TARGET_KERNEL_NO_GCC := true
@@ -104,11 +104,11 @@ TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 
 # Platform
-TARGET_BOARD_PLATFORM := mt6781
+TARGET_BOARD_PLATFORM := mt6768
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mt6781
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mt6768
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 PRODUCT_FS_COMPRESSION := true
@@ -190,4 +190,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 
 # Inherit the proprietary files
-include vendor/realme/spaced/BoardConfigVendor.mk
+include vendor/realme/even/BoardConfigVendor.mk

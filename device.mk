@@ -225,7 +225,7 @@ $(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.1-service-spaced
+    vendor.lineage.livedisplay@2.1-service-even
 
 # Vendor Log Tag
 include $(LOCAL_PATH)/vendor_logtag.mk
@@ -291,14 +291,14 @@ PRODUCT_SOONG_NAMESPACES += bootable/deprecated-ota
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
 PRODUCT_PACKAGES += \
-    FrameworksResOverlaySpaced \
-    SettingsOverlaySpaced \
-    SystemUIOverlaySpaced \
-    TelephonyOverlaySpaced \
-    WifiResOverlaySpaced \
-    TetheringResOverlaySpaced \
-    CarrierConfigOverlaySpaced \
-    OplusDozeOverlaySpaced
+    FrameworksResOverlayEven \
+    SettingsOverlayEven \
+    SystemUIOverlayEven \
+    TelephonyOverlayEven \
+    WifiResOverlayEven \
+    TetheringResOverlayEven \
+    CarrierConfigOverlayEven \
+    OplusDozeOverlayEven
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -351,10 +351,10 @@ PRODUCT_PACKAGES += \
 
 # Lineage-Specific overlays
 PRODUCT_PACKAGES += \
-    LineageApertureOverlaySpaced \
-    PowerOffAlarmOverlaySpaced \
-    LineageDialerOverlaySpaced \
-    LineageSDKOverlaySpaced
+    LineageApertureOverlayEven \
+    PowerOffAlarmOverlayEven \
+    LineageDialerOverlayEven \
+    LineageSDKOverlayEven
 
 # Power
 PRODUCT_PACKAGES += \
@@ -404,13 +404,13 @@ PRODUCT_PACKAGES += \
 
 # Rootdir
 PRODUCT_PACKAGES += \
-    fstab.mt6781 \
-    fstab.mt6781_ramdisk \
+    fstab.mt6768 \
+    fstab.mt6768_ramdisk \
     init.connectivity.rc \
     init.modem.rc \
-    init.mt6781.rc \
-    init.mt6781.power.rc \
-    init.mt6781.usb.rc \
+    init.mt6768.rc \
+    init.mt6768.power.rc \
+    init.mt6768.usb.rc \
     init.project.rc \
     init.sensor_1_0.rc \
     init.target.rc \
@@ -419,7 +419,7 @@ PRODUCT_PACKAGES += \
 
 # Fastboot
 PRODUCT_PACKAGES += \
-    init.recovery.mt6781.rc
+    init.recovery.mt6768.rc
 
 # Secure Element
 PRODUCT_PACKAGES += \
@@ -514,4 +514,4 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/realme/spaced/spaced-vendor.mk)
+$(call inherit-product, vendor/realme/even/even-vendor.mk)

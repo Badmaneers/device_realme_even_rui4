@@ -8,7 +8,7 @@
 
 set -e
 
-DEVICE=spaced
+DEVICE=even
 VENDOR=realme
 
 # Load extract_utils and do some sanity checks
@@ -28,7 +28,7 @@ source "${HELPER}"
 
 function vendor_imports() {
     cat <<EOF >>"$1"
-		"device/realme/spaced",
+		"device/realme/even",
 		"hardware/mediatek",
 		"hardware/mediatek/libmtkperf_client",
         "hardware/lineage/compat",

@@ -1,11 +1,11 @@
-type hal_lineage_livedisplay_spaced, domain;
-hal_server_domain(hal_lineage_livedisplay_spaced, hal_lineage_livedisplay)
+type hal_lineage_livedisplay_even, domain;
+hal_server_domain(hal_lineage_livedisplay_even, hal_lineage_livedisplay)
 
-type hal_lineage_livedisplay_spaced_exec, exec_type, vendor_file_type, file_type;
-init_daemon_domain(hal_lineage_livedisplay_spaced)
+type hal_lineage_livedisplay_even_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_lineage_livedisplay_even)
 
 # Allow LiveDisplay HAL's default implementation to use vendor-binder service
-vndbinder_use(hal_lineage_livedisplay_spaced)
+vndbinder_use(hal_lineage_livedisplay_even)
 
-allow hal_lineage_livedisplay_spaced vendor_sysfs_graphics:file rw_file_perms;
-allow hal_lineage_livedisplay_spaced vendor_sysfs_graphics:dir search;
+allow hal_lineage_livedisplay_even vendor_sysfs_graphics:file rw_file_perms;
+allow hal_lineage_livedisplay_even vendor_sysfs_graphics:dir search;

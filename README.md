@@ -1,19 +1,32 @@
-Device tree for the Realme 8i/narzo 50 (RMX3151/RMX3286/spaced)
-=================================================
+# Device Tree for realme C25, realme C25s and Narzo 50A (Under Development)
 
-The device codename for realme 8i is RMX3151.
-The device codename for realme narzo 50 is RMX3286.
-Both devices are essentially unified under internal codename, spaced.
+![Realme EVEN](https://raw.githubusercontent.com/Badmaneers/device_realme_even_rui4/refs/heads/main/images/6091177406246272107.jpg)
+ 
+## Image Credit
 
-| Basic                   | Spec Sheet                                                                                                                     |
-| -----------------------:|:------------------------------------------------------------------------------------------------------------------------------ |
-| CPU                     | Octa-core                                                                                                                      |
-| Chipset                 | MediaTek MT6781 Helio G96 (12 nm)                                                                                                            |
-| GPU                     | Mali-G57 MC2                                                                                                                   |
-| Memory                  | 4/6 GB RAM                                                                                                                   |
-| Shipped Android Version | Android 11 ( Realme UI2.0 )                                                                                                                           |
-| Storage                 | 64/128 GB                                                                                                                      |
-| Battery                 | Li-Po 5000 mAh, non-removable                                                                                           |
-| Display                 | 1080 x 2412 pixels, 20.1:9 ratio (~400 ppi density)                                                                              |
-| Camera (Back)(Main)     | 50 MP, f/1.8, 26mm (wide), 1/2.76", 0.64µm, PDAF 2 MP, f/2.4, (macro) 2MP, f/2.4, (depth)                                                                >
-| Camera (Front)          | 16 MP, f/2.1, (wide), 1/3.0", 1.0µm                                                                                      |
+- [@Rem01Gaming](https://github.com/Rem01Gaming)
+
+
+The realme C25, realme C25s and Narzo 50A are budget smartphones from realme. These are announced and released in March 2021, June 2021 and September 2021.
+
+## Device Specifications
+Basic   | Specs
+-------:|:-------------------------
+C25 CPU     | Octa-core MediaTek Helio G70 2x2.0 GHz Cortex-A75 & 6x1.7 GHz Cortex-A55 (12 nm) 
+C25s CPU     | Octa-core MediaTek Helio G85 2x2.0 GHz Cortex-A75 & 6x1.8 GHz Cortex-A55 (12 nm)
+N50A CPU     | Octa-core MediaTek Helio G85 2x2.0 GHz Cortex-A75 & 6x1.8 GHz Cortex-A55 (12 nm)
+GPU     | Mali-G52 MC2
+Memory  | 4 GB
+Shipped Android Version | Android 11, realme UI 2.0 (Upgradable to Android 12 & 13)
+Storage | 64/128 GB (eMMC type)
+MicroSD | Up to 512 GB 
+Battery | Li-Po 6000 mAh, non-removable
+Dimensions | 164.4 x 75 x 9 mm (6.47 x 2.95 x 0.35 in)
+Display | 720 x 1600 pixels, 20:9 ratio (~270 ppi density)
+Main Camera (Global)  | 48MP
+Main Camera (India)  | 13MP
+Main Camera (N50A)  | 50MP
+Depth Camera  | 2 MP
+Macro Camera  | 2 MP
+Front Camera | 8MP
+

@@ -114,7 +114,7 @@ ro.vendor.mtk_config_max_dram_size=0x800000000
 ro.vendor.mtk_widevine_drm_l1_support=1
 ro.vendor.mtk_sec_video_path_support=1
 drm.service.enabled=true
-ro.netflix.bsp_rev=MTK6781-34066-1
+ro.netflix.bsp_rev=MTK6768-34066-1
 ro.vendor.mtk_mvpu_security_support=0
 
 # FM Radio
@@ -262,7 +262,7 @@ ro.vendor.wfd.dummy.enable=0
 ro.vendor.wfd.iframesize.level=0
 
 # MediaTek
-ro.vendor.mediatek.platform=MT6781
+ro.vendor.mediatek.platform=MT6768
 ro.vendor.mtk_prefer_64bit_proc=0
 ro.vendor.mediatek.version.branch=alps-mp-s0.mp1.tc16sp-pr9
 ro.vendor.mediatek.version.release=alps-mp-s0.mp1.tc16sp-pr9-V1
