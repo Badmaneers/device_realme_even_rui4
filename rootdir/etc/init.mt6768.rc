@@ -90,14 +90,12 @@ on charger
     start fuelgauged_nvram
 
 on fs
-    wait_for_prop hwservicemanager.ready "true"
     mount_all --early
 
     # Update touchpanel firmware in case we ship newer firmware in /odm
     write /proc/touchpanel/tp_fw_update 0
 
 on late-fs
-    wait_for_prop hwservicemanager.ready "true"
     mount_all --late
 
 on post-fs
