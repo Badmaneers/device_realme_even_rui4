@@ -736,20 +736,6 @@ on boot
     chmod 660 /dev/ttyGS1
     chown system radio /dev/ttyGS1
 
-on property:vold.decrypt=trigger_reset_main
-    setprop sys.boot_completed 0
-    setprop dev.bootcomplete 0
-
-on property:vold.decrypt=trigger_restart_min_framework
-    start nvram_daemon
-
-on property:vold.decrypt=trigger_restart_framework
-    start nvram_daemon
-
-on property:vold.decrypt=trigger_shutdown_framework
-    setprop sys.boot_completed 0
-    setprop dev.bootcomplete 0
-
 on property:sys.boot_completed=1
 
     # Disable edge limit control interface
