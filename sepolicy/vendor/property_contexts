@@ -15,3 +15,5 @@ persist.vendor.camera.privapp.list u:object_r:vendor_oplus_prop:s0
 vendor.debug.cameralog.enable      u:object_r:vendor_oplus_prop:s0
 vendor.debug.tpi.                  u:object_r:vendor_oplus_prop:s0
 
+# Sensors
+vendor.dynamic_sensor.             u:object_r:vendor_dynamic_sensor_prop:s0
