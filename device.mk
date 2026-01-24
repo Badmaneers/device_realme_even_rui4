@@ -29,6 +29,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 30
 
+# Dolby shit
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/permissions/privapp-permissions-dolby.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-dolby.xml \
+
+
 # Display
 TARGET_SCREEN_DENSITY := 320
 
