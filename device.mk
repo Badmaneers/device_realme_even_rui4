@@ -135,6 +135,7 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack-service.mediatek-mali \
     libdrm.vendor \
     libdrm \
+	libvulkan \
     libui.vendor \
     libpower.vendor:64 \
     libutilscallstack.vendor
