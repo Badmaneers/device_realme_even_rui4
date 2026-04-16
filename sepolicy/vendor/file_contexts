@@ -10,6 +10,9 @@
 # Display
 /dev/oplus_display                                                                                                     u:object_r:oplus_display_device:s0
 
+# LiveDisplay
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.1-service-even                                        u:object_r:hal_lineage_livedisplay_even_exec:s0
+
 # Sensors
 /(vendor|system/vendor)/bin/hw/android\.hardware\.sensors@2\.0-service-multihal\.even                                u:object_r:hal_sensors_default_exec:s0
 /(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.oplusSensor@1\.0-service                                             u:object_r:hal_sensors_default_exec:s0

@@ -5,6 +5,6 @@
 //
 
 runtime_resource_overlay {
-    name: "LineageDialerOverlaySpaced",
+    name: "LineageDialerOverlayEven",
     product_specific: true,
 }

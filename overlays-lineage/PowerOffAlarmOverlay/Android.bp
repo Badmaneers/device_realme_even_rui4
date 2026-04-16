@@ -5,6 +5,6 @@
 //
 
 runtime_resource_overlay {
-    name: "PowerOffAlarmOverlaySpaced",
+    name: "PowerOffAlarmOverlayEven",
     product_specific: true,
 }
