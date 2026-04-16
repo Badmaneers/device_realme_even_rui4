@@ -56,9 +56,6 @@ done
 
 function blob_fixup {
     case "$1" in
-        vendor/lib*/hw/audio.primary.mt6768.so)
-             "${PATCHELF}" --replace-needed "libalsautils.so" "libalsautils-v31.so" "${2}"
-             ;;
         vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-mtk-neuron|odm/bin/hw/vendor.oplus.hardware.charger@1.0-service|vendor/lib*/libnvram.so|vendor/lib*/libsysenv.so)
             [ "$2" = "" ] && return 0
             grep -q "libbase_shim.so" "${2}" || "${PATCHELF}" --add-needed "libbase_shim.so" "${2}"
@@ -120,8 +117,8 @@ function blob_fixup {
             [ "$2" = "" ] && return 0
             grep -q "libcutils.so" "${2}" || "${PATCHELF}" --add-needed "libcutils.so" "${2}"
             ;;
-        vendor/lib64/hw/hwcomposer.mt6768.so)
-             grep -q "libprocessgroup_shim.so" "${2}" || "${PATCHELF}" --add-needed "libprocessgroup_shim.so" "${2}"
+        vendor/bin/hw/vendor.mediatek.hardware.mtkpower@1.0-service)
+            "$PATCHELF" --replace-needed "android.hardware.power-V2-ndk_platform.so" "android.hardware.power-V2-ndk.so" "$2"
             ;;
         vendor/bin/hw/android.hardware.gnss-service.mediatek|\
         vendor/lib64/hw/android.hardware.gnss-impl-mediatek.so)
