@@ -28,6 +28,7 @@ vendor/lib64/libladder.so
 # Audio
 vendor/lib/hw/audio.primary.mt6768.so
 vendor/lib/hw/audio.r_submix.mt6768.so
+vendor/lib/hw/audio.usb.default.so
 vendor/lib/libMtkSpeechEnh.so
 vendor/lib/lib_iir.so
 vendor/lib/lib_speech_enh.so
@@ -56,6 +57,9 @@ vendor/lib/librt_extamp_intf.so
 vendor/lib/libspeech_enh_lib.so
 vendor/lib/libspeechparser_vendor.so
 vendor/lib/vendor.mediatek.hardware.audio@7.1.so
+vendor/lib64/hw/audio.primary.mt6768.so
+vendor/lib64/hw/audio.r_submix.mt6768.so
+vendor/lib64/hw/audio.usb.default.so
 
 # Audio Configs
 odm/etc/audio/audio_device/audio_device.xml
@@ -2034,6 +2038,9 @@ vendor/firmware/remoteproc_scp
 vendor/firmware/soc1_0_patch_mcu_1a_1_hdr.bin
 vendor/firmware/soc1_0_ram_mcu_1a_1_hdr.bin
 vendor/firmware/soc1_0_ram_wifi_1a_1_hdr.bin
+vendor/lib/libktvreverb.so
+vendor/lib/libktvsoundtouch.so
+vendor/lib/liboplus_audio_config.so
 vendor/lib64/libFaceBeautyCap.so
 vendor/lib64/libFaceBeautyPre.so
 vendor/lib64/libMegviiHumBokehPost-mtk.so
@@ -2041,6 +2048,11 @@ vendor/lib64/libPolarrRender.so
 vendor/lib64/libVDDualCameraBlurless.so
 vendor/lib64/libVDDualCameraBlurless1.so
 vendor/lib64/libWaterMark.so
+vendor/lib64/libktveffect.so
+vendor/lib64/libktveffect_rec.so
+vendor/lib64/libktvreverb.so
+vendor/lib64/libktvsoundtouch.so
+vendor/lib64/liboplus_audio_config.so
 vendor/lib64/libstface_fd_api.so
 
 # Firmware (haptic)
