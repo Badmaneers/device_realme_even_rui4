@@ -494,6 +494,9 @@ vendor/etc/init/camerahalserver.rc
 vendor/lib/libcam.halsensor.so
 vendor/lib/libcam.utils.sensorprovider.so
 vendor/lib/libmpbase.so
+vendor/lib/libmtkcam.featurepipe.depthmap.so
+vendor/lib/libmtkcam_dpe.so
+vendor/lib/libmtkcam_imem.so
 vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so
 vendor/lib64/hw/vendor.mediatek.hardware.camera.bgservice@1.1-impl.so
 vendor/lib64/hw/vendor.mediatek.hardware.camera.isphal@1.0-impl.so
@@ -608,6 +611,7 @@ vendor/lib64/libfeatureiodrv_mem.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libmtkcam.eventcallback.so
 vendor/lib64/libmtkcam.featurepipe.capture.so
+vendor/lib64/libmtkcam.featurepipe.depthmap.so
 vendor/lib64/libmtkcam.featurepipe.streaming.so
 vendor/lib64/libmtkcam.featurepipe.vsdof_util.so
 vendor/lib64/libmtkcam.logicalmodule.so
@@ -625,6 +629,7 @@ vendor/lib64/libmtkcam_device3_hidlutils.so
 vendor/lib64/libmtkcam_device3_utils.so
 vendor/lib64/libmtkcam_devicesessionpolicy.so
 vendor/lib64/libmtkcam_diputils.so
+vendor/lib64/libmtkcam_dpe.so
 vendor/lib64/libmtkcam_exif.so
 vendor/lib64/libmtkcam_fdvt.so
 vendor/lib64/libmtkcam_featureutils.so
@@ -632,6 +637,7 @@ vendor/lib64/libmtkcam_fwkutils.so
 vendor/lib64/libmtkcam_grallocutils.so
 vendor/lib64/libmtkcam_hwnode.so
 vendor/lib64/libmtkcam_hwutils.so
+vendor/lib64/libmtkcam_imem.so
 vendor/lib64/libmtkcam_imgbuf.so
 vendor/lib64/libmtkcam_metadata.so
 vendor/lib64/libmtkcam_metastore.so
@@ -707,6 +713,8 @@ vendor/etc/camera/M_Attribute_Gender_Age_1.0.model.hardcode
 vendor/etc/camera/M_FaceAttribute_RGB_age_gender_1.7.1.model.hardcode
 
 # Display
+system_ext/lib/vendor.oplus.hardware.displaypanelfeature@1.0.so
+system_ext/lib64/vendor.oplus.hardware.displaypanelfeature@1.0.so
 vendor/bin/hw/android.hardware.graphics.allocator@4.0-service-mediatek
 vendor/bin/hw/vendor.mediatek.hardware.pq@2.2-service
 vendor/etc/init/android.hardware.graphics.allocator@4.0-service-mediatek.rc
@@ -2038,6 +2046,7 @@ vendor/firmware/remoteproc_scp
 vendor/firmware/soc1_0_patch_mcu_1a_1_hdr.bin
 vendor/firmware/soc1_0_ram_mcu_1a_1_hdr.bin
 vendor/firmware/soc1_0_ram_wifi_1a_1_hdr.bin
+vendor/lib/libakm.so
 vendor/lib/libktvreverb.so
 vendor/lib/libktvsoundtouch.so
 vendor/lib/liboplus_audio_config.so
@@ -2048,6 +2057,7 @@ vendor/lib64/libPolarrRender.so
 vendor/lib64/libVDDualCameraBlurless.so
 vendor/lib64/libVDDualCameraBlurless1.so
 vendor/lib64/libWaterMark.so
+vendor/lib64/libakm.so
 vendor/lib64/libktveffect.so
 vendor/lib64/libktveffect_rec.so
 vendor/lib64/libktvreverb.so
@@ -2239,6 +2249,16 @@ vendor/bin/hw/android.hardware.media.c2@1.2-mediatek
 vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b
 vendor/etc/init/android.hardware.media.c2@1.2-mediatek.rc
 -vendor/etc/vintf/manifest/manifest_media_c2_V1_1_default.xml
+vendor/etc/mtk_omx_core.cfg
+vendor/lib/libMtkOmxAdpcmDec.so
+vendor/lib/libMtkOmxAlacDec.so
+vendor/lib/libMtkOmxApeDec.so
+vendor/lib/libMtkOmxCore.so
+vendor/lib/libMtkOmxGsmDec.so
+vendor/lib/libMtkOmxMp3Dec.so
+vendor/lib/libMtkOmxVdecEx.so
+vendor/lib/libMtkOmxVenc.so
+vendor/lib/libMtkOmxWmaDec.so
 vendor/lib/libcodec2_mtk_c2store.so
 vendor/lib/libcodec2_mtk_vdec.so
 vendor/lib/libcodec2_mtk_venc.so
@@ -2251,6 +2271,7 @@ vendor/lib/libcodec2_soft_mtk_wmadec.so
 vendor/lib/libcodec2_vpp_qt_plugin.so
 vendor/lib/libcodec2_vpp_rs_plugin.so
 vendor/lib/libformatter.so
+vendor/lib64/libMtkOmxCore.so
 vendor/lib64/libcodec2_mtk_c2store.so
 vendor/lib64/libcodec2_mtk_vdec.so
 vendor/lib64/libcodec2_mtk_venc.so
