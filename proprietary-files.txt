@@ -476,8 +476,6 @@ lib64/vendor.oplus.hardware.cameraextension@1.0.so
 odm/lib/liboplus_platform_hwi.so
 odm/lib/libormshalclient.so
 odm/lib/libosensehalclient.so
-odm/lib64/libarcsoft_dualcam_wt_calibration.so
-odm/lib64/libarcsoft_dualcam_wt_verification.so
 odm/lib64/libcalibverifyW_T.so
 odm/lib64/liboplus_platform_hwi.so
 odm/lib64/libormshalclient.so
@@ -485,6 +483,8 @@ odm/lib64/libosensehalclient.so
 odm/lib64/vendor.oplus.hardware.cammidasservice@1.0.so
 odm/lib64/vendor.oplus.hardware.engcamera@1.0.so
 odm/lib64/vendor.oplus.hardware.osense.client@1.0.so
+system_ext/lib/vendor.oplus.hardware.camera.slogan@1.0.so
+system_ext/lib64/vendor.oplus.hardware.camera.slogan@1.0.so
 vendor/bin/hw/camerahalserver
 vendor/etc/init/camerahalserver.rc
 vendor/lib/libcam.halsensor.so
@@ -543,7 +543,6 @@ vendor/lib64/libSonyIMX386PdafLibrary.so
 vendor/lib64/libSonyIMX386PdafLibraryWrapper.so
 vendor/lib64/libSonyIMX519PdafLibrary.so
 vendor/lib64/libSonyIMX519PdafLibraryWrapper.so
-vendor/lib64/libarcsoft_scbokeh_image.so
 vendor/lib64/libasn1c_core.so
 vendor/lib64/libasn1c_mapi.so
 vendor/lib64/libasn1c_mdmi.so
@@ -559,6 +558,7 @@ vendor/lib64/libcam.halisp.so
 vendor/lib64/libcam.halsensor.hwintegration.so
 vendor/lib64/libcam.halsensor.so
 vendor/lib64/libcam.iopipe.so
+vendor/lib64/libcam.lcs.so
 vendor/lib64/libcam.pdtblgen.so
 vendor/lib64/libcam.utils.sensorprovider.so
 vendor/lib64/libcam.vhdr.so
@@ -566,16 +566,19 @@ vendor/lib64/libcamalgo.3dnr.so
 vendor/lib64/libcamalgo.dngop.so
 vendor/lib64/libcamalgo.eis.so
 vendor/lib64/libcamalgo.fdft.so
+vendor/lib64/libcamalgo.flicker.so
 vendor/lib64/libcamalgo.fsc.so
 vendor/lib64/libcamalgo.gyro.so
 vendor/lib64/libcamalgo.ispfeature.so
 vendor/lib64/libcamalgo.lmv.so
 vendor/lib64/libcamalgo.lsc.so
 vendor/lib64/libcamalgo.mfnr.so
+vendor/lib64/libcamalgo.n3d.so
 vendor/lib64/libcamalgo.nr.so
 vendor/lib64/libcamalgo.platform.so
 vendor/lib64/libcamalgo.platform2.so
 vendor/lib64/libcamalgo.utility.so
+vendor/lib64/libcamalgo.vsf.so
 vendor/lib64/libcamalgo.warp.so
 vendor/lib64/libcamdrv_imem.so
 vendor/lib64/libcamdrv_isp.so
@@ -591,6 +594,7 @@ vendor/lib64/libdre.so
 vendor/lib64/libeffecthal.base.so
 vendor/lib64/libfeature.face.so
 vendor/lib64/libfeature.stereo.provider.so
+vendor/lib64/libfeature.vsdof.hal.so
 vendor/lib64/libfeature_3dnr.so
 vendor/lib64/libfeature_eis.so
 vendor/lib64/libfeature_fsc.so
@@ -2030,6 +2034,14 @@ vendor/firmware/remoteproc_scp
 vendor/firmware/soc1_0_patch_mcu_1a_1_hdr.bin
 vendor/firmware/soc1_0_ram_mcu_1a_1_hdr.bin
 vendor/firmware/soc1_0_ram_wifi_1a_1_hdr.bin
+vendor/lib64/libFaceBeautyCap.so
+vendor/lib64/libFaceBeautyPre.so
+vendor/lib64/libMegviiHumBokehPost-mtk.so
+vendor/lib64/libPolarrRender.so
+vendor/lib64/libVDDualCameraBlurless.so
+vendor/lib64/libVDDualCameraBlurless1.so
+vendor/lib64/libWaterMark.so
+vendor/lib64/libstface_fd_api.so
 
 # Firmware (haptic)
 odm/firmware/awinic_haptic_gun_params.bin
@@ -2526,7 +2538,24 @@ odm/lib/vendor.oplus.hardware.ormsHalService-V1-ndk_platform.so
 odm/lib64/vendor.oplus.hardware.orms.ormsHalService@1.0.so
 odm/lib64/vendor.oplus.hardware.orms@1.0.so
 odm/lib64/vendor.oplus.hardware.ormsHalService-V1-ndk_platform.so
+
+# Camera (arcsoft)
+odm/lib64/libarcsoft_dualcam_wt_calibration.so
+odm/lib64/libarcsoft_dualcam_wt_verification.so
+vendor/lib64/libarcsoft_aicolor_image.so
+vendor/lib64/libarcsoft_aicolor_video.so
+vendor/lib64/libarcsoft_distortion_correction.so
+vendor/lib64/libarcsoft_dualcam_bokeh_api.so
+vendor/lib64/libarcsoft_dualcam_refocus_left.so
+vendor/lib64/libarcsoft_dualcam_refocus_preview.so
+vendor/lib64/libarcsoft_dualcam_refocus_right.so
+vendor/lib64/libarcsoft_dualcam_refocus_uw.so
+vendor/lib64/libarcsoft_lensstaindetection.so
+vendor/lib64/libarcsoft_scbokeh_image.so
+
+# Oppo
 vendor/lib/liboppo_arcSoftBokehEngine_new.so
+vendor/lib64/liboppo_aisd.so
 vendor/lib64/liboppo_arcSoftBokehEngine_new.so
 
 # TEE
