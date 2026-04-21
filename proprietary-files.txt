@@ -2256,7 +2256,6 @@ vendor/lib/libMtkOmxApeDec.so
 vendor/lib/libMtkOmxCore.so
 vendor/lib/libMtkOmxGsmDec.so
 vendor/lib/libMtkOmxMp3Dec.so
-vendor/lib/libMtkOmxVdecEx.so
 vendor/lib/libMtkOmxVenc.so
 vendor/lib/libMtkOmxWmaDec.so
 vendor/lib/libcodec2_mtk_c2store.so
