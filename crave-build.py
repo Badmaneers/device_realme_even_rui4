@@ -172,22 +172,26 @@ def abort():
 LOCAL_MANIFEST_URL = "https://github.com/Badmaneers/even-manifests.git"
 
 SOURCES = [
-    # (crave_id, display_name, url, default_branch)
-    ("35",  "AOSP",          "https://android.googlesource.com/platform/manifest",               "android-14.0.0_r1"),
-    ("72",  "LOS 21",        "https://github.com/LineageOS/android.git",                         "lineage-21"),
-    ("93",  "LOS 22.1",      "https://github.com/accupara/los22.git",                            "lineage-22.1"),
-    ("36",  "LOS 20",        "https://github.com/accupara/los20.git",                            "lineage-20"),
-    ("85",  "LOS 18.1",      "https://github.com/accupara/los18.1.git",                          "lineage-18.1"),
-    ("81",  "LOS 16",        "https://github.com/accupara/los16.git",                            "lineage-16.0"),
-    ("80",  "LOS CM 12.1",   "https://github.com/accupara/los-cm12.1.git",                       "cm-12.1"),
-    ("83",  "LOS CM 14.1",   "https://github.com/accupara/los-cm14.1.git",                       "cm-14.1"),
-    ("73",  "Arrow OS",      "https://github.com/ArrowOS/android_manifest.git",                  "arrow-13.1"),
-    ("79",  "CipherOS",      "https://github.com/CipherOS/android_manifest.git",                 "fourteen"),
-    ("64",  "DerpFest-AOSP", "https://github.com/DerpFest-AOSP/manifest.git",                    "14"),
-    ("82",  "PixelOS",       "https://github.com/PixelOS-AOSP/android_manifest",                 "fourteen"),
-    ("86",  "Rising OS",     "https://github.com/RisingOS-Revived/android.git",                  "fourteen"),
-    ("77",  "ROM Dumper",    "https://github.com/DumprX/DumprX",                                 "main"),
-    ("78",  "TWRP",          "https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git", "twrp-12.1"),
+    # (crave_id, display_name, url, default_branch, crave_listed)
+    # crave_listed=True  → source is officially on crave; repo init is skipped
+    # crave_listed=False → unlisted/custom ROM; repo init is required
+    ("35",  "AOSP",          "https://android.googlesource.com/platform/manifest",               "android-14.0.0_r1", True),
+    ("72",  "LOS 21",        "https://github.com/LineageOS/android.git",                         "lineage-21",        True),
+    ("93",  "LOS 22.1",      "https://github.com/accupara/los22.git",                            "lineage-22.1",      True),
+    ("36",  "LOS 20",        "https://github.com/accupara/los20.git",                            "lineage-20",        True),
+    ("85",  "LOS 18.1",      "https://github.com/accupara/los18.1.git",                          "lineage-18.1",      True),
+    ("81",  "LOS 16",        "https://github.com/accupara/los16.git",                            "lineage-16.0",      True),
+    ("80",  "LOS CM 12.1",   "https://github.com/accupara/los-cm12.1.git",                       "cm-12.1",           True),
+    ("83",  "LOS CM 14.1",   "https://github.com/accupara/los-cm14.1.git",                       "cm-14.1",           True),
+    ("73",  "Arrow OS",      "https://github.com/ArrowOS/android_manifest.git",                  "arrow-13.1",        True),
+    ("79",  "CipherOS",      "https://github.com/CipherOS/android_manifest.git",                 "fourteen",          True),
+    ("64",  "DerpFest-AOSP", "https://github.com/DerpFest-AOSP/manifest.git",                    "14",                True),
+    ("82",  "PixelOS",       "https://github.com/PixelOS-AOSP/android_manifest",                 "fourteen",          True),
+    ("86",  "Rising OS",     "https://github.com/RisingOS-Revived/android.git",                  "fourteen",          True),
+    ("77",  "ROM Dumper",    "https://github.com/DumprX/DumprX",                                 "main",              True),
+    ("78",  "TWRP",          "https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git", "twrp-12.1", True),
+    # ── Add unlisted/custom ROMs below with crave_listed=False ─────────────────
+    # ("00", "crDroid 14",   "https://github.com/crdroidandroid/android.git",                    "14.0",              False),
 ]
 
 BUILD_VARIANTS = [
@@ -206,21 +210,26 @@ BUILD_TARGETS = [
 
 # ── Build Command Generator ───────────────────────────────────────────────────
 def build_command(cfg: dict) -> str:
-    src_url     = cfg["source_url"]
-    src_branch  = cfg["source_branch"]
+    src_url      = cfg["source_url"]
+    src_branch   = cfg["source_branch"]
     local_branch = cfg["local_branch"]
-    device      = cfg["device"]
-    variant     = cfg["variant"]
-    target      = cfg["build_target"]
-    use_git_lfs = cfg["git_lfs"]
-    extra_flags = cfg["extra_repo_flags"]
+    device       = cfg["device"]
+    variant      = cfg["variant"]
+    target       = cfg["build_target"]
+    use_git_lfs  = cfg["git_lfs"]
+    extra_flags  = cfg["extra_repo_flags"]
+    src_listed   = cfg["src_listed"]   # True = officially on crave → skip repo init
 
     lfs_flag = " --git-lfs" if use_git_lfs else ""
     extra    = f" {extra_flags}" if extra_flags else ""
 
-    steps = [
-        f"rm -rf .repo/local_manifests",
-        f"repo init -u {src_url} -b {src_branch}{lfs_flag}{extra}",
+    steps = ["rm -rf .repo/local_manifests"]
+
+    # repo init is only needed for ROMs not officially hosted on crave
+    if not src_listed:
+        steps.append(f"repo init -u {src_url} -b {src_branch}{lfs_flag}{extra}")
+
+    steps += [
         f"git clone {LOCAL_MANIFEST_URL} --depth 1 -b {local_branch} .repo/local_manifests",
         f"/opt/crave/resync.sh",
         f"source build/envsetup.sh",
@@ -243,6 +252,8 @@ def print_summary(cfg: dict):
     label("Source Branch",     cfg["source_branch"])
     label("Local Manifest URL",LOCAL_MANIFEST_URL)
     label("Local Branch",      cfg["local_branch"])
+    listed_str = f"{ACCENT2}Skipped{C.RESET} {MUTED}(officially listed on crave){C.RESET}" if cfg["src_listed"] else f"{GOLD}Included{C.RESET} {MUTED}(unlisted ROM — repo init required){C.RESET}"
+    label("repo init",          listed_str)
     label("Git LFS",           "Yes" if cfg["git_lfs"] else "No")
     if cfg["extra_repo_flags"]:
         label("Extra Repo Flags",  cfg["extra_repo_flags"])
@@ -281,7 +292,7 @@ def main():
     chosen_id = choose("Select the AOSP base source for your build", source_opts, default="1")
 
     source_entry = next(s for s in SOURCES if s[0] == chosen_id)
-    src_id, src_name, src_url, src_default_branch = source_entry
+    src_id, src_name, src_url, src_default_branch, src_listed = source_entry
 
     success(f"Selected  →  {src_name}  |  {src_url}")
 
@@ -335,6 +346,7 @@ def main():
         "build_target":   build_target,
         "git_lfs":        use_git_lfs,
         "extra_repo_flags": extra_flags,
+        "src_listed":     src_listed,
     }
 
     # ── Summary & Command ──────────────────────────────────────────────────────
