@@ -227,7 +227,7 @@ def build_command(cfg: dict) -> str:
 
     # repo init is only needed for ROMs not officially hosted on crave
     if not src_listed:
-        steps.append(f"repo init -u {src_url} -b {src_branch}{lfs_flag}{extra}")
+        steps.append(f"repo init -u --depth=1 {src_url} -b {src_branch}{lfs_flag}{extra}")
 
     steps += [
         f"git clone {LOCAL_MANIFEST_URL} --depth 1 -b {local_branch} .repo/local_manifests",
@@ -289,18 +289,31 @@ def main():
         (s[0], f"{GOLD}[{s[0]:>2}]{C.RESET} {C.WHITE}{C.BOLD}{s[1]:<16}{C.RESET} {MUTED}{s[2]}{C.RESET}")
         for s in SOURCES
     ]
+    # Append the custom source option at the end
+    source_opts.append((
+        "custom",
+        f"{ROSE}[  ]{C.RESET} {C.WHITE}{C.BOLD}{'Custom / Unlisted':<16}{C.RESET} {MUTED}Enter your own manifest URL{C.RESET}"
+    ))
     chosen_id = choose("Select the AOSP base source for your build", source_opts, default="1")
 
-    source_entry = next(s for s in SOURCES if s[0] == chosen_id)
-    src_id, src_name, src_url, src_default_branch, src_listed = source_entry
-
-    success(f"Selected  →  {src_name}  |  {src_url}")
-
-    src_branch = prompt(
-        f"Branch for {src_name}",
-        default=src_default_branch,
-        required=True,
-    )
+    if chosen_id == "custom":
+        section("STEP 2a  —  CUSTOM SOURCE DETAILS")
+        warn("This ROM is not officially listed on crave — repo init will be included.")
+        src_url    = prompt("Manifest repo URL", required=True)
+        src_branch = prompt("Branch / tag", required=True)
+        src_name   = prompt("Short name for this ROM  (e.g. crDroid 14)", default="Custom ROM", required=True)
+        src_id     = "custom"
+        src_listed = False          # always needs repo init
+        success(f"Custom source  →  {src_name}  |  {src_url}  [{src_branch}]")
+    else:
+        source_entry = next(s for s in SOURCES if s[0] == chosen_id)
+        src_id, src_name, src_url, src_default_branch, src_listed = source_entry
+        success(f"Selected  →  {src_name}  |  {src_url}")
+        src_branch = prompt(
+            f"Branch for {src_name}",
+            default=src_default_branch,
+            required=True,
+        )
 
     # ── 3. Local Manifest Branch ───────────────────────────────────────────────
     section("STEP 3  —  LOCAL MANIFEST BRANCH")
