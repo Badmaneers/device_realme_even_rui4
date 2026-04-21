@@ -208,6 +208,19 @@ BUILD_TARGETS = [
     ("custom",          f"custom           {MUTED}— Enter your own target{C.RESET}"),
 ]
 
+# ── Pull Commands Generator ───────────────────────────────────────────────────
+def pull_commands(cfg: dict) -> str:
+    """Return crave pull command(s) as a shell string, or empty string if disabled."""
+    if not cfg.get("pull_artifacts"):
+        return ""
+    ptype = cfg.get("pull_type", "zip")
+    cmds = []
+    if ptype in ("zip", "both"):
+        cmds.append('crave pull "out/target/product/*/*.zip"')
+    if ptype in ("img", "both"):
+        cmds.append('crave pull "out/target/product/*/*.img"')
+    return "\n".join(cmds)
+
 # ── Build Command Generator ───────────────────────────────────────────────────
 def build_command(cfg: dict) -> str:
     src_url      = cfg["source_url"]
@@ -227,7 +240,7 @@ def build_command(cfg: dict) -> str:
 
     # repo init is only needed for ROMs not officially hosted on crave
     if not src_listed:
-        steps.append(f"repo init -u --depth=1 {src_url} -b {src_branch}{lfs_flag}{extra}")
+        steps.append(f"repo init -u {src_url} -b {src_branch}{lfs_flag}{extra}")
 
     steps += [
         f"git clone {LOCAL_MANIFEST_URL} --depth 1 -b {local_branch} .repo/local_manifests",
@@ -257,15 +270,27 @@ def print_summary(cfg: dict):
     label("Git LFS",           "Yes" if cfg["git_lfs"] else "No")
     if cfg["extra_repo_flags"]:
         label("Extra Repo Flags",  cfg["extra_repo_flags"])
+    if cfg["pull_artifacts"]:
+        pull_map = {"zip": ".zip files", "img": ".img files", "both": ".zip + .img files"}
+        label("Pull Artifacts",    f"{ACCENT2}{pull_map[cfg['pull_type']]}{C.RESET} {MUTED}(crave pull after build){C.RESET}")
+    else:
+        label("Pull Artifacts",    f"{MUTED}Disabled{C.RESET}")
     print()
 
-def print_command(cmd: str):
+def print_command(cmd: str, pull_cmd: str = ""):
     section("GENERATED CRAVE COMMAND")
     print()
     hr("─", MUTED)
     for line in cmd.split("\n"):
         print(f"  {ACCENT2}{line}{C.RESET}")
     hr("─", MUTED)
+    if pull_cmd:
+        print()
+        print(f"  {GOLD}{C.BOLD}  ↓  Post-build pull  (runs after crave finishes){C.RESET}")
+        print()
+        for line in pull_cmd.split("\n"):
+            print(f"  {GOLD}{line}{C.RESET}")
+        hr("─", MUTED)
     print()
 
 # ── Main Flow ─────────────────────────────────────────────────────────────────
@@ -347,6 +372,20 @@ def main():
         required=False,
     )
 
+    # ── 7. Pull Artifacts ─────────────────────────────────────────────────────
+    section("STEP 7  —  PULL BUILD ARTIFACTS")
+    info("After a successful build, crave pull fetches the output files to this devspace.")
+    pull_artifacts = confirm("Pull build artifacts to devspace after build?", default="y")
+    if pull_artifacts:
+        pull_opts = [
+            ("zip",      f"📦  {ACCENT2}.zip only{C.RESET}          {MUTED}crave pull out/target/product/*/*.zip{C.RESET}"),
+            ("img",      f"💿  {GOLD}.img only{C.RESET}          {MUTED}crave pull out/target/product/*/*.img{C.RESET}"),
+            ("both",     f"🗂   {ACCENT}Both .zip and .img{C.RESET} {MUTED}pull all build outputs{C.RESET}"),
+        ]
+        pull_type = choose("What to pull?", pull_opts, default="1")
+    else:
+        pull_type = None
+
     # ── Build config dict ──────────────────────────────────────────────────────
     cfg = {
         "device":         device,
@@ -360,6 +399,8 @@ def main():
         "git_lfs":        use_git_lfs,
         "extra_repo_flags": extra_flags,
         "src_listed":     src_listed,
+        "pull_artifacts": pull_artifacts,
+        "pull_type":      pull_type,
     }
 
     # ── Summary & Command ──────────────────────────────────────────────────────
@@ -367,7 +408,8 @@ def main():
     banner()
     print_summary(cfg)
     cmd = build_command(cfg)
-    print_command(cmd)
+    pull_cmd = pull_commands(cfg)
+    print_command(cmd, pull_cmd)
 
     # ── Actions ────────────────────────────────────────────────────────────────
     section("ACTIONS")
@@ -384,24 +426,41 @@ def main():
     if action == "run":
         warn("About to execute the crave command. Make sure you are inside a crave devspace!")
         info(f"Working directory  \u2192  {ACCENT}{SOURCE_ROOT}{C.RESET}")
+        if pull_cmd:
+            info(f"After the build, these pull commands will run automatically:")
+            for pc in pull_cmd.split("\n"):
+                print(f"    {GOLD}{pc}{C.RESET}")
         if confirm("Confirm execution?", default="y"):
             hr("\u2500", MUTED)
             print(f"\n  {ACCENT2}{C.BOLD}Launching crave run from source root \u2026{C.RESET}\n")
             os.chdir(SOURCE_ROOT)
-            os.system(cmd)
+            ret = os.system(cmd)
+            if pull_cmd:
+                print()
+                if ret == 0:
+                    print(f"  {ACCENT2}{C.BOLD}Build finished — pulling artifacts \u2026{C.RESET}\n")
+                    for pc in pull_cmd.split("\n"):
+                        info(f"Running:  {GOLD}{pc}{C.RESET}")
+                        os.system(pc)
+                else:
+                    warn("Build exited with a non-zero status — skipping artifact pull.")
+                    warn("Check build logs before pulling manually.")
         else:
             warn("Execution cancelled.")
     elif action == "copy":
+        full_clip = cmd + ("\n\n# Pull artifacts\n" + pull_cmd if pull_cmd else "")
         copied = False
         for tool in ("xclip -selection clipboard", "xsel --clipboard --input", "pbcopy"):
             try:
-                proc = subprocess.run(
+                subprocess.run(
                     tool.split(),
-                    input=cmd.encode(),
+                    input=full_clip.encode(),
                     check=True,
                     stderr=subprocess.DEVNULL,
                 )
                 success(f"Copied to clipboard using  {tool.split()[0]}")
+                if pull_cmd:
+                    info("Clipboard includes the post-build crave pull commands.")
                 copied = True
                 break
             except (FileNotFoundError, subprocess.CalledProcessError):
@@ -412,10 +471,22 @@ def main():
     elif action == "save":
         out_file = SOURCE_ROOT / "crave_build.sh"
         shebang  = "#!/usr/bin/env bash\n# Generated by Crave Build Launcher\n# " + datetime.now().isoformat() + "\n\n"
+        script_body = shebang + cmd + "\n"
+        if pull_cmd:
+            script_body += (
+                "\n# ── Pull artifacts after successful build ──────────────\n"
+                "if [ $? -eq 0 ]; then\n"
+                + "".join(f"  {pc}\n" for pc in pull_cmd.split("\n"))
+                + "else\n"
+                "  echo \"Build failed — skipping artifact pull.\"\n"
+                "fi\n"
+            )
         with open(out_file, "w") as f:
-            f.write(shebang + cmd + "\n")
+            f.write(script_body)
         os.chmod(out_file, 0o755)
         success(f"Saved to  {out_file}  (chmod +x applied)")
+        if pull_cmd:
+            info(f"Script includes post-build {GOLD}crave pull{C.RESET} on success.")
         info(f"Run it with:  {ACCENT}bash {out_file}{C.RESET}")
 
     elif action == "print":
