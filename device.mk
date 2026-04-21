@@ -196,7 +196,7 @@ PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.1-service-even
 
 # Vendor Log Tag
-include $(LOCAL_PATH)/vendor_logtag.mk
+include $(LOCAL_PATH)/configs/props/vendor_logtag.mk
 
 # Media
 PRODUCT_PACKAGES += \
