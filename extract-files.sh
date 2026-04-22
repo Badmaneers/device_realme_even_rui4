@@ -103,11 +103,10 @@ function blob_fixup {
             "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.so" "$2"
             ;;
         vendor/bin/mnld|\
-        vendor/lib64/libaalservice.so|\
-        vendor/lib64/libcam.utils.sensorprovider.so|\
-        vendor/lib64/liboplus_mtkcam_lightsensorprovider.so|\
-        vendor/lib64/hw/android.hardware.sensors@2.X-subhal-mediatek.so)
-           "${PATCHELF}" --replace-needed "libshim_sensors.so" "${2}"
+        vendor/lib*/libaalservice.so|\
+        vendor/lib*/libcam.utils.sensorprovider.so|\
+        vendor/lib*/hw/android.hardware.sensors@2.X-subhal-mediatek.so)
+            "$PATCHELF" --add-needed "libshim_sensors.so" "$2"
             ;;
         vendor/lib64/libSQLiteModule_VER_ALL.so|vendor/lib64/lib3a.flash.so)
             [ "$2" = "" ] && return 0
