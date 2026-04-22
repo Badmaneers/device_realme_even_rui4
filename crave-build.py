@@ -345,7 +345,7 @@ def main():
     info(f"Manifest repo: {ACCENT}{LOCAL_MANIFEST_URL}{C.RESET}")
     local_branch = prompt(
         "Branch in even-manifests to use",
-        default="main",
+        default="lineage-21",
         required=True,
     )
 
