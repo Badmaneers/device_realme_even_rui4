@@ -371,20 +371,14 @@ PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.2.vendor
 # Sensors
 PRODUCT_PACKAGES += \
-    android.frameworks.sensorservice@1.0 \
+    libshim_sensors \
+    libsensorndkbridge \
+    android.hardware.sensors@1.0.vendor \
+    android.hardware.sensors@2.1.vendor \
     android.frameworks.sensorservice@1.0.vendor \
-    android.hardware.sensors@2.0 \
-    android.hardware.sensors@2.0.vendor \
-    android.hardware.sensors@2.0-ScopedWakelock.vendor \
-    android.hardware.sensors@2.1 \
-    android.hardware.sensors@1.0-convert-shared.vendor \
-    libsensorndkbridge
-
-PRODUCT_PACKAGES += \
-    libdumpstateutil.vendor:64
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
+    $(LOCAL_PATH)/configs/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
 
 # Soundtrigger
 PRODUCT_PACKAGES += \
