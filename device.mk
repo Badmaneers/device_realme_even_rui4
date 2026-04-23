@@ -183,7 +183,7 @@ $(call inherit-product, hardware/oplus/oplus-fwk/oplus-fwk.mk)
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light-service.lineage
+    android.hardware.light-service.even
 
 # Lineage Health
 PRODUCT_PACKAGES += \
