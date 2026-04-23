@@ -249,8 +249,12 @@ def build_command(cfg: dict) -> str:
         f"export BUILD_HOSTNAME=crave",
         f"source build/envsetup.sh",
         f"breakfast {device} {variant}",
-        f"mka {target}",
     ]
+
+    if cfg.get("clean_build"):
+        steps.append("m clean")
+
+    steps.append(f"mka {target}")
 
     inner = "; \\\n".join(f" {s}" for s in steps)
     return f'crave run --no-patch -- "\\\n{inner}"'
@@ -267,6 +271,7 @@ def print_summary(cfg: dict):
     label("Source Branch",     cfg["source_branch"])
     label("Local Manifest URL",LOCAL_MANIFEST_URL)
     label("Local Branch",      cfg["local_branch"])
+    label("Clean Build",       "Yes" if cfg.get("clean_build") else "No")
     listed_str = f"{ACCENT2}Skipped{C.RESET} {MUTED}(officially listed on crave){C.RESET}" if cfg["src_listed"] else f"{GOLD}Included{C.RESET} {MUTED}(unlisted ROM — repo init required){C.RESET}"
     label("repo init",          listed_str)
     label("Git LFS",           "Yes" if cfg["git_lfs"] else "No")
@@ -367,6 +372,7 @@ def main():
 
     # ── 6. Advanced Options ────────────────────────────────────────────────────
     section("STEP 6  —  ADVANCED OPTIONS")
+    clean_build = confirm("Perform a clean build (m clean)?", default="n")
     use_git_lfs = confirm("Enable --git-lfs for repo init?", default="n")
     extra_flags = prompt(
         "Extra flags for repo init  (leave blank to skip)",
@@ -398,6 +404,7 @@ def main():
         "local_branch":   local_branch,
         "variant":        variant,
         "build_target":   build_target,
+        "clean_build":    clean_build,
         "git_lfs":        use_git_lfs,
         "extra_repo_flags": extra_flags,
         "src_listed":     src_listed,
