@@ -411,11 +411,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vndservicemanager
 
-# Vibrator
-TARGET_VIBRATOR_SUPPORTS_EFFECTS := true
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator-service.mediatek
-
 # VNDK
 PRODUCT_PACKAGES += \
     libutils-v32 \
