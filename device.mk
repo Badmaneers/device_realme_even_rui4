@@ -398,6 +398,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/mediatek/libmtkperf_client \
+    hardware/mediatek/aidl/vibrator \
     hardware/lineage/interfaces/power-libperfmgr \
     $(DEVICE_PATH)
 
@@ -429,8 +430,6 @@ PRODUCT_PACKAGES += \
 
 # VNDK
 PRODUCT_PACKAGES += \
-    libhidlbase_v32  \
-    libbinder-v32 \
     libutils-v32 \
     libstagefright_foundation-v33
 
