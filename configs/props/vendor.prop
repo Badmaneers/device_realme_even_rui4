@@ -1,5 +1,5 @@
 # AAL
-ro.vendor.mtk_aal_support=0
+ro.vendor.mtk_aal_support=1
 
 # AEE
 ro.vendor.have_aeev_feature=1
@@ -90,7 +90,6 @@ ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 ro.vendor.composer_version=2.1
 ro.vendor.mtk_gwsd_capability=1
 ro.vendor.mml.mtk_mml_support=0
-ro.vendor.mtk_aal_support=1
 ro.vendor.mtk_ovl_bringup=0
 ro.vendor.mtk_pq_color_mode=1
 ro.vendor.mtk_pq_support=2
