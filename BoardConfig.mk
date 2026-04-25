@@ -110,6 +110,7 @@ TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 
 # Platform
+BOARD_HAS_MTK_HARDWARE := true
 TARGET_BOARD_PLATFORM := mt6768
 
 # Recovery
