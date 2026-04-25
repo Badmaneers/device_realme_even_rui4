@@ -23,6 +23,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 30
 
+# Display
+TARGET_SCREEN_DENSITY := 320
+
 # VINTF
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 
