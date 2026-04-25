@@ -96,6 +96,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@4.0.vendor \
     libvulkan \
     libdrm.vendor \
+    libpower.vendor \
     libutils-v32
 
 PRODUCT_PACKAGES += \
@@ -367,6 +368,7 @@ PRODUCT_PACKAGES += \
 # Secure Element
 PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.2.vendor
+
 # Sensors
 PRODUCT_PACKAGES += \
     libshim_sensors \
@@ -374,6 +376,9 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0.vendor \
     android.hardware.sensors@2.1.vendor \
     android.frameworks.sensorservice@1.0.vendor \
+
+PRODUCT_PACKAGES += \
+    libdumpstateutil.vendor:64
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
