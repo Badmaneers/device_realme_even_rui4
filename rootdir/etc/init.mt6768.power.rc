@@ -1,3 +1,12 @@
+on early-init
+    # Configure governor settings for little cluster
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "performance"
+
+    # Configure governor settings for big cluster
+    write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor "performance"
+
+	write /sys/devices/platform/10012000.dvfsrc/helio-dvfsrc/dvfsrc_req_ddr_opp -1
+
 on init
     # Disable UFS powersaving
     write /sys/devices/platform/11270000.ufshci/clkgate_enable 0
@@ -10,40 +19,33 @@ on init
     write /proc/fastchg_fw_update 1
     write /proc/ui_soc_decimal 1
 
-    # Configure governor settings for little cluster
-    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "schedutil"
-
-    # Configure governor settings for big cluster
-    write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor "schedutil"
-
     # update cpus for cpuset cgroup
-    write /dev/cpuset/foreground/cpus 0-6
-    write /dev/cpuset/background/cpus 0-1
-    write /dev/cpuset/system-background/cpus 0-2
+    write /dev/cpuset/foreground/cpus 0-7
+    write /dev/cpuset/background/cpus 0-2
+    write /dev/cpuset/system-background/cpus 0-3
     write /dev/cpuset/top-app/cpus 0-7
 
-    # ZRAM setup
-    write /sys/block/zram0/comp_algorithm lz4
-    write /proc/sys/vm/page-cluster 0
+    # Configure scheduler up/down_rate_limit_us
+    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us 500
+    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us 20000
+    write /sys/devices/system/cpu/cpufreq/policy6/schedutil/up_rate_limit_us 1000
+    write /sys/devices/system/cpu/cpufreq/policy6/schedutil/down_rate_limit_us 10000
 
-on late-init
-    # enable rcu_expedited
-    write /sys/kernel/rcu_expedited 1
+
+    # ZRAM setup
+    swapon_all /vendor/etc/fstab.mt6768
 
 on post-fs-data
 
     # Boot time tuning
     write /sys/block/mmcblk0/queue/iostats 0
     write /sys/block/mmcblk0/queue/nr_requests 256
+    write /sys/block/sda/queue/nr_requests 256
     write /sys/block/sda/queue/iostats 0
     write /sys/block/sdb/queue/iostats 0
+    write /sys/block/sdb/queue/nr_requests 256
     write /sys/block/sdc/queue/iostats 0
     write /sys/block/sdc/queue/nr_requests 256
-
-    write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "0 100"
-    write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "1 100"
-    write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "2 100"
-    write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "3 100"
 
     # Power Manager
     write /sys/power/pm_async 0
@@ -55,80 +57,66 @@ on post-fs-data
     # set mlock limit to infinate (for m4u operation)
     setrlimit 8 -1 -1
 
-on boot
-    chmod 0660 /sys/power/autosleep
-    write /proc/sys/vm/dirty_writeback_centisecs 300
+    # Zram Algorithm
+    write /sys/block/zram0/comp_algorithm lz4
 
 on property:sys.boot_completed=1
-    # Enable ZRAM on boot_complete
-    swapon_all /vendor/etc/fstab.mt6768
-    write /proc/sys/vm/swappiness 60
+
+    # Configure governor settings for little cluster
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "schedutil"
+
+    # Configure governor settings for big cluster
+    write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor "schedutil"
+
+    # VM Tunning
+    write /proc/sys/vm/page-cluster 0
+    write /proc/sys/vm/swappiness 70
+    write /sys/kernel/mm/swap/vma_ra_enabled false
+    write /proc/sys/vm/vfs_cache_pressure 70
 
     # Enable UFS powersaving
     write /sys/devices/platform/11270000.ufshci/clkgate_enable 1
 
     # Runtime FS tuning
-    write /sys/block/mmcblk0/queue/nr_requests 64
-    write /sys/block/sda/queue/nr_requests 64
-    write /sys/block/sdb/queue/nr_requests 64
-    write /sys/block/sdc/queue/nr_requests 64
-
-
-    write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "0 0"
-    write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "1 0"
-    write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "2 0"
-    write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "3 0"
-    write /proc/perfmgr/boost_ctrl/cpu_ctrl/boot_freq "-1 -1 -1 -1"
-
-	write /sys/devices/platform/10012000.dvfsrc/helio-dvfsrc/dvfsrc_req_ddr_opp -1
-
-    # Configure scheduler parameters
-    write /proc/sys/kernel/sched_migration_cost_ns 200000
-
-    # Enable big task rotation
-    write /proc/perfmgr/boost_ctrl/eas_ctrl/sched_big_task_rotation 1
+    write /sys/block/mmcblk0/queue/nr_requests 128
+    write /sys/block/sda/queue/nr_requests 128
+    write /sys/block/sdb/queue/nr_requests 128
+    write /sys/block/sdc/queue/nr_requests 128
 
     # Configure DVFS
-    write /sys/kernel/ged/hal/dvfs_margin_value 130
-    write /sys/kernel/ged/hal/timer_base_dvfs_margin 798
+    write /sys/kernel/ged/hal/dvfs_margin_value 120
+    write /sys/kernel/ged/hal/timer_base_dvfs_margin 700
     write /sys/kernel/ged/hal/loading_base_dvfs_step 4
 
     # system-background
-    # cap the max utilisation for system-background tasks to save power.
     write /dev/cpuctl/system-background/cpu.uclamp.max 40
     write /dev/cpuctl/system-background/cpu.uclamp.min 0
     write /dev/cpuctl/system-background/cpu.uclamp.latency_sensitive 0
 
-    # foreground
-    # cap the max utilisation for foreground tasks to save power.
-    write /dev/cpuctl/foreground/cpu.uclamp.max max
-    write /dev/cpuctl/foreground/cpu.uclamp.min 0
-    write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 0
-
-    # top-app
-    write /dev/cpuctl/top-app/cpu.uclamp.max max
-    write /dev/cpuctl/top-app/cpu.uclamp.min 0
-    write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 1
-
-    # background
-    # cap the max utilisation for background tasks to save power.
+    # background tasks
     write /dev/cpuctl/background/cpu.uclamp.max 50
     write /dev/cpuctl/background/cpu.uclamp.min 0
     write /dev/cpuctl/background/cpu.uclamp.latency_sensitive 0
 
-    # nnapi-hal
-    write /dev/cpuctl/nnapi-hal/cpu.uclamp.max max
-    write /dev/cpuctl/nnapi-hal/cpu.uclamp.min 75
-    write /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive 1
+    # foreground
+    write /dev/cpuctl/foreground/cpu.uclamp.max max
+    write /dev/cpuctl/foreground/cpu.uclamp.min 0
+    write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 1
+
+    # top-app
+    write /dev/cpuctl/top-app/cpu.uclamp.max max
+    write /dev/cpuctl/top-app/cpu.uclamp.min 45
+    write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 1
 
     # camera-daemon
     write /dev/cpuctl/camera-daemon/cpu.uclamp.max max
-    write /dev/cpuctl/camera-daemon/cpu.uclamp.min 0
+    write /dev/cpuctl/camera-daemon/cpu.uclamp.min 25
     write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 1
 
-    # Uclamp tuning
-    write /proc/sys/kernel/sched_util_clamp_min_rt_default 0
-    write /proc/sys/kernel/sched_util_clamp_min 128
+    # nnapi-hal
+    write /dev/cpuctl/nnapi-hal/cpu.uclamp.max max
+    write /dev/cpuctl/nnapi-hal/cpu.uclamp.min 70
+    write /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive 1
 
     # Enable PowerHAL hint processing
     setprop vendor.powerhal.init 1
