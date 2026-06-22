@@ -65,6 +65,9 @@ function lib_to_package_fixup_vendor_variants() {
         vendor.oplus.hardware.commondcs@1.0)
             echo "${1}_odm"
             ;;
+        vendor.oplus.hardware.performance@1.0)
+            echo "${1}_odm"
+            ;;
         *)
             return 1
             ;;

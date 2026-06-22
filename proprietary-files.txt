@@ -2113,6 +2113,8 @@ odm/lib64/libgf_hal_G7.so
 odm/lib64/libsl_fp_impl.so
 odm/lib64/vendor.oplus.hardware.biometrics.fingerprint@2.1.so;MODULE_SUFFIX=_odm
 odm/lib64/vendor.oplus.hardware.commondcs@1.0.so;MODULE_SUFFIX=_odm
+odm/lib/vendor.oplus.hardware.performance@1.0.so;MODULE_SUFFIX=_odm
+odm/lib64/vendor.oplus.hardware.performance@1.0.so;MODULE_SUFFIX=_odm
 odm/init.oplus.fingerprints.rc
 
 # Gatekeeper
