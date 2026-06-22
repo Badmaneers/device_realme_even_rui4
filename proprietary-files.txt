@@ -32,6 +32,7 @@ vendor/lib/hw/audio.usb.default.so
 vendor/lib/libMtkSpeechEnh.so
 vendor/lib/lib_iir.so
 vendor/lib/lib_speech_enh.so
+vendor/lib/libadpcmdec_mtk.so
 vendor/lib/libaudio_engineer_test.so
 vendor/lib/libaudio_param_parser-vnd.so
 vendor/lib/libaudiocompensationfilter_vendor.so
@@ -49,11 +50,18 @@ vendor/lib/libbessound_hd_mtk_vendor.so
 vendor/lib/libblisrc32_vendor.so
 vendor/lib/libbwc.so
 vendor/lib/libcvsd_mtk.so
+vendor/lib/libktvdrc.so
+vendor/lib/libktveffect.so
+vendor/lib/libktveffect_rec.so
+vendor/lib/libktveq.so
+vendor/lib/libktvns.so
+vendor/lib/libktvvolume.so
 vendor/lib/libladder.so
 vendor/lib/libmsbc_mtk.so
 vendor/lib/libmtklimiter_vendor.so
 vendor/lib/libmtkshifter_vendor.so
 vendor/lib/libnxp_extamp_intf.so
+vendor/lib/libolc_vnd.so
 vendor/lib/librt_extamp_intf.so
 vendor/lib/libspeech_enh_lib.so
 vendor/lib/libspeechparser_vendor.so
@@ -61,7 +69,12 @@ vendor/lib/vendor.mediatek.hardware.audio@7.1.so
 vendor/lib64/hw/audio.primary.mt6768.so
 vendor/lib64/hw/audio.r_submix.mt6768.so
 vendor/lib64/hw/audio.usb.default.so
+vendor/lib64/libadpcmdec_mtk.so
 vendor/lib64/libaudio_engineer_test.so
+vendor/lib64/libktvdrc.so
+vendor/lib64/libktveq.so
+vendor/lib64/libktvns.so
+vendor/lib64/libktvvolume.so
 
 # Audio Configs
 odm/etc/audio/audio_device/audio_device.xml
@@ -2226,6 +2239,7 @@ vendor/lib/libh264enc_sa.ca7.so
 vendor/lib/libhevce_sb.ca7.android.so
 vendor/lib/libjpeg-alpha-oal_vendor.so
 vendor/lib/libjpeg-alpha_vendor.so
+vendor/lib/libmp3dec_mtk.so
 vendor/lib/libmp4enc_sa.ca7.so
 vendor/lib/libmp4enc_xa.ca7.so
 vendor/lib/libvcodec_oal.so
@@ -2248,6 +2262,7 @@ vendor/lib64/libimageio_plat_drv.so
 vendor/lib64/libimageio_plat_pipe.so
 vendor/lib64/libjpeg-alpha-oal_vendor.so
 vendor/lib64/libjpeg-alpha_vendor.so
+vendor/lib64/libmp3dec_mtk.so
 vendor/lib64/libvcodec_oal.so
 vendor/lib64/libvcodecdrv_header_stub.so
 vendor/lib64/libvpu5.so
