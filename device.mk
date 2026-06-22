@@ -125,6 +125,9 @@ PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_PACKAGES += \
     libjni_shim
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/permissions/privapp-permissions-com.mediatek.engineermode.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-com.mediatek.engineermode.xml
+
 # fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
