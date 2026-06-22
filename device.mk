@@ -101,8 +101,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@4.0.vendor \
     libvulkan \
     libdrm.vendor \
-    libpower.vendor \
-    libutils-v32
+    libpower.vendor 
 
 PRODUCT_PACKAGES += \
     libutilscallstack.vendor
