@@ -5,7 +5,7 @@
 //
 
 cc_prebuilt_library_shared {
-	name: "libbinder_v32",
+	name: "libbinder-v32",
 	strip: {
 		none: true,
 	},
