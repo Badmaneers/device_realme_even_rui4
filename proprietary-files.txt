@@ -49,6 +49,7 @@ vendor/lib/libaurisysdemo.so
 vendor/lib/libbessound_hd_mtk_vendor.so
 vendor/lib/libblisrc32_vendor.so
 vendor/lib/libbwc.so
+vendor/lib64/libbwc.so
 vendor/lib/libcvsd_mtk.so
 vendor/lib/libktvdrc.so
 vendor/lib/libktveffect.so
@@ -615,6 +616,10 @@ vendor/lib64/libcameracustom.plugin.so
 vendor/lib64/libcameracustom.so
 vendor/lib64/libcustomer_cameradata.so
 vendor/lib64/libdre.so
+vendor/lib/lib_bsscore.so
+vendor/lib64/lib_bsscore.so
+vendor/lib/libhwconfigurationutil.so
+vendor/lib64/libhwconfigurationutil.so
 vendor/lib64/libeffecthal.base.so
 vendor/lib64/libfeature.face.so
 vendor/lib64/libfeature.stereo.provider.so
