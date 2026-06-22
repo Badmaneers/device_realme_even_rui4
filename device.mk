@@ -193,12 +193,6 @@ $(call inherit-product, hardware/oplus/oplus-fwk/oplus-fwk.mk)
 PRODUCT_PACKAGES += \
     android.hardware.light-service.even
 
-# Lineage Health
-PRODUCT_PACKAGES += \
-    vendor.lineage.health-service.default
-
-$(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/oplus_chg/battery/mmi_charging_enable)
-
 # LiveDisplay
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.1-service-even
