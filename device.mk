@@ -363,7 +363,7 @@ PRODUCT_PACKAGES += \
     libdumpstateutil.vendor:64
 
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
+    $(DEVICE_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
 
 # Soundtrigger
 PRODUCT_PACKAGES += \
