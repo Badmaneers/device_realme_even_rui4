@@ -15,7 +15,6 @@
  */
 
 #include <cstdlib>
-#include <fstream>
 #include <cstring>
 #include <sys/sysinfo.h>
 
@@ -26,8 +25,6 @@
 
 #include "vendor_init.h"
 #include "property_service.h"
-
-#define PROC_NFC_CHIPSET "/proc/oplus_nfc/chipset"
 
 void property_override(char const prop[], char const value[])
 {
@@ -78,22 +75,6 @@ void load_dalvik_properties() {
     property_override("dalvik.vm.heapminfree", heapminfree);
     property_override("dalvik.vm.heapmaxfree", heapmaxfree);
 }
-
-void check_nfc_support()
-{
-    std::ifstream procfile(PROC_NFC_CHIPSET);
-    std::string chipset;
-
-    getline(procfile, chipset);
-
-    LOG(INFO) << "oppo_nfc : chipset " << chipset;
-
-    if (chipset != "NULL") {
-        property_override("ro.boot.product.hardware.sku", "nfc");
-    }
-}
-
 void vendor_load_properties() {
     load_dalvik_properties();
-    check_nfc_support();
 }
