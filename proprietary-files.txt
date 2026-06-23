@@ -49,7 +49,6 @@ vendor/lib/libaurisysdemo.so
 vendor/lib/libbessound_hd_mtk_vendor.so
 vendor/lib/libblisrc32_vendor.so
 vendor/lib/libbwc.so
-vendor/lib64/libbwc.so
 vendor/lib/libcvsd_mtk.so
 vendor/lib/libktvdrc.so
 vendor/lib/libktveffect.so
@@ -72,6 +71,7 @@ vendor/lib64/hw/audio.r_submix.mt6768.so
 vendor/lib64/hw/audio.usb.default.so
 vendor/lib64/libadpcmdec_mtk.so
 vendor/lib64/libaudio_engineer_test.so
+vendor/lib64/libbwc.so
 vendor/lib64/libktvdrc.so
 vendor/lib64/libktveq.so
 vendor/lib64/libktvns.so
@@ -509,8 +509,10 @@ system_ext/lib/vendor.oplus.hardware.camera.slogan@1.0.so
 system_ext/lib64/vendor.oplus.hardware.camera.slogan@1.0.so
 vendor/bin/hw/camerahalserver
 vendor/etc/init/camerahalserver.rc
+vendor/lib/lib_bsscore.so
 vendor/lib/libcam.halsensor.so
 vendor/lib/libcam.utils.sensorprovider.so
+vendor/lib/libhwconfigurationutil.so
 vendor/lib/libmpbase.so
 vendor/lib/libmtkcam.featurepipe.depthmap.so
 vendor/lib/libmtkcam_dpe.so
@@ -568,6 +570,7 @@ vendor/lib64/libSonyIMX386PdafLibrary.so
 vendor/lib64/libSonyIMX386PdafLibraryWrapper.so
 vendor/lib64/libSonyIMX519PdafLibrary.so
 vendor/lib64/libSonyIMX519PdafLibraryWrapper.so
+vendor/lib64/lib_bsscore.so
 vendor/lib64/libasn1c_core.so
 vendor/lib64/libasn1c_mapi.so
 vendor/lib64/libasn1c_mdmi.so
@@ -616,10 +619,6 @@ vendor/lib64/libcameracustom.plugin.so
 vendor/lib64/libcameracustom.so
 vendor/lib64/libcustomer_cameradata.so
 vendor/lib64/libdre.so
-vendor/lib/lib_bsscore.so
-vendor/lib64/lib_bsscore.so
-vendor/lib/libhwconfigurationutil.so
-vendor/lib64/libhwconfigurationutil.so
 vendor/lib64/libeffecthal.base.so
 vendor/lib64/libfeature.face.so
 vendor/lib64/libfeature.stereo.provider.so
@@ -630,6 +629,7 @@ vendor/lib64/libfeature_fsc.so
 vendor/lib64/libfeature_lmv.so
 vendor/lib64/libfeature_rss.so
 vendor/lib64/libfeatureiodrv_mem.so
+vendor/lib64/libhwconfigurationutil.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libmtkcam.eventcallback.so
 vendor/lib64/libmtkcam.featurepipe.capture.so
@@ -2098,6 +2098,7 @@ odm/firmware/awinic_haptic_params.bin
 odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprint@2.1-service
 odm/etc/init/vendor.oplus.hardware.biometrics.fingerprint@2.1-service.rc
 odm/etc/vintf/manifest/manifest_oplus_fingerprint.xml
+odm/lib/vendor.oplus.hardware.performance@1.0.so;MODULE_SUFFIX=_odm
 odm/lib64/hw/fingerprint.focaltech.default.so
 odm/lib64/hw/fingerprint.goodix_G2.default.so
 odm/lib64/hw/fingerprint.goodix_G3.default.so
@@ -2118,7 +2119,6 @@ odm/lib64/libgf_hal_G7.so
 odm/lib64/libsl_fp_impl.so
 odm/lib64/vendor.oplus.hardware.biometrics.fingerprint@2.1.so;MODULE_SUFFIX=_odm
 odm/lib64/vendor.oplus.hardware.commondcs@1.0.so;MODULE_SUFFIX=_odm
-odm/lib/vendor.oplus.hardware.performance@1.0.so;MODULE_SUFFIX=_odm
 odm/lib64/vendor.oplus.hardware.performance@1.0.so;MODULE_SUFFIX=_odm
 odm/init.oplus.fingerprints.rc
 
