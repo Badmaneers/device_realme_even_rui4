@@ -47,6 +47,9 @@ genfscon sysfs /class/oplus_sensor                  u:object_r:vendor_sysfs_oplu
 # Oplus
 genfscon proc /oplusVersion                         u:object_r:vendor_proc_oplus_version:s0
 
+# Oplus touch
+genfscon proc /oplus_tp_limit_enable                u:object_r:vendor_proc_display:s0
+
 # Performance
 genfscon proc /sys/kernel/sched_assist_enabled       u:object_r:proc_sched_assist:s0
 genfscon proc /sys/kernel/sched_assist_scene         u:object_r:proc_sched_assist:s0

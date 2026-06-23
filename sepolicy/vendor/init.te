@@ -1,0 +1,89 @@
+# Binder calls from init (MTK services running as init domain)
+allow init hwservicemanager:binder { call transfer };
+allow init system_server:binder call;
+allow init surfaceflinger:binder call;
+allow init storaged:binder call;
+allow init bluetooth:binder { call transfer };
+allow init radio:binder call;
+allow init system_suspend:binder call;
+
+# Binder transfers from init
+allow init mediaserver:binder transfer;
+allow init mediaprovider_app:binder transfer;
+allow init hwservicemanager:binder transfer;
+
+# Other domains calling init
+allow system_server init:binder call;
+allow audioserver init:binder call;
+allow bluetooth init:binder call;
+allow radio init:binder call;
+allow mediaserver init:binder call;
+allow storaged init:binder call;
+allow surfaceflinger init:binder call;
+allow system_suspend init:binder call;
+allow keystore init:binder call;
+
+# Netlink sockets
+allow init self:netlink_kobject_uevent_socket { read write };
+allow init self:netlink_route_socket read;
+allow init self:netlink_socket { read write };
+allow init self:netlink_generic_socket { read write setopt };
+
+# TCP socket (mtk_agpsd)
+allow init self:tcp_socket shutdown;
+
+# proc_ged ioctl/read (GPU related)
+allow init proc_ged:file { ioctl open read };
+
+# proc_thermal (thermal management)
+allow init proc_thermal:file { open read write };
+
+# proc_cpufreq (CPU frequency)
+allow init proc_cpufreq:file { open write };
+
+# Device nodes
+allow init ccci_device:chr_file { open read write ioctl };
+allow init ion_device:chr_file { open read ioctl };
+allow init mobicore_user_device:chr_file ioctl;
+allow init graphics_device:chr_file ioctl;
+allow init mnld_device:chr_file { open read write ioctl };
+allow init audio_device:chr_file ioctl;
+allow init vndbinder_device:chr_file { open read write ioctl map };
+
+# Sysfs / vendor sysfs
+allow init vendor_sysfs_graphics:file { open write };
+allow init vendor_sysfs_ac_supply:file { open read };
+allow init vendor_sysfs_battery_supply:file { open read };
+allow init vendor_sysfs_usb_supply:file { open read };
+allow init vendor_sysfs_gpu:file { open write };
+allow init sysfs_batteryinfo:file { open read };
+allow init sysfs_sensor:file { open write };
+allow init sysfs_ccci:file open;
+allow init sysfs_boot_mode:file open;
+allow init sysfs:file open;
+
+# vendor_proc_display (touch, display)
+allow init vendor_proc_display:file { open write };
+
+# Sockets
+allow init dnsproxyd_socket:sock_file write;
+allow init rild_oem_socket:sock_file write;
+
+# GPS data
+allow init gps_data_file:file lock;
+
+# FD use from other domains (surfaceflinger sync)
+allow init bootanim:fd use;
+allow init platform_app:fd use;
+allow init system_app:fd use;
+allow init system_server:fd use;
+
+# hwservice manager
+allow init hal_commondcs_oplus_hwservice:hwservice_manager find;
+allow init default_android_hwservice:hwservice_manager find;
+
+# service manager
+allow init hal_audio_service:service_manager find;
+
+# Associate filesystem type (proc labeling)
+allow init proc:filesystem associate;

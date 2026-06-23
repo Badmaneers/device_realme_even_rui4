@@ -1,1 +1,8 @@
 r_dir_file(mtk_hal_bluetooth, vendor_proc_oplus_version)
+
+binder_call(bluetooth, mtk_hal_bluetooth)
+binder_call(mtk_hal_bluetooth, bluetooth)
+
+# Bluetooth and init binder communication
+allow bluetooth init:binder { call transfer };
+allow init bluetooth:binder { call transfer };
