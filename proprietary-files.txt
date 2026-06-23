@@ -512,10 +512,12 @@ vendor/etc/init/camerahalserver.rc
 vendor/lib/lib_bsscore.so
 vendor/lib/libcam.halsensor.so
 vendor/lib/libcam.utils.sensorprovider.so
+vendor/lib/libcvface_api.so
 vendor/lib/libhwconfigurationutil.so
 vendor/lib/libmpbase.so
 vendor/lib/libmtkcam.featurepipe.depthmap.so
 vendor/lib/libmtkcam_dpe.so
+vendor/lib/libmtkcam_exif.so
 vendor/lib/libmtkcam_imem.so
 vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so
 vendor/lib64/hw/vendor.mediatek.hardware.camera.bgservice@1.1-impl.so
@@ -618,6 +620,7 @@ vendor/lib64/libcameracustom.eis.so
 vendor/lib64/libcameracustom.plugin.so
 vendor/lib64/libcameracustom.so
 vendor/lib64/libcustomer_cameradata.so
+vendor/lib64/libcvface_api.so
 vendor/lib64/libdre.so
 vendor/lib64/libeffecthal.base.so
 vendor/lib64/libfeature.face.so
