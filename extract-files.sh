@@ -56,6 +56,11 @@ done
 
 function blob_fixup {
     case "$1" in
+        vendor/lib*/hw/audio.usb.default.so|\
+        vendor/lib*/hw/audio.primary.mt6768.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --replace-needed "libalsautils.so" "libalsautils-v31.so" "${2}"
+            ;;
         vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-mtk-neuron|odm/bin/hw/vendor.oplus.hardware.charger@1.0-service|vendor/lib*/libnvram.so|vendor/lib*/libsysenv.so)
             [ "$2" = "" ] && return 0
             grep -q "libbase_shim.so" "${2}" || "${PATCHELF}" --add-needed "libbase_shim.so" "${2}"
