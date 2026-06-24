@@ -194,10 +194,6 @@ $(call inherit-product, hardware/oplus/oplus-fwk/oplus-fwk.mk)
 PRODUCT_PACKAGES += \
     android.hardware.light-service.even
 
-# LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.1-service-even
-
 # Vendor Log Tag
 include $(DEVICE_PATH)/configs/props/vendor_logtag.mk
 
