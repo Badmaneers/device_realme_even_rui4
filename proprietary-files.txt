@@ -66,6 +66,7 @@ vendor/lib/librt_extamp_intf.so
 vendor/lib/libspeech_enh_lib.so
 vendor/lib/libspeechparser_vendor.so
 vendor/lib/vendor.mediatek.hardware.audio@7.1.so
+vendor/lib/vendor.oplus.hardware.olc@2.0.so
 vendor/lib64/hw/audio.primary.mt6768.so
 vendor/lib64/hw/audio.r_submix.mt6768.so
 vendor/lib64/hw/audio.usb.default.so
@@ -76,6 +77,8 @@ vendor/lib64/libktvdrc.so
 vendor/lib64/libktveq.so
 vendor/lib64/libktvns.so
 vendor/lib64/libktvvolume.so
+vendor/lib64/libolc_vnd.so
+vendor/lib64/vendor.oplus.hardware.olc@2.0.so
 
 # Audio Configs
 odm/etc/audio/audio_device/audio_device.xml
@@ -570,6 +573,7 @@ vendor/lib64/libSonyIMX386PdafLibrary.so
 vendor/lib64/libSonyIMX386PdafLibraryWrapper.so
 vendor/lib64/libSonyIMX519PdafLibrary.so
 vendor/lib64/libSonyIMX519PdafLibraryWrapper.so
+vendor/lib64/libVDBlurless.so
 vendor/lib64/lib_bsscore.so
 vendor/lib64/libasn1c_core.so
 vendor/lib64/libasn1c_mapi.so
@@ -692,6 +696,7 @@ vendor/lib64/libmtkcam_synchelper.so
 vendor/lib64/libmtkcam_sysutils.so
 vendor/lib64/libmtkcam_tuning_utils.so
 vendor/lib64/libmtkcam_ulog.so
+vendor/lib64/libmtkcam_vsync_util.so
 vendor/lib64/libmtkisp_metadata.so
 vendor/lib64/libocam_common.so
 vendor/lib64/liboplus.aishutter.so
@@ -699,6 +704,7 @@ vendor/lib64/liboplus_platform_hwi.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libremosaic_wrapper.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libremosaiclib.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libstereoinfoaccessor_vsdof.so
+vendor/lib64/libvdblurless.so
 vendor/lib64/miami_aac2_ov64b_IdxMgr.so
 vendor/lib64/miami_aac2_ov64b_tuning.so
 vendor/lib64/miami_gc02m1_IdxMgr.so
