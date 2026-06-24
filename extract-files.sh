@@ -114,6 +114,10 @@ function blob_fixup {
         vendor/bin/hw/vendor.mediatek.hardware.mtkpower@1.0-service)
             "$PATCHELF" --replace-needed "android.hardware.power-V2-ndk_platform.so" "android.hardware.power-V2-ndk.so" "$2"
             ;;
+        vendor/lib64/hw/hwcomposer.mt6768.so)
+            [ "$2" = "" ] && return 0
+             grep -q "libprocessgroup_shim.so" "${2}" || "${PATCHELF}" --add-needed "libprocessgroup_shim.so" "${2}"
+            ;;
         vendor/bin/hw/android.hardware.gnss-service.mediatek|\
         vendor/lib64/hw/android.hardware.gnss-impl-mediatek.so)
             [ "$2" = "" ] && return 0
