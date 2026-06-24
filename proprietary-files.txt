@@ -487,10 +487,8 @@ odm/etc/init/vendor.oplus.hardware.charger@1.0-service.rc
 odm/firmware/fastchg/charging_thermal_config_default.txt
 odm/lib/libosenseaidlhalclient.so
 odm/lib/vendor.oplus.hardware.charger@1.0.so
-odm/lib/vendor.oplus.hardware.osense.client-V1-ndk_platform.so
 odm/lib64/libosenseaidlhalclient.so
 odm/lib64/vendor.oplus.hardware.charger@1.0.so
-odm/lib64/vendor.oplus.hardware.osense.client-V1-ndk_platform.so
 
 # Chipinfo
 vendor/bin/chipinfo
@@ -2286,8 +2284,6 @@ vendor/lib64/libvcodecdrv_header_stub.so
 vendor/lib64/libvpu5.so
 
 # Media (Codec2)
-odm/lib/vendor.oplus.hardware.performance-V1-ndk_platform.so
-odm/lib64/vendor.oplus.hardware.performance-V1-ndk_platform.so
 vendor/bin/hw/android.hardware.media.c2@1.2-mediatek
 vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b
 vendor/etc/init/android.hardware.media.c2@1.2-mediatek.rc
