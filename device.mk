@@ -47,6 +47,7 @@ PRODUCT_PACKAGES += \
     libbluetooth_audio_session \
     libunwindstack.vendor \
     libalsautils \
+    libtinyalsa \
     libnbaio_mono \
     libtinycompress \
     libdynproc \
