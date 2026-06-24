@@ -131,6 +131,10 @@ function blob_fixup {
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "android.hardware.gnss-V1-ndk_platform.so" "android.hardware.gnss-V1-ndk.so" "${2}"
             ;;
+        vendor/bin/hw/mtkfusionrild)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --add-needed "libutils-v32.so" "${2}"
+            ;;
     esac
 }
 
