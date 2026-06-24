@@ -46,8 +46,8 @@ PRODUCT_PACKAGES += \
     libaudiofoundation.vendor \
     libbluetooth_audio_session \
     libunwindstack.vendor \
-    libalsautils \
-    libtinyalsa \
+    libalsautils.vendor \
+    libtinyalsa.vendor \
     libnbaio_mono \
     libtinycompress \
     libdynproc \
@@ -373,7 +373,7 @@ PRODUCT_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     hardware/mediatek \
-    hardware/oplus \
+    hardware/oplus \    
     hardware/lineage/compat \
     hardware/google/interfaces \
     hardware/google/pixel \

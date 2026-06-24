@@ -60,6 +60,9 @@ function blob_fixup {
         vendor/lib*/hw/audio.primary.mt6768.so)
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "libalsautils.so" "libalsautils-v31.so" "${2}"
+            # Fix HAL module tag from Mediatek custom "TMWH" to standard HARDWARE_MODULE_TAG "TWMH"
+            # Without this, hw_get_module_by_class() rejects the module on Android 15+ libhardware
+            sed -i 's/\x54\x4d\x57\x48/\x54\x57\x4d\x48/g' "${2}"
             ;;
         vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-mtk-neuron|odm/bin/hw/vendor.oplus.hardware.charger@1.0-service|vendor/lib*/libnvram.so|vendor/lib*/libsysenv.so)
             [ "$2" = "" ] && return 0
