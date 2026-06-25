@@ -17,6 +17,8 @@
 #include <cstdlib>
 #include <cstring>
 #include <sys/sysinfo.h>
+#include <string>
+#include <vector>
 
 #include <android-base/properties.h>
 #include <android-base/logging.h>
@@ -77,4 +79,23 @@ void load_dalvik_properties() {
 }
 void vendor_load_properties() {
     load_dalvik_properties();
+
+    std::string prjname = android::base::GetProperty("ro.boot.prjname", "");
+
+    if (prjname == "20761") {
+        property_override("ro.product.model", "RMX3191");
+        property_override("ro.product.name", "RMX3191");
+        property_override("ro.product.device", "RMX3191");
+        property_override("ro.build.product", "RMX3191");
+    } else if (prjname == "2167A") {
+        property_override("ro.product.model", "RMX3195");
+        property_override("ro.product.name", "RMX3195");
+        property_override("ro.product.device", "RMX3195");
+        property_override("ro.build.product", "RMX3195");
+    } else if (prjname == "216AF") {
+        property_override("ro.product.model", "RMX3430");
+        property_override("ro.product.name", "RMX3430");
+        property_override("ro.product.device", "RMX3430");
+        property_override("ro.build.product", "RMX3430");
+    }
 }
