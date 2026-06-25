@@ -20,6 +20,19 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 30
 
+# Axion Stuff
+PRODUCT_NO_CAMERA := false
+AXION_CAMERA_REAR_INFO := 50,2,2
+AXION_CAMERA_FRONT_INFO := 8
+AXION_MAINTAINER := Badmaneers
+AXION_PROCESSOR := MTK_Helio_G85
+
+# Axion Optional Flags
+TARGET_ENABLE_BLUR := true
+PERF_ANIM_OVERRIDE := true
+TARGET_USES_SLMK := true
+TARGET_INCLUDES_LOS_PREBUILTS := false
+
 # Display
 TARGET_SCREEN_DENSITY := 320
 
