@@ -74,6 +74,10 @@ ro.vendor.mtk_slow_motion_support=1
 ro.mtk_cam_stereo_camera_support=1
 ro.vendor.mtk_zsdhdr_support=1
 
+# Axion
+persist.sys.perf.scroll_opt = true
+persist.sys.perf.scroll_opt.heavy_app = 2
+
 # Display
 debug.sf.auto_latch_unsignaled=0
 debug.sf.enable_gl_backpressure=0

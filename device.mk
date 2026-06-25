@@ -32,6 +32,11 @@ TARGET_ENABLE_BLUR := true
 PERF_ANIM_OVERRIDE := true
 TARGET_USES_SLMK := true
 TARGET_INCLUDES_LOS_PREBUILTS := false
+HBM_SUPPORTED := true
+HBM_NODE := /sys/kernel/oplus_display/hbm
+BYPASS_CHARGE_SUPPORTED := true
+BYPASS_CHARGE_TOGGLE_PATH ?= /sys/class/oplus_chg/battery/mmi_charging_enable
+TARGET_IS_LOW_RAM = true
 
 # Display
 TARGET_SCREEN_DENSITY := 320
