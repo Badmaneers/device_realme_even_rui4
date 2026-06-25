@@ -66,23 +66,13 @@ void vendor_load_properties() {
 
     if (prjname == "20761") {
         set_device_props("RMX3191", "Realme C25");
-        property_override("ro.infinity.soc", "Mediatek Helio G70");
-        property_override("ro.infinity.camera", "48MP + 2MP + 2MP");
     } else if (prjname == "2167A") {
         set_device_props("RMX3195", "Realme C25s");
-        property_override("ro.infinity.soc", "Mediatek Helio G85");
-        property_override("ro.infinity.camera", "13MP + 2MP + 2MP");
     } else if (prjname == "2167C") {
         set_device_props("RMX3195", "Realme C25s");
-        property_override("ro.infinity.soc", "Mediatek Helio G85");
-        property_override("ro.infinity.camera", "48MP + 2MP + 2MP");
     } else if (prjname == "216AF") {
         set_device_props("RMX3430", "Realme Narzo 50A");
-        property_override("ro.infinity.soc", "Mediatek Helio G85");
-        property_override("ro.infinity.camera", "50MP + 2MP + 2MP");
     } else {
         set_device_props("RMX3191", "Realme C25");
-        property_override("ro.infinity.soc", "Mediatek Helio G70");
-        property_override("ro.infinity.camera", "48MP + 2MP + 2MP");
     }
 }
