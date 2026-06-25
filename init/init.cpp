@@ -66,13 +66,23 @@ void vendor_load_properties() {
 
     if (prjname == "20761") {
         set_device_props("RMX3191", "Realme C25");
+        property_override("persist.sys.axion_cpu_info", "MTK_Helio_G70");
+        property_override("persist.sys.device_camera_info_rear", "48,2,2");
     } else if (prjname == "2167A") {
-        set_device_props("RMX3195", "Realme C25s");
+        set_device_props("RMX3195", "Realme C25S");
+        property_override("persist.sys.axion_cpu_info", "MTK_Helio_G85");
+        property_override("persist.sys.device_camera_info_rear", "13,2,2");
     } else if (prjname == "2167C") {
-        set_device_props("RMX3195", "Realme C25s");
+        set_device_props("RMX3195", "Realme C25S");
+        property_override("persist.sys.axion_cpu_info", "MTK_Helio_G85");
+        property_override("persist.sys.device_camera_info_rear", "48,2,2");
     } else if (prjname == "216AF") {
         set_device_props("RMX3430", "Realme Narzo 50A");
+        property_override("persist.sys.axion_cpu_info", "MTK_Helio_G85");
+        property_override("persist.sys.device_camera_info_rear", "50,2,2");
     } else {
         set_device_props("RMX3191", "Realme C25");
+        property_override("persist.sys.axion_cpu_info", "MTK_Helio_G70");
+        property_override("persist.sys.device_camera_info_rear", "48,2,2");
     }
 }
