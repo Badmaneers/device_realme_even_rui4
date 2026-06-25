@@ -16,9 +16,7 @@
 
 #include <cstdlib>
 #include <cstring>
-#include <sys/sysinfo.h>
 #include <string>
-#include <vector>
 
 #include <android-base/properties.h>
 #include <android-base/logging.h>
@@ -39,47 +37,7 @@ void property_override(char const prop[], char const value[])
     }
 }
 
-void load_dalvik_properties() {
-    char const *heapstartsize;
-    char const *heapgrowthlimit;
-    char const *heapsize;
-    char const *heapminfree;
-    char const *heapmaxfree;
-    char const *heaptargetutilization;
-    struct sysinfo sys;
-
-    sysinfo(&sys);
-
-    if (sys.totalram >= 5ull * 1024 * 1024 * 1024) {
-        // from - phone-xhdpi-6144-dalvik-heap.mk
-        heapstartsize = "16m";
-        heapgrowthlimit = "256m";
-        heapsize = "512m";
-        heaptargetutilization = "0.5";
-        heapminfree = "8m";
-        heapmaxfree = "32m";
-    } else if (sys.totalram >= 3ull * 1024 * 1024 * 1024) {
-        // from - phone-xhdpi-4096-dalvik-heap.mk
-        heapstartsize = "8m";
-        heapgrowthlimit = "192m";
-        heapsize = "512m";
-        heaptargetutilization = "0.6";
-        heapminfree = "8m";
-        heapmaxfree = "16m";
-    } else {
-        return;
-    }
-
-    property_override("dalvik.vm.heapstartsize", heapstartsize);
-    property_override("dalvik.vm.heapgrowthlimit", heapgrowthlimit);
-    property_override("dalvik.vm.heapsize", heapsize);
-    property_override("dalvik.vm.heaptargetutilization", heaptargetutilization);
-    property_override("dalvik.vm.heapminfree", heapminfree);
-    property_override("dalvik.vm.heapmaxfree", heapmaxfree);
-}
 void vendor_load_properties() {
-    load_dalvik_properties();
-
     std::string prjname = android::base::GetProperty("ro.boot.prjname", "");
 
     if (prjname == "20761") {
