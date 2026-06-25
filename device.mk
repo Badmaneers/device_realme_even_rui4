@@ -28,6 +28,7 @@ AXION_MAINTAINER := Badmaneers
 AXION_PROCESSOR := MTK_Helio_G85
 
 # Axion Optional Flags
+TARGET_INCLUDE_AXFX := true
 TARGET_ENABLE_BLUR := true
 PERF_ANIM_OVERRIDE := true
 TARGET_USES_SLMK := true

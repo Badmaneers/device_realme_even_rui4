@@ -17,6 +17,3 @@ fi
 VT-IMS=vendor/mediatek/ims/ims.mk
 if ! [ -a $VT-IMS ]; then git clone https://github.com/techyminati/android_vendor_mediatek_ims.git vendor/mediatek/ims
 fi
-DOLBY=hardware/dolby/dolby.mk
-if ! [ -a $DOLBY ]; then git clone -b sony-1.2 https://github.com/swiitch-OFF-Lab/hardware_dolby.git  hardware/dolby
-fi
