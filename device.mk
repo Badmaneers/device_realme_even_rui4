@@ -243,6 +243,7 @@ PRODUCT_PACKAGES += \
     WifiResOverlayEven \
     TetheringResOverlayEven \
     CarrierConfigOverlayEven \
+    LauncherOverlayEven \
     OplusDozeOverlayEven
 
 # Permissions
