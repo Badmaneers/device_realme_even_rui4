@@ -22,6 +22,9 @@ PRODUCT_MODEL := RMX3430
 
 PRODUCT_GMS_CLIENTID_BASE := android-realme
 
+# Maintainer
+INFINITY_MAINTAINER := "DumbDragon"
+
 # Build info
 PRODUCT_BUILD_PROP_OVERRIDES += \
 	BuildFingerprint=realme/RMX3430/RED8AF:13/SP1A.210812.016/R.182c3f7_cf1b8:user/release-keys \
