@@ -60,5 +60,3 @@ allow init system_server:fd use;
 # hwservice manager
 allow init hal_commondcs_oplus_hwservice:hwservice_manager find;
 
-# Associate filesystem type (proc labeling)
-allow init proc:filesystem associate;
