@@ -64,7 +64,10 @@ function blob_fixup {
             # Without this, hw_get_module_by_class() rejects the module on Android 15+ libhardware
             sed -i 's/\x54\x4d\x57\x48/\x54\x57\x4d\x48/g' "${2}"
             ;;
-        vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-mtk-neuron|odm/bin/hw/vendor.oplus.hardware.charger@1.0-service|vendor/lib*/libnvram.so|vendor/lib*/libsysenv.so)
+        vendor/lib*/libnvram.so|vendor/lib*/libsysenv.so|\
+        odm/bin/hw/vendor.oplus.hardware.charger@1.0-service|\
+        vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-mtk-neuron|\
+        vendor/bin/hw/android.hardware.sensors@2.0-service.multihal-mediatek)
             [ "$2" = "" ] && return 0
             grep -q "libbase_shim.so" "${2}" || "${PATCHELF}" --add-needed "libbase_shim.so" "${2}"
             ;;
@@ -109,7 +112,8 @@ function blob_fixup {
         vendor/lib*/libaalservice.so|\
         vendor/lib*/libcam.utils.sensorprovider.so|\
         vendor/lib*/hw/android.hardware.sensors@2.X-subhal-mediatek.so)
-            "$PATCHELF" --add-needed "libshim_sensors.so" "$2"
+            [ "$2" = "" ] && return 0
+           "${PATCHELF}" --replace-needed "libsensorndkbridge.so" "android.hardware.sensors@1.0-convert-shared.so" "${2}"
             ;;
         vendor/lib64/libSQLiteModule_VER_ALL.so|vendor/lib64/lib3a.flash.so)
             [ "$2" = "" ] && return 0

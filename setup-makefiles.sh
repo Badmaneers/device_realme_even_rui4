@@ -31,7 +31,6 @@ function vendor_imports() {
 		"device/realme/even",
 		"hardware/mediatek",
 		"hardware/mediatek/libmtkperf_client",
-        "hardware/lineage/compat",
 		"hardware/oplus",
 EOF
 }
