@@ -45,7 +45,7 @@ void property_override(char const prop[], char const value[]) {
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
-void set_device_props(const std::string model) {
+void set_device_props(const std::string model, const std::string marketname) {
     const auto set_ro_product_prop = [](const std::string &source,
                                         const std::string &prop,
                                         const std::string &value) {
@@ -57,7 +57,7 @@ void set_device_props(const std::string model) {
         set_ro_product_prop(source, "device", model);
         set_ro_product_prop(source, "model", model);
         set_ro_product_prop(source, "name", model);
-        set_ro_product_prop(source, "marketname", model);
+        set_ro_product_prop(source, "marketname", marketname);
     }
 }
 
@@ -65,10 +65,28 @@ void vendor_load_properties() {
     std::string prjname = GetProperty("ro.boot.prjname", "");
 
     if (prjname == "20761") {
-        set_device_props("RMX3191");
+        set_device_props("RMX3191", "Realme C25");
+        property_override("ro.infinity.soc", "Mediatek Helio G70");
+
+        std::string timezone = GetProperty("persist.sys.timezone", "");
+        if (timezone.find("Kolkata") != std::string::npos) {
+            property_override("ro.infinity.camera", "13MP + 2MP + 2MP");
+        } else {
+            property_override("ro.infinity.camera", "48MP + 2MP + 2MP");
+        }
     } else if (prjname == "2167A") {
-        set_device_props("RMX3195");
+        set_device_props("RMX3195", "Realme C25s");
+        property_override("ro.infinity.soc", "Mediatek Helio G85");
+
+        std::string timezone = GetProperty("persist.sys.timezone", "");
+        if (timezone.find("Kolkata") != std::string::npos) {
+            property_override("ro.infinity.camera", "13MP + 2MP + 2MP");
+        } else {
+            property_override("ro.infinity.camera", "48MP + 2MP + 2MP");
+        }
     } else if (prjname == "216AF") {
-        set_device_props("RMX3430");
+        set_device_props("RMX3430", "Realme Narzo 50A");
+        property_override("ro.infinity.soc", "Mediatek Helio G85");
+        property_override("ro.infinity.camera", "50MP + 2MP + 2MP");
     }
 }
