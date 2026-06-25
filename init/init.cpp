@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The LineageOS Project
+ * Copyright (C) 2025 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,46 +14,61 @@
  * limitations under the License.
  */
 
-#include <cstdlib>
-#include <cstring>
 #include <string>
+#include <vector>
 
 #include <android-base/properties.h>
-#include <android-base/logging.h>
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 
 #include "vendor_init.h"
-#include "property_service.h"
 
-void property_override(char const prop[], char const value[])
-{
-    auto pi = (prop_info *) __system_property_find(prop);
+using android::base::GetProperty;
 
-    if (pi != nullptr) {
+std::vector<std::string> ro_props_default_source_order = {
+    "",
+    "odm.",
+    "system.",
+    "product.",
+    "system_ext.",
+    "vendor.",
+    "vendor_dlkm.",
+};
+
+void property_override(char const prop[], char const value[]) {
+    prop_info *pi;
+
+    pi = (prop_info *)__system_property_find(prop);
+    if (pi)
         __system_property_update(pi, value, strlen(value));
-    } else {
+    else
         __system_property_add(prop, strlen(prop), value, strlen(value));
+}
+
+void set_device_props(const std::string model) {
+    const auto set_ro_product_prop = [](const std::string &source,
+                                        const std::string &prop,
+                                        const std::string &value) {
+        auto prop_name = "ro.product." + source + prop;
+        property_override(prop_name.c_str(), value.c_str());
+    };
+
+    for (const auto &source : ro_props_default_source_order) {
+        set_ro_product_prop(source, "device", model);
+        set_ro_product_prop(source, "model", model);
+        set_ro_product_prop(source, "name", model);
+        set_ro_product_prop(source, "marketname", model);
     }
 }
 
 void vendor_load_properties() {
-    std::string prjname = android::base::GetProperty("ro.boot.prjname", "");
+    std::string prjname = GetProperty("ro.boot.prjname", "");
 
     if (prjname == "20761") {
-        property_override("ro.product.model", "RMX3191");
-        property_override("ro.product.name", "RMX3191");
-        property_override("ro.product.device", "RMX3191");
-        property_override("ro.build.product", "RMX3191");
+        set_device_props("RMX3191");
     } else if (prjname == "2167A") {
-        property_override("ro.product.model", "RMX3195");
-        property_override("ro.product.name", "RMX3195");
-        property_override("ro.product.device", "RMX3195");
-        property_override("ro.build.product", "RMX3195");
+        set_device_props("RMX3195");
     } else if (prjname == "216AF") {
-        property_override("ro.product.model", "RMX3430");
-        property_override("ro.product.name", "RMX3430");
-        property_override("ro.product.device", "RMX3430");
-        property_override("ro.build.product", "RMX3430");
+        set_device_props("RMX3430");
     }
 }
