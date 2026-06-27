@@ -39,6 +39,7 @@ HBM_NODE := /sys/kernel/oplus_display/hbm
 BYPASS_CHARGE_SUPPORTED := true
 BYPASS_CHARGE_TOGGLE_PATH ?= /sys/class/oplus_chg/battery/mmi_charging_enable
 TARGET_IS_LOW_RAM = true
+TARGET_DISABLES_LIBPERF := true
 
 # AxBurstengine
 PRODUCT_COPY_FILES += \
