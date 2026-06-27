@@ -408,19 +408,19 @@
       "PowerHint": "INTERACTION",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 0,
-      "Value": "1275000"
+      "Value": "1450000"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPUBigClusterMinFreq",
       "Duration": 0,
-      "Value": "1443000"
+      "Value": "1800000"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 0,
-      "Value": "1625000"
+      "Value": "1800000"
     },
     {
       "PowerHint": "INTERACTION",
@@ -432,13 +432,13 @@
       "PowerHint": "INTERACTION",
       "Node": "TASchedtuneBoost",
       "Duration": 0,
-      "Value": "40"
+      "Value": "50"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "DRAMOppMin",
       "Duration": 0,
-      "Value": "0"
+      "Value": "1"
     },
     {
       "PowerHint": "INTERACTION",
@@ -456,25 +456,25 @@
       "PowerHint": "INTERACTION",
       "Node": "FGBoostPerf",
       "Duration": 0,
-      "Value": "50"
+      "Value": "75"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "UclampMin",
       "Duration": 0,
-      "Value": "50"
+      "Value": "75"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "FGUclampMin",
       "Duration": 0,
-      "Value": "50"
+      "Value": "75"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "TAUclampMin",
       "Duration": 0,
-      "Value": "50"
+      "Value": "75"
     },
     {
       "PowerHint": "LAUNCH",
@@ -526,6 +526,12 @@
     },
     {
       "PowerHint": "LAUNCH",
+      "Node": "CCIFreqMode",
+      "Duration": 3000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "LAUNCH",
       "Node": "DRAMOppMin",
       "Duration": 3000,
       "Value": "1"
@@ -540,7 +546,7 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUDVFSInterval",
       "Duration": 0,
-      "Value": "75"
+      "Value": "50"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
@@ -553,6 +559,30 @@
       "Node": "GPUBlockBoost",
       "Duration": 0,
       "Value": "50"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "CCIFreqMode",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "UclampMin",
+      "Duration": 0,
+      "Value": "75"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "FGUclampMin",
+      "Duration": 0,
+      "Value": "75"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "TAUclampMin",
+      "Duration": 0,
+      "Value": "75"
     },
     {
       "PowerHint": "DOUBLE_TAP_TO_WAKE",
