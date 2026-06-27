@@ -246,4 +246,10 @@
         <fqname>@1.0::IOplusRadio/oplus_slot1</fqname>
         <fqname>@1.0::IOplusRadio/oplus_slot2</fqname>
     </hal>
+    <hal format="hidl">
+        <name>android.hardware.secure_element</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.2::ISecureElement/SIM1</fqname>
+        <fqname>@1.2::ISecureElement/SIM2</fqname>
+    </hal>
 </manifest>
