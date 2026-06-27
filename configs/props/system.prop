@@ -25,6 +25,12 @@ ro.charger.enable_suspend=true
 # Display
 ro.opengles.version=196610
 
+# SurfaceFlinger
+persist.sys.sf.cpupolicy.min_60=350
+persist.sys.sf.cpupolicy.lowbound_uclamp_min=512
+persist.sys.sf.cpupolicy.min_boost=512
+persist.sys.sf.cpupolicy.upbound_uclamp_min=768
+
 # Dalvik
 dalvik.vm.dex2oat64.enabled=true
 
