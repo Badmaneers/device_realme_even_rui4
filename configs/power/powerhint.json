@@ -135,6 +135,7 @@
       "Name": "TASchedtuneBoost",
       "Path": "/dev/stune/top-app/schedtune.boost",
       "Values": [
+        "50",
         "40",
         "10"
       ],
@@ -155,6 +156,7 @@
       "Values": [
         "0",
         "50",
+        "75",
         "100"
       ],
       "ResetOnInit": true,
