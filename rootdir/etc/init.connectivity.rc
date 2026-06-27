@@ -28,6 +28,10 @@ on post-fs-data
     chmod 0660 /dev/ttyGS2
 
 # WMT
+# TCP tuning for upload performance
+on boot
+    write /proc/sys/net/ipv4/tcp_congestion_control "bbr"
+
 service wmt_loader /vendor/bin/wmt_loader
     class early_hal
     user system
