@@ -40,9 +40,9 @@ BYPASS_CHARGE_SUPPORTED := true
 BYPASS_CHARGE_TOGGLE_PATH ?= /sys/class/oplus_chg/battery/mmi_charging_enable
 TARGET_IS_LOW_RAM = true
 
-+# AxBurstengine
-+PRODUCT_COPY_FILES += \
-+    $(DEVICE_PATH)/configs/axion/ax_perf_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ax_perf_config.xml
+# AxBurstengine
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/axion/ax_perf_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ax_perf_config.xml
 
 # Display
 TARGET_SCREEN_DENSITY := 320
