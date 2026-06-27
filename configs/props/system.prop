@@ -31,9 +31,16 @@ persist.sys.sf.cpupolicy.lowbound_uclamp_min=512
 persist.sys.sf.cpupolicy.min_boost=512
 persist.sys.sf.cpupolicy.upbound_uclamp_min=768
 
-# Dalvik
+# Dex
+dalvik.vm.dex2oat-cpu-set=0,1,2,3,4,5
+dalvik.vm.dex2oat-threads=6
 dalvik.vm.dex2oat64.enabled=true
-
+dalvik.vm.dexopt.secondary=true
+persist.bg.dexopt.enable=true
+pm.dexopt.bg-dexopt=speed-profile
+pm.dexopt.boot=verify
+pm.dexopt.first-boot=quicken
+pm.dexopt.install=speed-profile
 # RIL
 vendor.rild.libpath=mtk-ril.so
 vendor.rild.libargs=-d /dev/ttyC0
