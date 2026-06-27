@@ -71,7 +71,7 @@ persist.vendor.camera3.pipeline.bufnum.min.low_ram.fdyuv=8
 ro.vendor.camera.isp.support.colorspace=0
 ro.vendor.mtk_cam_security_support=0
 ro.vendor.mtk_slow_motion_support=1
-ro.mtk_cam_stereo_camera_support=1
+ro.vendor.mtk_cam_stereo_camera_support=1
 ro.vendor.mtk_zsdhdr_support=1
 
 # Axion
