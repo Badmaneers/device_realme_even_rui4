@@ -18,6 +18,8 @@
     <path name="gpu_custom_upbound_freq">/sys/kernel/ged/hal/custom_upbound_gpu_freq</path>
     <path name="gpu_dvfs_loading_mode">/sys/kernel/ged/hal/dvfs_loading_mode</path>
 
+    <path name="cci_freq">/proc/cpufreq/cpufreq_cci_mode</path>
+
     <path name="pmqos_cpu_dma_latency">/dev/cpu_dma_latency</path>
     <int name="pmqos_default_us">1000000</int>
 
@@ -236,6 +238,7 @@
         <res name="cpu_max_c1">1</res>
         <res name="dram_min">-1</res>
         <res name="gpu_boost">1</res>
+        <res name="cci_freq">1</res>
         <int name="duration_ms">600</int>
     </hint>
 
@@ -320,6 +323,7 @@
         <res name="pmqos_cpu_dma_latency">44</res>
         <res name="gpu_dvfs_margin">1</res>
         <res name="gpu_dvfs_step">1</res>
+        <res name="cci_freq">1</res>
         <res name="cpu_max_c1">1</res>
         <int name="duration_ms">1000</int>
     </hint>
