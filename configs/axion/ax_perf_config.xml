@@ -35,8 +35,9 @@
         <res name="gpu_boost">1</res>
         <res name="dram_min">-1</res>
         <res name="cpuset_svp">1</res>
-        <res name="uclamp_fg">70</res>
-        <res name="uclamp_top">70</res>
+        <res name="cci_freq">1</res>
+        <res name="uclamp_fg">75</res>
+        <res name="uclamp_top">75</res>
         <res name="rr_fling">1</res>
         <int name="duration_ms">500</int>
     </hint>
@@ -49,8 +50,9 @@
         <res name="gpu_boost">1</res>
         <res name="dram_min">-1</res>
         <res name="cpuset_svp">1</res>
-        <res name="uclamp_fg">70</res>
-        <res name="uclamp_top">70</res>
+        <res name="cci_freq">1</res>
+        <res name="uclamp_fg">75</res>
+        <res name="uclamp_top">75</res>
         <res name="uclamp_top_lat">1</res>
         <res name="uclamp_fg_max">100</res>
         <res name="pmqos_cpu_dma_latency">44</res>
@@ -83,8 +85,9 @@
     <hint name="fling">
         <res name="cpu_min_c0">-1</res>
         <res name="cpu_min_c1">-1</res>
-        <res name="uclamp_fg">70</res>
-        <res name="uclamp_top">80</res>
+        <res name="cci_freq">1</res>
+        <res name="uclamp_fg">75</res>
+        <res name="uclamp_top">85</res>
         <res name="uclamp_top_lat">1</res>
         <res name="rr_fling">1</res>
     </hint>
@@ -92,39 +95,43 @@
     <hint name="scroll_input">
         <res name="cpu_min_c0">-1</res>
         <res name="cpu_min_c1">-1</res>
-        <res name="uclamp_fg">70</res>
-        <res name="uclamp_top">80</res>
+        <res name="cci_freq">1</res>
+        <res name="uclamp_fg">75</res>
+        <res name="uclamp_top">85</res>
         <res name="uclamp_top_lat">1</res>
-        <int name="duration_ms">300</int>
+        <int name="duration_ms">400</int>
     </hint>
 
     <hint name="scroll_prefiling">
         <res name="cpu_min_c0">-1</res>
         <res name="cpu_min_c1">-1</res>
         <res name="dram_min">-1</res>
-        <res name="uclamp_fg">70</res>
-        <res name="uclamp_top">80</res>
+        <res name="cci_freq">1</res>
+        <res name="uclamp_fg">75</res>
+        <res name="uclamp_top">85</res>
         <res name="uclamp_top_lat">1</res>
-        <int name="duration_ms">300</int>
+        <int name="duration_ms">400</int>
     </hint>
 
     <hint name="scroll_vertical">
         <res name="cpu_min_c0">-1</res>
         <res name="cpu_min_c1">-1</res>
-        <res name="uclamp_fg">70</res>
-        <res name="uclamp_top">80</res>
+        <res name="cci_freq">1</res>
+        <res name="uclamp_fg">75</res>
+        <res name="uclamp_top">85</res>
         <res name="uclamp_top_lat">1</res>
-        <int name="duration_ms">300</int>
+        <int name="duration_ms">400</int>
     </hint>
 
     <hint name="scroll_scroller">
         <res name="cpu_min_c0">-1</res>
         <res name="cpu_min_c1">-1</res>
         <res name="gpu_boost">1</res>
-        <res name="uclamp_fg">70</res>
-        <res name="uclamp_top">80</res>
+        <res name="cci_freq">1</res>
+        <res name="uclamp_fg">75</res>
+        <res name="uclamp_top">85</res>
         <res name="uclamp_top_lat">1</res>
-        <int name="duration_ms">300</int>
+        <int name="duration_ms">400</int>
     </hint>
 
     <!-- ================================================================== -->
@@ -143,7 +150,8 @@
         <res name="gpu_dvfs_margin">1</res>
         <res name="gpu_dvfs_step">1</res>
         <res name="dram_min">-1</res>
-        <int name="duration_ms">100</int>
+        <res name="cci_freq">1</res>
+        <int name="duration_ms">150</int>
     </hint>
 
     <hint name="frame_obtain_view">
@@ -161,7 +169,8 @@
         <res name="gpu_boost">1</res>
         <res name="gpu_dvfs_margin">1</res>
         <res name="gpu_dvfs_step">1</res>
-        <res name="uclamp_fg">60</res>
+        <res name="cci_freq">1</res>
+        <res name="uclamp_fg">65</res>
         <int name="duration_ms">100</int>
     </hint>
 
@@ -189,8 +198,9 @@
         <res name="cpu_min_c1">-1</res>
         <res name="gpu_boost">1</res>
         <res name="dram_min">-1</res>
-        <res name="uclamp_fg">50</res>
-        <res name="uclamp_top">50</res>
+        <res name="cci_freq">1</res>
+        <res name="uclamp_fg">55</res>
+        <res name="uclamp_top">55</res>
         <res name="uclamp_fg_max">100</res>
         <res name="uclamp_top_lat">1</res>
         <res name="pmqos_cpu_dma_latency">44</res>
@@ -211,8 +221,9 @@
         <res name="gpu_boost">1</res>
         <res name="gpu_dvfs_margin">1</res>
         <res name="gpu_dvfs_step">1</res>
-        <res name="uclamp_fg">50</res>
-        <res name="uclamp_top">50</res>
+        <res name="cci_freq">1</res>
+        <res name="uclamp_fg">55</res>
+        <res name="uclamp_top">55</res>
         <res name="uclamp_fg_max">100</res>
         <int name="duration_ms">400</int>
     </hint>
@@ -252,8 +263,9 @@
         <res name="cpuset_top">1</res>
         <res name="gpu_boost">1</res>
         <res name="dram_min">-1</res>
-        <res name="uclamp_fg">70</res>
-        <res name="uclamp_top">80</res>
+        <res name="cci_freq">1</res>
+        <res name="uclamp_fg">75</res>
+        <res name="uclamp_top">85</res>
     </hint>
 
     <!-- ================================================================== -->
@@ -283,8 +295,9 @@
 
     <hint name="touch_boost">
         <res name="cpu_min_c0">-1</res>
-        <res name="uclamp_fg">30</res>
-        <int name="duration_ms">100</int>
+        <res name="cci_freq">1</res>
+        <res name="uclamp_fg">40</res>
+        <int name="duration_ms">150</int>
     </hint>
 
     <hint name="tap_event">
@@ -295,9 +308,10 @@
     <hint name="drag">
         <res name="cpu_min_c0">-1</res>
         <res name="cpu_min_c1">-1</res>
-        <res name="uclamp_fg">50</res>
         <res name="gpu_boost">1</res>
-        <int name="duration_ms">300</int>
+        <res name="cci_freq">1</res>
+        <res name="uclamp_fg">55</res>
+        <int name="duration_ms">400</int>
     </hint>
 
     <hint name="drag_start">
@@ -331,8 +345,9 @@
     <hint name="expensive_rendering">
         <res name="gpu_boost">1</res>
         <res name="dram_min">-1</res>
-        <res name="uclamp_fg">70</res>
-        <res name="uclamp_top">70</res>
+        <res name="cci_freq">1</res>
+        <res name="uclamp_fg">75</res>
+        <res name="uclamp_top">75</res>
         <res name="uclamp_fg_max">100</res>
         <res name="gpu_dvfs_margin">1</res>
         <res name="gpu_dvfs_step">1</res>
@@ -358,7 +373,8 @@
         <res name="cpu_min_c1">-1</res>
         <res name="gpu_boost">1</res>
         <res name="dram_min">-1</res>
-        <res name="uclamp_top">70</res>
+        <res name="cci_freq">1</res>
+        <res name="uclamp_top">75</res>
         <int name="duration_ms">0</int>
     </hint>
 
@@ -447,10 +463,10 @@
 
     <ux_threads>
         <role name="rt"          uclamp_min="512" uclamp_max="1024"/>
-        <role name="ui"          uclamp_min="384" uclamp_max="1024"/>
-        <role name="render"      uclamp_min="512" uclamp_max="1024"/>
-        <role name="gl"          uclamp_min="384" uclamp_max="900"/>
-        <role name="hwui_task"   uclamp_min="256" uclamp_max="800"/>
+        <role name="ui"          uclamp_min="450" uclamp_max="1024"/>
+        <role name="render"      uclamp_min="550" uclamp_max="1024"/>
+        <role name="gl"          uclamp_min="450" uclamp_max="900"/>
+        <role name="hwui_task"   uclamp_min="350" uclamp_max="800"/>
         <role name="binder_pool" uclamp_min="200" uclamp_max="700"/>
     </ux_threads>
 
@@ -460,33 +476,33 @@
 
     <atmc>
         <cpu_levels>
-            <level id="1"  little="500,2000" big="650,2600"/>
-            <level id="2"  little="500,2000" big="650,2600"/>
-            <level id="3"  little="500,2000" big="650,2400"/>
-            <level id="4"  little="500,2000" big="650,2275"/>
-            <level id="5"  little="500,2000" big="650,2275"/>
-            <level id="6"  little="500,2000" big="650,2150"/>
-            <level id="7"  little="500,2000" big="650,2000"/>
-            <level id="8"  little="500,2000" big="650,2000"/>
-            <level id="9"  little="500,2000" big="650,1900"/>
-            <level id="10" little="500,2000" big="650,1800"/>
-            <level id="11" little="500,2000" big="650,1800"/>
-            <level id="12" little="500,2000" big="650,1660"/>
-            <level id="13" little="500,2000" big="650,1540"/>
-            <level id="14" little="500,2000" big="650,1540"/>
-            <level id="15" little="500,2000" big="650,1430"/>
-            <level id="16" little="500,2000" big="650,1300"/>
-            <level id="17" little="500,2000" big="650,1300"/>
-            <level id="18" little="500,2000" big="650,1140"/>
-            <level id="19" little="500,2000" big="650,1040"/>
-            <level id="20" little="500,2000" big="650,1040"/>
-            <level id="21" little="500,2000" big="650,910"/>
-            <level id="22" little="500,2000" big="650,740"/>
-            <level id="23" little="500,2000" big="650,740"/>
-            <level id="24" little="500,2000" big="650,650"/>
-            <level id="25" little="500,2000" big="650,650"/>
-            <level id="26" little="500,2000" big="650,650"/>
-            <level id="27" little="500,2000" big="650,650"/>
+            <level id="1"  little="500,2000" big="650,2000"/>
+            <level id="2"  little="500,2000" big="650,2000"/>
+            <level id="3"  little="500,2000" big="650,2000"/>
+            <level id="4"  little="500,2000" big="650,1950"/>
+            <level id="5"  little="500,2000" big="650,1900"/>
+            <level id="6"  little="500,1950" big="650,1850"/>
+            <level id="7"  little="500,1900" big="650,1800"/>
+            <level id="8"  little="500,1850" big="650,1750"/>
+            <level id="9"  little="500,1800" big="650,1700"/>
+            <level id="10" little="500,1750" big="650,1650"/>
+            <level id="11" little="500,1700" big="650,1600"/>
+            <level id="12" little="500,1650" big="650,1550"/>
+            <level id="13" little="500,1600" big="650,1500"/>
+            <level id="14" little="500,1550" big="650,1450"/>
+            <level id="15" little="500,1500" big="650,1400"/>
+            <level id="16" little="500,1450" big="650,1350"/>
+            <level id="17" little="500,1400" big="650,1300"/>
+            <level id="18" little="500,1350" big="650,1250"/>
+            <level id="19" little="500,1300" big="650,1200"/>
+            <level id="20" little="500,1200" big="650,1150"/>
+            <level id="21" little="500,1100" big="650,1050"/>
+            <level id="22" little="500,1000" big="650,950"/>
+            <level id="23" little="500,900"  big="650,850"/>
+            <level id="24" little="500,800"  big="650,750"/>
+            <level id="25" little="500,700"  big="650,700"/>
+            <level id="26" little="500,650"  big="650,650"/>
+            <level id="27" little="500,650"  big="650,650"/>
         </cpu_levels>
 
         <gpu_levels>
