@@ -22,10 +22,7 @@ PRODUCT_MODEL := RMX3430
 
 PRODUCT_GMS_CLIENTID_BASE := android-realme
 
-# Build info
+# Build info - overridden at boot by init.cpp
 PRODUCT_BUILD_PROP_OVERRIDES += \
-	BuildFingerprint=realme/RMX3430/RED8AF:13/SP1A.210812.016/R.182c3f7_cf1b8:user/release-keys \
-    DeviceName=RMX3430 \
-    DeviceProduct=RMX3430 \
-    SystemDevice=RMX3430 \
-    SystemName=RMX3430
+    DeviceName=even \
+    DeviceProduct=even
