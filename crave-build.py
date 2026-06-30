@@ -169,7 +169,9 @@ def abort():
     sys.exit(0)
 
 # ── Data ──────────────────────────────────────────────────────────────────────
-LOCAL_MANIFEST_URL = "https://github.com/Badmaneers/even-manifests.git"
+# Default local manifest repo — used to pre-fill the prompt, never hardcoded
+# into the final command. Override per-run when prompted in STEP 3.
+DEFAULT_LOCAL_MANIFEST_URL = "https://github.com/Badmaneers/even-manifests.git"
 
 SOURCES = [
     # (crave_id, display_name, url, default_branch, crave_listed)
@@ -223,15 +225,16 @@ def pull_commands(cfg: dict) -> str:
 
 # ── Build Command Generator ───────────────────────────────────────────────────
 def build_command(cfg: dict) -> str:
-    src_url      = cfg["source_url"]
-    src_branch   = cfg["source_branch"]
-    local_branch = cfg["local_branch"]
-    device       = cfg["device"]
-    variant      = cfg["variant"]
-    target       = cfg["build_target"]
-    use_git_lfs  = cfg["git_lfs"]
-    extra_flags  = cfg["extra_repo_flags"]
-    src_listed   = cfg["src_listed"]   # True = officially on crave → skip repo init
+    src_url            = cfg["source_url"]
+    src_branch         = cfg["source_branch"]
+    local_manifest_url = cfg["local_manifest_url"]
+    local_branch       = cfg["local_branch"]
+    device             = cfg["device"]
+    variant            = cfg["variant"]
+    target             = cfg["build_target"]
+    use_git_lfs        = cfg["git_lfs"]
+    extra_flags        = cfg["extra_repo_flags"]
+    src_listed         = cfg["src_listed"]   # True = officially on crave → skip repo init
 
     lfs_flag = " --git-lfs" if use_git_lfs else ""
     extra    = f" {extra_flags}" if extra_flags else ""
@@ -243,7 +246,7 @@ def build_command(cfg: dict) -> str:
         steps.append(f"repo init -u {src_url} -b {src_branch}{lfs_flag}{extra}")
 
     steps += [
-        f"git clone {LOCAL_MANIFEST_URL} --depth 1 -b {local_branch} .repo/local_manifests",
+        f"git clone {local_manifest_url} --depth 1 -b {local_branch} .repo/local_manifests",
         f"/opt/crave/resync.sh",
         f"export BUILD_USERNAME=DumbDragon",
         f"export BUILD_HOSTNAME=crave",
@@ -269,7 +272,7 @@ def print_summary(cfg: dict):
     label("Base Source",       f"{cfg['source_name']}  (id: {cfg['source_id']})")
     label("Source URL",        cfg["source_url"])
     label("Source Branch",     cfg["source_branch"])
-    label("Local Manifest URL",LOCAL_MANIFEST_URL)
+    label("Local Manifest URL",cfg["local_manifest_url"])
     label("Local Branch",      cfg["local_branch"])
     label("Clean Build",       "Yes" if cfg.get("clean_build") else "No")
     listed_str = f"{ACCENT2}Skipped{C.RESET} {MUTED}(officially listed on crave){C.RESET}" if cfg["src_listed"] else f"{GOLD}Included{C.RESET} {MUTED}(unlisted ROM — repo init required){C.RESET}"
@@ -305,8 +308,8 @@ def main():
     os.system("clear")
     banner()
 
-    info("This launcher builds a crave run command using your even-manifests.")
-    info(f"Local manifest  →  {ACCENT}{LOCAL_MANIFEST_URL}{C.RESET}")
+    info("This launcher builds a crave run command using your local manifest repo.")
+    info(f"Default local manifest  →  {ACCENT}{DEFAULT_LOCAL_MANIFEST_URL}{C.RESET}  {MUTED}(override below){C.RESET}")
     print()
 
     # ── 1. Device ──────────────────────────────────────────────────────────────
@@ -347,11 +350,15 @@ def main():
             required=True,
         )
 
-    # ── 3. Local Manifest Branch ───────────────────────────────────────────────
-    section("STEP 3  —  LOCAL MANIFEST BRANCH")
-    info(f"Manifest repo: {ACCENT}{LOCAL_MANIFEST_URL}{C.RESET}")
+    # ── 3. Local Manifest ──────────────────────────────────────────────────────
+    section("STEP 3  —  LOCAL MANIFEST")
+    local_manifest_url = prompt(
+        "Local manifest repo URL",
+        default=DEFAULT_LOCAL_MANIFEST_URL,
+        required=True,
+    )
     local_branch = prompt(
-        "Branch in even-manifests to use",
+        "Branch in local manifest repo to use",
         default="lineage-21",
         required=True,
     )
@@ -401,6 +408,7 @@ def main():
         "source_name":    src_name,
         "source_url":     src_url,
         "source_branch":  src_branch,
+        "local_manifest_url": local_manifest_url,
         "local_branch":   local_branch,
         "variant":        variant,
         "build_target":   build_target,
