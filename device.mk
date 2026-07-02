@@ -24,7 +24,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 PRODUCT_SHIPPING_API_LEVEL := 30
 
 # Display
-TARGET_SCREEN_DENSITY := 360
+TARGET_SCREEN_DENSITY := 320
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1600
@@ -109,11 +109,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libutilscallstack.vendor
-
-# Doze
-PRODUCT_PACKAGES += \
-    OplusDoze
-
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
