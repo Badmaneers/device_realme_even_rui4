@@ -26,6 +26,10 @@ PRODUCT_SHIPPING_API_LEVEL := 30
 # Display
 TARGET_SCREEN_DENSITY := 320
 
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1600
+TARGET_SCREEN_WIDTH := 720
+
 # VINTF
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 
@@ -195,10 +199,6 @@ PRODUCT_PACKAGES += \
 
 $(call inherit-product, hardware/oplus/oplus-fwk/oplus-fwk.mk)
 
-# Oplus
-PRODUCT_PACKAGES += \
-    vendor.oplus.hardware.osense.client-V1-ndk_platform \
-    vendor.oplus.hardware.performance-V1-ndk_platform
 
 # Lights
 PRODUCT_PACKAGES += \
