@@ -199,6 +199,9 @@ PRODUCT_PACKAGES += \
 
 $(call inherit-product, hardware/oplus/oplus-fwk/oplus-fwk.mk)
 
+# libtinyxml-v34
+PRODUCT_PACKAGES += \
+    libtinyxml2-v34
 
 # Lights
 PRODUCT_PACKAGES += \
