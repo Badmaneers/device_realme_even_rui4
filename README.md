@@ -2,7 +2,7 @@
 
 The realme C25, realme C25s, and Narzo 50A are budget smartphones from realme, released in 2021. This repository contains the device-specific configuration needed to build LineageOS and based custom ROMs.
 
-![Realme EVEN](https://raw.githubusercontent.com/Badmaneers/device_realme_even_rui4/refs/heads/main/images/6091177406246272107.jpg)
+![Realme EVEN](images/6091177406246272107.jpg)
 
 *Image Credit: [@Rem01Gaming](https://github.com/Rem01Gaming)*
 
@@ -25,38 +25,5 @@ The realme C25, realme C25s, and Narzo 50A are budget smartphones from realme, r
 | **Rear Camera** | 48MP (Global) / 13MP (India) / 50MP (N50A) + 2MP Depth + 2MP Macro |
 | **Front Camera** | 8 MP |
 | **Release OS** | Android 11, realme UI 2.0 (Upgradable to Android 12 & 13) |
-
----
-
-## 🛠️ Build Instructions
-
-### 1. Initialize the build environment
-Initialize the ROM manifest (e.g., LineageOS 21):
-```bash
-repo init -u https://github.com/LineageOS/android.git -b lineage-21.0
-```
-
-### 2. Setup Local Manifests
-Clone the local display/device manifests to sync all necessary dependencies (device tree, vendor, kernel):
-```bash
-git clone https://github.com/Badmaneers/even-manifests.git -b lineage-21 .repo/local_manifests
-```
-
-### 3. Sync the repositories
-```bash
-repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
-```
-
-### 4. Setup the build environment
-```bash
-source build/envsetup.sh
-```
-
-### 5. Build the ROM
-```bash
-lunch lineage_even-userdebug
-mka bacon
-```
-
 ---
 
