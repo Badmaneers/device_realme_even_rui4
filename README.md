@@ -1,4 +1,3 @@
-# 📊 Status: Work in Progress
 ## Android Device Tree for realme C25, C25s & Narzo 50A (even)
 
 The realme C25, realme C25s, and Narzo 50A are budget smartphones from realme, released in 2021. This repository contains the device-specific configuration needed to build LineageOS and based custom ROMs.
