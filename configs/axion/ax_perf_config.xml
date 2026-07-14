@@ -10,7 +10,7 @@
     <int name="gpu_dvfs_margin_default">30</int>
 
     <path name="gpu_dvfs_step">/sys/kernel/ged/hal/loading_base_dvfs_step</path>
-    <int name="gpu_dvfs_step_boost">80</int>
+        <int name="gpu_dvfs_step_boost">95</int>
     <int name="gpu_dvfs_step_default">103</int>
 
     <path name="gpu_boost_level">/sys/kernel/ged/hal/gpu_boost_level</path>
@@ -57,7 +57,7 @@
         <res name="uclamp_fg_max">100</res>
         <res name="pmqos_cpu_dma_latency">44</res>
         <res name="rr_fling">1</res>
-        <int name="duration_ms">800</int>
+        <int name="duration_ms">500</int>
     </hint>
 
     <hint name="warm_launch">
@@ -83,49 +83,39 @@
     <!-- ================================================================== -->
 
     <hint name="fling">
-        <res name="cpu_min_c0">-1</res>
-        <res name="cpu_min_c1">-1</res>
         <res name="cci_freq">1</res>
-        <res name="uclamp_fg">75</res>
-        <res name="uclamp_top">85</res>
+        <res name="uclamp_fg">60</res>
+        <res name="uclamp_top">65</res>
         <res name="uclamp_top_lat">1</res>
         <res name="rr_fling">1</res>
+        <int name="duration_ms">600</int>
     </hint>
 
     <hint name="scroll_input">
-        <res name="cpu_min_c0">-1</res>
-        <res name="cpu_min_c1">-1</res>
-        <res name="uclamp_fg">60</res>
-        <res name="uclamp_top">65</res>
+        <res name="uclamp_fg">50</res>
+        <res name="uclamp_top">55</res>
         <res name="uclamp_top_lat">1</res>
         <int name="duration_ms">300</int>
     </hint>
 
     <hint name="scroll_prefiling">
-        <res name="cpu_min_c0">-1</res>
-        <res name="cpu_min_c1">-1</res>
         <res name="dram_min">-1</res>
-        <res name="uclamp_fg">60</res>
-        <res name="uclamp_top">65</res>
+        <res name="uclamp_fg">50</res>
+        <res name="uclamp_top">55</res>
         <res name="uclamp_top_lat">1</res>
         <int name="duration_ms">300</int>
     </hint>
 
     <hint name="scroll_vertical">
-        <res name="cpu_min_c0">-1</res>
-        <res name="cpu_min_c1">-1</res>
-        <res name="uclamp_fg">60</res>
-        <res name="uclamp_top">65</res>
+        <res name="uclamp_fg">50</res>
+        <res name="uclamp_top">55</res>
         <res name="uclamp_top_lat">1</res>
         <int name="duration_ms">300</int>
     </hint>
 
     <hint name="scroll_scroller">
-        <res name="cpu_min_c0">-1</res>
-        <res name="cpu_min_c1">-1</res>
-        <res name="gpu_boost">1</res>
-        <res name="uclamp_fg">60</res>
-        <res name="uclamp_top">65</res>
+        <res name="uclamp_fg">50</res>
+        <res name="uclamp_top">55</res>
         <res name="uclamp_top_lat">1</res>
         <int name="duration_ms">300</int>
     </hint>
@@ -233,7 +223,6 @@
 
     <hint name="rotation_latency">
         <res name="uclamp_top">50</res>
-        <res name="cpu_min_c0">-1</res>
         <int name="duration_ms">300</int>
     </hint>
 
@@ -254,10 +243,9 @@
         <res name="cpuset_svp">1</res>
         <res name="cpuset_sysui">1</res>
         <res name="cpuset_top">1</res>
-        <res name="gpu_boost">1</res>
         <res name="dram_min">-1</res>
-        <res name="uclamp_fg">60</res>
-        <res name="uclamp_top">65</res>
+        <res name="uclamp_fg">50</res>
+        <res name="uclamp_top">55</res>
     </hint>
 
     <!-- ================================================================== -->
@@ -265,18 +253,15 @@
     <!-- ================================================================== -->
 
     <hint name="ime_show_hide">
-        <res name="cpu_min_c0">-1</res>
         <int name="duration_ms">200</int>
     </hint>
 
     <hint name="ime_init">
-        <res name="cpu_min_c0">-1</res>
         <res name="dram_min">-1</res>
         <int name="duration_ms">200</int>
     </hint>
 
     <hint name="ime_launch">
-        <res name="cpu_min_c0">-1</res>
         <res name="dram_min">-1</res>
         <int name="duration_ms">300</int>
     </hint>
@@ -286,27 +271,21 @@
     <!-- ================================================================== -->
 
     <hint name="touch_boost">
-        <res name="cpu_min_c0">-1</res>
         <res name="cci_freq">1</res>
-        <res name="uclamp_fg">40</res>
+        <res name="uclamp_fg">25</res>
         <int name="duration_ms">150</int>
     </hint>
 
     <hint name="tap_event">
-        <res name="cpu_min_c0">-1</res>
         <int name="duration_ms">80</int>
     </hint>
 
     <hint name="drag">
-        <res name="cpu_min_c0">-1</res>
-        <res name="cpu_min_c1">-1</res>
-        <res name="gpu_boost">1</res>
-        <res name="uclamp_fg">45</res>
+        <res name="uclamp_fg">30</res>
         <int name="duration_ms">300</int>
     </hint>
 
     <hint name="drag_start">
-        <res name="cpu_min_c0">-1</res>
         <int name="duration_ms">100</int>
     </hint>
 
@@ -479,14 +458,14 @@
             <level id="17" little="500,1400" big="650,1300"/>
             <level id="18" little="500,1350" big="650,1250"/>
             <level id="19" little="500,1300" big="650,1200"/>
-            <level id="20" little="500,1200" big="650,1150"/>
-            <level id="21" little="500,1100" big="650,1050"/>
-            <level id="22" little="500,1000" big="650,950"/>
-            <level id="23" little="500,900"  big="650,850"/>
-            <level id="24" little="500,800"  big="650,750"/>
-            <level id="25" little="500,700"  big="650,700"/>
-            <level id="26" little="500,650"  big="650,650"/>
-            <level id="27" little="500,650"  big="650,650"/>
+            <level id="20" little="500,1100" big="650,1050"/>
+            <level id="21" little="500,950"  big="650,900"/>
+            <level id="22" little="500,800"  big="650,800"/>
+            <level id="23" little="500,700"  big="650,700"/>
+            <level id="24" little="500,600"  big="650,600"/>
+            <level id="25" little="400,500"  big="550,500"/>
+            <level id="26" little="350,450"  big="500,450"/>
+            <level id="27" little="300,400"  big="400,400"/>
         </cpu_levels>
 
         <gpu_levels>
