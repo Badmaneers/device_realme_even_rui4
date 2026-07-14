@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="disabled_text_color">#4D000000</color>
+    <color name="homepage_realmeparts_background">#FFC915</color>
+    <color name="ic_realmeparts_background">#FFC915</color>
+</resources>

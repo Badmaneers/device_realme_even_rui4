@@ -325,6 +325,10 @@ PRODUCT_PACKAGES += \
     LineageDialerOverlayEven \
     LineageSDKOverlayEven
 
+# RealmeParts
+PRODUCT_PACKAGES += \
+    RealmeParts
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.lineage-libperfmgr

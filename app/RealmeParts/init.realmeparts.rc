@@ -1,0 +1,13 @@
+on boot
+    chown system system /sys/class/leds/vibrator/vmax
+    chmod 0660 /sys/class/leds/vibrator/vmax
+    chown system system /sys/devices/virtual/oplus_chg/usb/otg_switch
+    chmod 0660 /sys/devices/virtual/oplus_chg/usb/otg_switch
+    chown system system /sys/kernel/oplus_display/hbm
+    chmod 0660 /sys/kernel/oplus_display/hbm
+    chown system system /sys/kernel/oplus_display/dim_dc_alpha
+    chmod 0660 /sys/kernel/oplus_display/dim_dc_alpha
+    chown system system /sys/kernel/oplus_display/dimlayer_bl_en
+    chmod 0660 /sys/kernel/oplus_display/dimlayer_bl_en
+    chown system system /sys/class/oplus_chg/battery/stop_charging_enable
+    chmod 0660 /sys/class/oplus_chg/battery/stop_charging_enable
