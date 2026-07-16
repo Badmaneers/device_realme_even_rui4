@@ -358,8 +358,7 @@ PRODUCT_PACKAGES += \
     init.project.rc \
     init.sensor_1_0.rc \
     init.target.rc \
-    ueventd.mtk.rc \
-    ueventd.oplus.rc
+    ueventd.mtk.rc
 
 # Fastboot
 PRODUCT_PACKAGES += \
