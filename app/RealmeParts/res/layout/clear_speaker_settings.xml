@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/clear_speaker_description"
-        android:textAppearance="?android:attr/textAppearanceBody2"
+        android:textAppearance="?android:attr/textAppearanceListItemSecondary"
         android:lineSpacingExtra="4dp"
         android:paddingBottom="24dp" />
 
@@ -25,5 +25,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="16dp"
-        android:textAppearance="?android:attr/textAppearanceBody1" />
+        android:textAppearance="?android:attr/textAppearanceListItem" />
 </LinearLayout>
