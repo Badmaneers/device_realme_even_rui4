@@ -29,4 +29,5 @@ public class BootCompletedReceiver extends BroadcastReceiver {
             FileUtils.setValue("/sys/kernel/oplus_display/dim_dc_alpha", "1");
             FileUtils.setValue("/sys/kernel/oplus_display/dimlayer_bl_en", "1");
         }
+    }
 }
