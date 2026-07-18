@@ -1,14 +1,15 @@
 package com.realmeparts.settings;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-public class RealmePartsActivity extends Activity {
+import androidx.fragment.app.FragmentActivity;
+
+public class RealmePartsActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getFragmentManager().beginTransaction()
+        getSupportFragmentManager().beginTransaction()
                 .replace(android.R.id.content, new RealmeParts())
                 .commit();
     }
