@@ -1,0 +1,14 @@
+# Allow ax_diagnostics to read GPU GED sysfs
+allow ax_diagnostics sysfs_ged:dir search;
+allow ax_diagnostics sysfs_ged:file r_file_perms;
+
+# Allow ax_diagnostics to read thermal sysfs
+allow ax_diagnostics sysfs_therm:dir { read open search };
+allow ax_diagnostics sysfs_therm:file r_file_perms;
+
+# Allow ax_diagnostics to read battery sysfs
+allow ax_diagnostics vendor_sysfs_battery_supply:dir search;
+allow ax_diagnostics vendor_sysfs_battery_supply:file r_file_perms;
+
+# Allow ax_diagnostics to read block device sysfs
+allow ax_diagnostics sysfs_devices_block:dir search;
