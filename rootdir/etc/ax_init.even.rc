@@ -1,0 +1,24 @@
+on boot
+    # Make CPU policy sysfs accessible by system apps
+    chown system system /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+    chown system system /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq
+    chmod 0660 /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+    chmod 0660 /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq
+    chown system system /sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq
+    chown system system /sys/devices/system/cpu/cpufreq/policy6/scaling_max_freq
+    chmod 0660 /sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq
+    chmod 0660 /sys/devices/system/cpu/cpufreq/policy6/scaling_max_freq
+
+    # Make GPU sysfs readable/writable by system apps
+    chmod 0444 /sys/kernel/ged/hal/current_freqency
+    chmod 0444 /sys/kernel/ged/hal/gpu_utilization
+    chmod 0444 /sys/kernel/ged/hal/previous_freqency
+    chmod 0444 /sys/kernel/gpu/gpu_clock
+    chmod 0444 /sys/kernel/gpu/gpu_busy
+    chmod 0444 /sys/kernel/gpu/gpu_available_governor
+    chmod 0444 /sys/kernel/gpu/gpu_governor
+    chmod 0444 /sys/kernel/gpu/gpu_freq_table
+    chown system system /sys/kernel/gpu/gpu_max_clock
+    chown system system /sys/kernel/gpu/gpu_min_clock
+    chmod 0660 /sys/kernel/gpu/gpu_max_clock
+    chmod 0660 /sys/kernel/gpu/gpu_min_clock

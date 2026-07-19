@@ -373,6 +373,7 @@ PRODUCT_PACKAGES += \
 
 # Rootdir
 PRODUCT_PACKAGES += \
+    ax_init.even.rc \
     fstab.mt6768 \
     fstab.mt6768.ramdisk \
     init.connectivity.rc \
