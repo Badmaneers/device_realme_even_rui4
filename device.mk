@@ -45,6 +45,10 @@ TARGET_DISABLES_LIBPERF := true
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/axion/ax_perf_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ax_perf_config.xml
 
+# AxKernelManager
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/axion/ax_kernel_manager.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ax_kernel_manager.xml
+
 # Display
 TARGET_SCREEN_DENSITY := 320
 
