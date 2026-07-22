@@ -47,7 +47,7 @@ PRODUCT_COPY_FILES += \
 
 # AxKernelManager
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/axion/ax_kernel_manager.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ax_kernel_manager.xml
+    $(DEVICE_PATH)/configs/axion/ax_kernel_manager.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/ax_kernel_manager.xml
 
 # Display
 TARGET_SCREEN_DENSITY := 320
