@@ -14,7 +14,7 @@ prebuilt_etc {
 prebuilt_etc {
     name: "ax_init.even.rc",
     src: "etc/ax_init.even.rc",
-    sub_dir: "init",
+    sub_dir: "init/hw",
     vendor: true,
 }
 

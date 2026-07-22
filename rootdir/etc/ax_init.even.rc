@@ -18,7 +18,7 @@ on boot
     chmod 0444 /sys/kernel/gpu/gpu_available_governor
     chmod 0444 /sys/kernel/gpu/gpu_governor
     chmod 0444 /sys/kernel/gpu/gpu_freq_table
-    chown system system /sys/kernel/gpu/gpu_max_clock
-    chown system system /sys/kernel/gpu/gpu_min_clock
-    chmod 0660 /sys/kernel/gpu/gpu_max_clock
-    chmod 0660 /sys/kernel/gpu/gpu_min_clock
+    chown system system /sys/kernel/gpu/max_freq
+    chown system system /sys/kernel/gpu/min_freq
+    chmod 0660 /sys/kernel/gpu/max_freq
+    chmod 0660 /sys/kernel/gpu/min_freq
