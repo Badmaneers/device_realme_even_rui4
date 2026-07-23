@@ -1,6 +1,6 @@
-# Allow ax_diagnostics to read GPU GED sysfs
-allow ax_diagnostics sysfs_ged:dir search;
-allow ax_diagnostics sysfs_ged:file r_file_perms;
+# Allow ax_diagnostics to read GPU sysfs
+allow ax_diagnostics vendor_sysfs_gpu:dir search;
+allow ax_diagnostics vendor_sysfs_gpu:file r_file_perms;
 
 # Allow ax_diagnostics to read thermal sysfs
 allow ax_diagnostics sysfs_therm:dir { read open search };

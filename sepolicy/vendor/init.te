@@ -35,7 +35,7 @@ allow init vendor_sysfs_graphics:file write;
 allow init vendor_sysfs_ac_supply:file read;
 allow init vendor_sysfs_battery_supply:file read;
 allow init vendor_sysfs_usb_supply:file read;
-allow init vendor_sysfs_gpu:file write;
+allow init vendor_sysfs_gpu:file { write setattr };
 allow init sysfs_batteryinfo:file read;
 allow init sysfs_sensor:file write;
 allow init sysfs_ccci:file read;
