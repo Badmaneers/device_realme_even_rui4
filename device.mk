@@ -63,6 +63,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     audio.bluetooth.default \
+    audio.r_submix.default \
     android.hardware.bluetooth.audio-impl
 
 PRODUCT_PACKAGES += \
