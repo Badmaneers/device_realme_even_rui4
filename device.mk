@@ -429,6 +429,9 @@ $(call soong_config_set,OPLUS_LINEAGE_TOUCH_HAL,INCLUDE_DIR,$(LOCAL_PATH)/touch/
 # Use device-specific init.mt6768.usb.rc instead of hardware/mediatek generic
 $(call soong_config_set,mediatek_gadget,use_custom_usb_gadget_rc,true)
 
+# ION
+$(call soong_config_set_bool,libion,legacy_impl,true)
+
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.3.vendor \
