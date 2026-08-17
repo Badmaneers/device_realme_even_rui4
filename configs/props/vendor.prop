@@ -290,10 +290,6 @@ persist.vendor.connsys.dynamic.dump=0
 vendor.connsys.driver.ready=no
 ro.vendor.wifi.sap.concurrent.iface=ap1
 
-# Usb
-ro.usb.uvc.enabled=true
-ro.usb.uvc.disable_video_encode_flag=true
-
 # ZRAM
 ro.zram.mark_idle_delay_mins=60
 ro.zram.first_wb_delay_mins=1440
