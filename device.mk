@@ -14,6 +14,9 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 # IMS-Vendor
 $(call inherit-product-if-exists, vendor/mediatek/ims/ims.mk)
 
+# Bcr
+$(call inherit-product, vendor/bcr/bcr.mk)
+
 # Dolby
 $(call inherit-product, hardware/dolby/dolby.mk)
 
