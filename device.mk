@@ -311,7 +311,6 @@ PRODUCT_PACKAGES += \
 
 # Lineage-Specific overlays
 PRODUCT_PACKAGES += \
-    DeviceAsWebcamResEven \
     LineageApertureOverlayEven \
     PowerOffAlarmOverlayEven \
     LineageDialerOverlayEven \
