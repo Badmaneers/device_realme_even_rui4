@@ -80,6 +80,7 @@ persist.sys.perf.scroll_opt = true
 persist.sys.perf.scroll_opt.heavy_app = 2
 
 # Display
+debug.renderengine.blur_algorithm=kawase2
 debug.sf.auto_latch_unsignaled=1
 debug.sf.enable_gl_backpressure=0
 debug.sf.disable_backpressure=1
