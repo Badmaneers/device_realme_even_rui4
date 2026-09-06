@@ -14,7 +14,7 @@ public class VibratorStrengthPreference extends CustomSeekBarPreference {
 
     private static int mMinVal = 1;
     private static int mMaxVal = 9;
-    private static int mDefVal = 5;
+    private static int mDefVal = 7;
     private Vibrator mVibrator;
 
     private static final String FILE_LEVEL = "/sys/class/leds/vibrator/vmax";
