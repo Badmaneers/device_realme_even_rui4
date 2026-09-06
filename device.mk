@@ -402,10 +402,10 @@ PRODUCT_PACKAGES += \
 
 # Soong namespaces
  PRODUCT_SOONG_NAMESPACES += \
-     hardware/mediatek \
-     hardware/oplus \
-     hardware/lineage/compat \
-     hardware/google/interfaces \
+    hardware/mediatek \
+    hardware/oplus \
+    hardware/lineage/compat \
+    hardware/google/interfaces \
     hardware/google/pixel \
     hardware/mediatek/libmtkperf_client \
     hardware/mediatek/aidl/vibrator \
