@@ -323,7 +323,8 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.lineage-libperfmgr
+    android.hardware.power-service.lineage-libperfmgr \
+    libperfmgr
 
 PRODUCT_PACKAGES += \
     libmtkperf_client_vendor \
@@ -407,6 +408,7 @@ PRODUCT_PACKAGES += \
     hardware/lineage/compat \
     hardware/google/interfaces \
     hardware/google/pixel \
+    hardware/google/pixel/power-libperfmgr \
     hardware/mediatek/libmtkperf_client \
     hardware/mediatek/aidl/vibrator \
     hardware/lineage/interfaces/power-libperfmgr \
