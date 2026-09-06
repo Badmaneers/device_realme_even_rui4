@@ -4,10 +4,12 @@ import android.app.ActionBar;
 import android.os.Bundle;
 
 import androidx.preference.Preference;
+import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.settingslib.widget.SettingsBasePreferenceFragment;
 import com.realmeparts.settings.util.Utils;
+import com.realmeparts.settings.ChargeLimitPreference;
 import com.realmeparts.settings.vibration.VibratorStrengthPreference;
 
 public class RealmeParts extends SettingsBasePreferenceFragment {
@@ -30,6 +32,7 @@ public class RealmeParts extends SettingsBasePreferenceFragment {
         initHBMToggle();
         initDcDimming();
         initStopCharging();
+        initChargeLimit();
     }
 
     private void initVibrator() {
@@ -98,6 +101,29 @@ public class RealmeParts extends SettingsBasePreferenceFragment {
                 sw.setChecked(enabled);
                 sw.setOnPreferenceChangeListener((p, v) -> {
                     FileUtils.setValue(path, (Boolean) v ? "0" : "1");
+                    return true;
+                });
+            }
+        }
+    }
+
+    private void initChargeLimit() {
+        ChargeLimitPreference pref = findPreference("charge_limit");
+        if (pref != null) {
+            pref.setEnabled(ChargeLimitPreference.isSupported());
+            if (ChargeLimitPreference.isSupported()) {
+                String currentLimit = PreferenceManager.getDefaultSharedPreferences(requireContext())
+                        .getString("charge_limit", "100");
+                pref.setValue(currentLimit);
+                pref.setOnPreferenceChangeListener((p, v) -> {
+                    String value = (String) v;
+                    PreferenceManager.getDefaultSharedPreferences(requireContext())
+                            .edit().putString("charge_limit", value).apply();
+                    if (value.equals("100")) {
+                        ChargeLimitPreference.stopService(requireContext());
+                    } else {
+                        ChargeLimitPreference.startService(requireContext());
+                    }
                     return true;
                 });
             }

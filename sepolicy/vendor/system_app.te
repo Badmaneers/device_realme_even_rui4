@@ -1,4 +1,5 @@
 # RealmeParts sysfs access
+allow system_app sysfs_leds:dir search;
 allow system_app vendor_sysfs_usb_supply:dir search;
 allow system_app vendor_sysfs_graphics:dir search;
 allow system_app vendor_sysfs_usb_supply:file r_file_perms;

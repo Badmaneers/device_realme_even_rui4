@@ -19,6 +19,25 @@
     <string name="charging_title">Charging</string>
     <string name="stop_charging_title">Stop Charging</string>
     <string name="stop_charging_summary">Disable battery charging to keep the device powered by the charger only</string>
+    <string name="charge_limit_title">Charge Limit</string>
+    <string name="charge_limit_summary">Set the maximum battery charge level to prolong battery lifespan</string>
+
+    <string-array name="charge_limit_entries">
+        <item>Disabled</item>
+        <item>50%</item>
+        <item>60%</item>
+        <item>70%</item>
+        <item>80%</item>
+        <item>90%</item>
+    </string-array>
+    <string-array name="charge_limit_values">
+        <item>100</item>
+        <item>50</item>
+        <item>60</item>
+        <item>70</item>
+        <item>80</item>
+        <item>90</item>
+    </string-array>
 
     <string name="audio_title">Audio</string>
     <string name="clear_speaker_title">Clear speaker</string>
