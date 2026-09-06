@@ -112,6 +112,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@4.0.vendor \
     libvulkan \
     libdrm.vendor \
+    libion.vendor \
     libpower.vendor 
 
 PRODUCT_PACKAGES += \
