@@ -137,6 +137,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@4.0.vendor \
     libvulkan \
     libdrm.vendor \
+    libaedv \
     libpower.vendor 
 
 PRODUCT_PACKAGES += \
@@ -432,6 +433,7 @@ PRODUCT_PACKAGES += \
      hardware/google/interfaces \
     hardware/google/pixel \
     hardware/mediatek/libmtkperf_client \
+    hardware/mediatek/libaedv \
     hardware/mediatek/aidl/vibrator \
     hardware/lineage/interfaces/power-libperfmgr \
     $(DEVICE_PATH)
