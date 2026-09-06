@@ -110,6 +110,7 @@ PRODUCT_PACKAGES += \
     libvulkan \
     libdrm.vendor \
     libion.vendor \
+    libaedv \
     libpower.vendor 
 
 PRODUCT_PACKAGES += \
@@ -410,6 +411,7 @@ PRODUCT_PACKAGES += \
     hardware/google/pixel \
     hardware/google/pixel/power-libperfmgr \
     hardware/mediatek/libmtkperf_client \
+    hardware/mediatek/libaedv \
     hardware/mediatek/aidl/vibrator \
     hardware/lineage/interfaces/power-libperfmgr \
     $(DEVICE_PATH)

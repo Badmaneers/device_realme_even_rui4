@@ -20,9 +20,7 @@ vendor/lib64/libapusys.so
 vendor/lib64/libapusys_edma.so
 
 # AEE
-vendor/lib/libaedv.so
 vendor/lib/libladder.so
-vendor/lib64/libaedv.so
 vendor/lib64/libladder.so
 
 # Audio
