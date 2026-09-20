@@ -33,7 +33,7 @@ int32_t getTorchDefaultStrengthLevelExt() {
 }
 
 int32_t getTorchMaxStrengthLevelExt() {
-    return 5;
+    return 7;
 }
 
 int32_t getTorchStrengthLevelExt() {
