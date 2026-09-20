@@ -227,7 +227,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light-service.even
+    android.hardware.light-service.lineage
 
 # Vendor Log Tag
 include $(DEVICE_PATH)/configs/props/vendor_logtag.mk
