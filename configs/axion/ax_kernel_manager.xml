@@ -30,6 +30,6 @@
         maxNode="/sys/kernel/gpu/max_freq"
         currentNode="/sys/kernel/gpu/gpu_clock"
         usageNode="/sys/kernel/gpu/gpu_busy"
-        frequencyMultiplier="1"
+        frequencyMultiplier="1000000"
         values="1200000,1175000,1150000,1125000,1100000,1075000,1050000,1020000,990000,960000,930000,900000,870000,840000,810000,780000,750000,720000,690000,660000,630000,600000,570000,540000,510000,480000,450000,420000,390000,360000,330000,300000" />
 </kernel-manager>
