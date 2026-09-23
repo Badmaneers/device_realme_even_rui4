@@ -52,6 +52,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/axion/ax_kernel_manager.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/ax_kernel_manager.xml
 
+# Bypass Lock State for Kaeru
+$(call soong_config_set_bool,fastbootd,bypass_lock_state,true)
+
 # Display
 TARGET_SCREEN_DENSITY := 320
 
