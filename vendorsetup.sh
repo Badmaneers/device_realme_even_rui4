@@ -17,9 +17,6 @@ fi
 VT-IMS=vendor/mediatek/ims/ims.mk
 if ! [ -a $VT-IMS ]; then git clone https://github.com/techyminati/android_vendor_mediatek_ims.git vendor/mediatek/ims
 fi
-POCKET=packages/apps/PocketMode/pocket_mode.mk
-if ! [ -a $POCKET ]; then git clone https://github.com/nishant6342/packages_apps_PocketMode packages/apps/PocketMode
-fi
 DOLBY=hardware/dolby/dolby.mk
 if ! [ -a $DOLBY ]; then git clone -b sony-1.2 https://github.com/swiitch-OFF-Lab/hardware_dolby.git  hardware/dolby
 fi
