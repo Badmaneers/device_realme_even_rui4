@@ -8,7 +8,6 @@ import android.util.Log;
 
 import androidx.preference.PreferenceManager;
 
-import com.realmeparts.settings.ChargeLimitPreference;
 import com.realmeparts.settings.vibration.VibratorStrengthPreference;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
@@ -18,7 +17,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
         VibratorStrengthPreference.restore(context);
-        ChargeLimitPreference.restore(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         if (prefs.getBoolean("otg", false)) {
@@ -30,11 +28,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         if (prefs.getBoolean("dc_dimming", false)) {
             FileUtils.setValue("/sys/kernel/oplus_display/dim_dc_alpha", "1");
             FileUtils.setValue("/sys/kernel/oplus_display/dimlayer_bl_en", "1");
-        }
-
-        String chargeLimit = prefs.getString("charge_limit", "100");
-        if (!chargeLimit.equals("100")) {
-            ChargeLimitPreference.startService(context);
         }
     }
 }
