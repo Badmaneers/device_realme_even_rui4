@@ -25,7 +25,7 @@ TARGET_BOOT_ANIMATION_RES := 720
 PRODUCT_GMS_CLIENTID_BASE := android-realme
 
 # Maintainer
-INFINITY_MAINTAINER := "DumbDragon"
+INFINITY_MAINTAINER := "Heliactyl"
 
 # Build info - overridden at boot by init.cpp
 PRODUCT_BUILD_PROP_OVERRIDES += \
