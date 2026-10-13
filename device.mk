@@ -77,6 +77,7 @@ TARGET_EXCLUDES_AUDIOFX := true
 
 # Bluetooth
 PRODUCT_PACKAGES += \
+    vendor.mediatek.hardware.bluetooth.audio@2.2 \
     android.hardware.bluetooth@1.1.vendor \
     android.hardware.bluetooth-service.mediatek
 
